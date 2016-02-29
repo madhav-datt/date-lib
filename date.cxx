@@ -296,3 +296,32 @@ bool Date::leapYear() const
 {
     return is_leap_Year (year);
 }
+
+// Implementation of BINARY RELATIONAL OPERATORS
+
+/**
+ * Check if current date and otherDate are equal
+ */
+bool Date::operator== (const Date& otherDate)
+{
+    if ((date == otherDate.date) && (month == otherDate.month) && (year == otherDate.year))
+        return true;
+
+    return false;
+}
+
+/**
+ * Check if current date and otherDate are not equal
+ */
+bool Date::operator!= (const Date& otherDate)
+{
+    if ((*this) == otherDate)
+        return false;
+
+    return true;
+}
+
+bool Date::operator< (const Date& otherDate);
+bool Date::operator<= (const Date& otherDate);
+bool Date::operator> (const Date& otherDate);
+bool Date::operator>= (const Date& otherDate);
