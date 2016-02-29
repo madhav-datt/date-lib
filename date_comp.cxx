@@ -55,3 +55,13 @@
 
     return month_length;
  }
+
+ /**
+  * Give number of weeks in year y
+  * A week starts on Monday and ends on Sunday. Weeks are numbered in a year from 1 to 52/53.
+  * Week 1 (W01) of a year starts contains the first Thursday of the year.
+  */
+ int number_of_weeks (uint32_t year)
+ {
+     
+ }
