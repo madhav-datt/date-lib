@@ -171,8 +171,10 @@ private:
     // Functions to help in computation of operator results, improve efficiency
 
     // Give number of days from 01/01/1950 (beginning of range) to (d, m, y) Date
+    // End date is excluded in calculation
     uint32_t to_days () const;
 
     // Give Date based on number of days from 01/01/1950
+    // End date is excluded in calculation
     Date to_Date (uint32_t num_days);
 };

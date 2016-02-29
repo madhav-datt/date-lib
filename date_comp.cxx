@@ -2,7 +2,7 @@
  * Madhav Datt - 14CS30015
  *
  * Software Engineering Lab - Assignment 3
- * Contains implementation of the Date Computations Header File
+ * Contains implementation of the Date Computations Functions
  *
  */
 
@@ -11,17 +11,36 @@
 #include <string>
 #include <cstdint>
 
+#include "date_comp.h"
 #include "date.h"
 
 /**
  * Check validity of (d, m, y) as a triplet
  */
-bool is_valid_Date (uint32_t date, uint32_t month, uint32_t year);
+bool is_valid_Date (uint32_t date, uint32_t month, uint32_t year)
+{
+    // Check validity of passed d and m values
+    if (is_valid_Arg (date, month) == false)
+        return false;
+
+    // Check if date in month
+    if (date > month_length (month, year))
+        return false;
+
+    return true;
+}
 
 /**
  * Check if d or m take invalid values
  */
-bool is_valid_Arg (uint32_t date, uint32_t month);
+bool is_valid_Arg (uint32_t date, uint32_t month)
+{
+    // date or month are out of bounds/take invalid values
+    if (date > 32 || month > 12)
+        return false;
+
+    return true;
+}
 
  /**
   * Check if y is a leap year
