@@ -17,10 +17,6 @@
 
 using namespace std;
 
-typedef MAX_DATE_LENGTH 2
-typedef MAX_MONTH_LENGTH 3
-typedef MAX_YEAR_LENGTH 4
-
 void formatter_date (const char* dateString, char* dateFormat)
 {
     switch (strlen(dateString))
@@ -86,17 +82,29 @@ DateFormat::DateFormat (const char* format)
 
 }
 
-// Default DateFormat created as "dd-mmm-yy"
+/**
+ * Default DateFormat created as "dd-mmm-yy"
+ * Use current date from system
+ */
 DateFormat::DateFormat ()
 {
+    uint32_t date, month, year;
+
+    // Allocate space for data members
+    dateFormat = new char[3];
+    monthFormat = new char[4];
+    yearFormat = new char[3];
+
     // Get current date and time
     time_t current_time = time (0);
     struct tm* now = localtime (&current_time);
 
-    // Assign date values to class members
+    // Assign date values - d, m, y
     date = now -> tm_mday;
     month = now -> tm_mon + 1;
     year = now -> tm_year + 1900;
+
+    if 
 }
 
 // Destructor for the DateFormat class

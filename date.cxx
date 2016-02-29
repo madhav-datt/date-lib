@@ -383,7 +383,7 @@ bool Date::operator>= (const Date& otherDate)
     return false;
 }
 
-/**
+/**TODO
  * Give number of days from 01/01/1950 (beginning of range) to (d, m, y) Date
  * End date is excluded in calculation
  */
@@ -412,7 +412,7 @@ uint32_t Date::to_days () const
     return num_days;
 }
 
-/**
+/**TODO
  * Give Date based on number of days from 01/01/1950
  * End date is excluded in calculation
  */
