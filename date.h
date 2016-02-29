@@ -74,16 +74,16 @@ public:
     // 0: No year. This is valid for output only.
     // "yy": year in last two digits (1961 as 61, 2016 as 16)
     // "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
-    DateFormat(const char* dateFormat, const char* monthFormat, const char* yearFormat);
+    DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat);
 
     // Single C-string format where dateFormat, monthFormat, and yearFormat are separated by ’-’
     // Example: "dd-mmm-yy", "d-mm-yyyy", etc
-    DateFormat(const char* format);
+    DateFormat (const char* format);
 
     // Default DateFormat created as "dd-mmm-yy"
-    DateFormat();
+    DateFormat ();
 
-    ~DateFormat();
+    ~DateFormat ();
 
 private:
 
@@ -99,39 +99,39 @@ public:
 
     // CONSTRUCTORS
     Date (Day d, Month m, Year y) // Construct a Date from (d, m, y)
-    throw(invalid_argument, // One or more of the arguments d or m is/are invalid (27, 13, 13)
+    throw (invalid_argument, // One or more of the arguments d or m is/are invalid (27, 13, 13)
         domain_error, // (d, m, y) as a triplet does not define a valid date (30, 2, 61)
         out_of_range); // Date is out of range (4, 7, 2053)
 
-    explicit Date(const char* date) // date in string format -- to be parsed as static format member
-    throw(invalid_argument,
+    explicit Date (const char* date) // date in string format -- to be parsed as static format member
+    throw (invalid_argument,
         domain_error,
         out_of_range);
 
     // "13-03-77" for "dd-mm-yy"
     // "2-7-2018" for "d-m-yyyy"
-    Date() // Default Constructor - construct ’today’ (get from system)
-    throw(domain_error, out_of_range);
+    Date () // Default Constructor - construct ’today’ (get from system)
+    throw (domain_error, out_of_range);
 
-    Date(const Date&); // Copy Constructor
+    Date (const Date&); // Copy Constructor
 
     // DESTRUCTOR
-    ~Date(); // No virtual destructor needed
+    ~Date (); // No virtual destructor needed
 
     // BASIC ASSIGNMENT OPERATOR
-    Date& operator=(const Date&);
+    Date& operator= (const Date&);
 
     // UNARY ARITHMETIC OPERATORS
-    Date& operator++(); // Next day
-    Date& operator++(int); // Same day next week
-    Date& operator--(); // Previous day
-    Date& operator--(int); // Same day previous week
+    Date& operator++ (); // Next day
+    Date& operator++ (int); // Same day next week
+    Date& operator-- (); // Previous day
+    Date& operator-- (int); // Same day previous week
 
     // BINARY ARITHMETIC OPERATORS
-    unsigned int operator-(const Date& otherDate); // Number of days between otherDate and current date
-    Date operator+(int noOfDays) // Day noOfDays after (before) the current date
+    unsigned int operator- (const Date& otherDate); // Number of days between otherDate and current date
+    Date operator+ (int noOfDays) // Day noOfDays after (before) the current date
     // (sign of noOfDays decides ahead or behind)
-    throw(domain_error, out_of_range);
+    throw (domain_error, out_of_range);
 
     // CAST OPERATORS
     operator WeekNumber() const; // Cast to the week number of the year in which the current date falls
@@ -140,12 +140,12 @@ public:
     bool leapYear() const; // True if the year of the current date is a leap year
 
     // BINARY RELATIONAL OPERATORS
-    bool operator==(const Date& otherDate);
-    bool operator!=(const Date& otherDate);
-    bool operator<(const Date& otherDate);
-    bool operator<=(const Date& otherDate);
-    bool operator>(const Date& otherDate);
-    bool operator>=(const Date& otherDate);
+    bool operator== (const Date& otherDate);
+    bool operator!= (const Date& otherDate);
+    bool operator< (const Date& otherDate);
+    bool operator<= (const Date& otherDate);
+    bool operator> (const Date& otherDate);
+    bool operator>= (const Date& otherDate);
 
     // BASIC I/O using FRIEND FUNCTIONS
 

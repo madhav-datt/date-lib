@@ -159,10 +159,8 @@ Date& Date::operator++ ()
  */
 Date& Date::operator++ (int)
 {
-    // Increment by 7 days, using Prefix ++ operator
-    for (int i = 0; i < 7; i++)
-        ++(*this);
-
+    // Increment by 7 days, using + operator
+    (*this) = (*this) + 7;
     return *this;
 }
 
@@ -198,10 +196,8 @@ Date& Date::operator-- ()
  */
 Date& Date::operator-- (int)
 {
-    // Decrement by 7 days, using Prefix -- operator
-    for (int i = 0; i < 7; i++)
-        --(*this);
-
+    // Decrement by 7 days, using + operator
+    (*this) = (*this) + 7;
     return *this;
 }
 
@@ -406,7 +402,7 @@ uint32_t Date::to_days () const
     // Convert months to days
     for (int m = 1; m < month; m++)
     {
-        num_days = num_days + month_length (m);
+        num_days = num_days + month_length (m, y);
     }
 
     // Add days to day count
@@ -416,9 +412,30 @@ uint32_t Date::to_days () const
 }
 
 /**
- * Give Date based on number of days from 01/01/1900
+ * Give Date based on number of days from 01/01/1950
  */
 Date Date::to_Date (uint32_t num_days)
 {
+    uint32_t d, m, y;
 
+    // Convert days to years from 1950
+    for (y = 1950; num_days >= 365; y++)
+    {
+        if (is_leap_Year(y) == true && num_days >= 366)
+            num_days = num_days - 366;
+        else if (is_leap_Year(y) == false)
+            num_days = num_days - 365;
+    }
+
+    // Convert days to months
+    for (m = 1; num_days > month_length (m, y); m++)
+    {
+        num_days = num_days - month_length (m, y);
+    }
+
+    // Convert days to date
+    d = num_days + 1;
+
+    Date conv_Date (d, m, y);
+    return conv_Date;
 }
