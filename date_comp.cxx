@@ -63,6 +63,7 @@ uint32_t month_length (uint32_t month, uint32_t year)
  */
 int number_of_weeks (uint32_t year)
 {
+    // Last day of year (falls in last week)
     Date year_end (31, 12, year);
 
     // Find first Thursday of year

@@ -386,3 +386,39 @@ bool Date::operator>= (const Date& otherDate)
 
     return false;
 }
+
+/**
+ * Give number of days from 01/01/1950 (beginning of range) to (d, m, y) Date
+ */
+uint32_t Date::to_days () const
+{
+    uint32_t num_days = 0;
+
+    // Convert (years - 1950) to days
+    for (int y = 1950; y < year; y++)
+    {
+        if (is_leap_Year(y) == true)
+            num_days = num_days + 366;
+        else
+            num_days = num_days + 365;
+    }
+
+    // Convert months to days
+    for (int m = 1; m < month; m++)
+    {
+        num_days = num_days + month_length (m);
+    }
+
+    // Add days to day count
+    num_days = num_days + date - 1;
+
+    return num_days;
+}
+
+/**
+ * Give Date based on number of days from 01/01/1900
+ */
+Date Date::to_Date (uint32_t num_days)
+{
+
+}

@@ -161,6 +161,7 @@ private:
 
     // Format to represent Date
     static DateFormat format;
+
     // Data members for Date
     unsigned int date;
     unsigned int month;
@@ -169,9 +170,9 @@ private:
     // NEW FUNCTIONS DEFINED
     // Functions to help in computation of operator results, improve efficiency
 
-    // Give number of days from 01/01/1900 to (d, m, y) Date
+    // Give number of days from 01/01/1950 (beginning of range) to (d, m, y) Date
     uint32_t to_days () const;
 
-    // Give Date based on number of days from 01/01/1900
+    // Give Date based on number of days from 01/01/1950
     Date to_Date (uint32_t num_days);
 };
