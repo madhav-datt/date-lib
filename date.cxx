@@ -240,6 +240,8 @@ Date Date::operator+ (int noOfDays) throw (domain_error, out_of_range)
  */
 operator Date::WeekNumber() const
 {
+    WeekNumber week_num;
+
     // Find first Thursday of year
     Date year_start (1, 1, year);
     while ((WeekDay)year_start != 4)
@@ -251,15 +253,14 @@ operator Date::WeekNumber() const
     // Number of days between first week and current Date
     int num_days = (*this) - year_start;
 
-    if (num_days <= 0)
-    {
-
-    }
+    // Consider days before week containing first Thursday of year
+    if (num_days < 0)
+        // Fall in last week of previous year
+        week_num = number_of_weeks (year - 1);
     else
-    {
+        week_num = static_cast<int> (num_days / 7) + 1;
 
-    }
-
+    return week_num;
 }
 
 /**
