@@ -10,8 +10,10 @@
 #include <exception>
 #include <cstdio>
 #include <string>
-#include <regex>
+#include <ctime>
+
 #include "date.h"
+#include "date_comp.h"
 
 using namespace std;
 
@@ -87,7 +89,14 @@ DateFormat::DateFormat (const char* format)
 // Default DateFormat created as "dd-mmm-yy"
 DateFormat::DateFormat ()
 {
+    // Get current date and time
+    time_t current_time = time (0);
+    struct tm* now = localtime (&current_time);
 
+    // Assign date values to class members
+    date = now -> tm_mday;
+    month = now -> tm_mon + 1;
+    year = now -> tm_year + 1900;
 }
 
 // Destructor for the DateFormat class
