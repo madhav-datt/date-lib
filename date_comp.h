@@ -8,12 +8,12 @@
  *
  */
 
- #include <iostream>
- #include <cstdio>
- #include <string>
- #include <cstdint>
+#include <iostream>
+#include <cstdio>
+#include <string>
+#include <cstdint>
 
- #include "date.h"
+#include "date.h"
 
 /**
  * Check validity of (d, m, y) as a triplet
