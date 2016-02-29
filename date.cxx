@@ -321,7 +321,68 @@ bool Date::operator!= (const Date& otherDate)
     return true;
 }
 
-bool Date::operator< (const Date& otherDate);
-bool Date::operator<= (const Date& otherDate);
-bool Date::operator> (const Date& otherDate);
-bool Date::operator>= (const Date& otherDate);
+/**
+ * Check if current date is less than (comes before) otherDate
+ */
+bool Date::operator< (const Date& otherDate)
+{
+    bool flag = false;
+
+    // Earlier year before otherDate year
+    if (year < otherDate.year)
+        flag = true;
+
+    // Same year as otherDate. Earlier month before otherDate month
+    else if ((year == otherDate.year) && (month < otherDate.month))
+        flag = true;
+
+    // Same year, month as otherDate. Earlier date before otherDate date
+    else if ((year == otherDate.year) && (month == otherDate.month) && (date < otherDate.date))
+        flag = true;
+
+    return flag;
+}
+
+/**
+ * Check if current date is less than equal to (comes before) otherDate
+ */
+bool Date::operator<= (const Date& otherDate)
+{
+    if (((*this) < otherDate) || ((*this) == otherDate))
+        return true;
+
+    return false;
+}
+
+/**
+ * Check if current date is greater than (comes after) otherDate
+ */
+bool Date::operator> (const Date& otherDate)
+{
+    bool flag = false;
+
+    // Later year after otherDate year
+    if (year > otherDate.year)
+        flag = true;
+
+    // Same year as otherDate. Later month after otherDate month
+    else if ((year == otherDate.year) && (month > otherDate.month))
+        flag = true;
+
+    // Same year, month as otherDate. Later date after otherDate date
+    else if ((year == otherDate.year) && (month == otherDate.month) && (date > otherDate.date))
+        flag = true;
+
+    return flag;
+}
+
+/**
+ * Check if current date is greater than equal to (comes after) otherDate
+ */
+bool Date::operator>= (const Date& otherDate)
+{
+    if (((*this) > otherDate) || ((*this) == otherDate))
+        return true;
+
+    return false;
+}
