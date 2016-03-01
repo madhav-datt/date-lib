@@ -54,12 +54,30 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
  * domain_error - (d, m, y) as a triplet does not define a valid date
  * out_of_range - Date is out of range
  */
-explicit Date::Date (const char* date) throw(invalid_argument, domain_error, out_of_range)
+explicit Date::Date (const char* date_in) throw(invalid_argument, domain_error, out_of_range)
 {
     // Take '-' as delimiter to break string date
-    char* tmp_date = strtok (format,"-");
+    char* tmp_date = strtok (date_in,"-");
     char* tmp_month = strtok (NULL,"-");
     char* tmp_year = strtok (NULL,"-");
+
+    // Check format for date from string against Date::format
+    if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat ()) == true)
+        date = stoi (tmp_date);
+    else
+        throw format_error ();
+
+    // Check format for month from string against Date::format
+    if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat ()) == true)
+        month = stoi (tmp_month);
+    else
+        throw format_error ();
+
+    // Check format for month from string against Date::format
+    if (check_dateFormat (tmp_year, date_in.getFormat ().get_yearFormat ()) == true)
+        year = stoi (tmp_year);
+    else
+        throw format_error ();
 
     // Throw exception if date or month are invalid
     if (is_valid_Arg (date, month) == false)
@@ -461,18 +479,45 @@ Date Date::to_Date (uint32_t num_days)
 /**
  * Date object output operator
  */
-ostream& Date::operator<< (ostream& os, const Date& date_output)
+ostream& Date::operator<< (ostream& os, const Date& date_out)
 {
-
+    os << date_formatting ()
     return os;
 }
 
 /**
  * Date object input operator
  */
-istream& Date::operator>> (istream& is, Date& date_input)
+istream& Date::operator>> (istream& is, Date& date_in)
 {
-    
+    // Allocate tmp variables to check format
+    char* tmp_date = new char[3];
+    char* tmp_month = new char[4];
+    char* tmp_year = new char[5];
+
+    // Get input from input stream
+    getline(is, tmp_date, '-');
+    getline(is, tmp_month, '-');
+    getline(is, tmp_year);
+
+    // Check format for date from string against Date::format
+    if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat ()) == true)
+        date = stoi (tmp_date);
+    else
+        throw format_error ();
+
+    // Check format for month from string against Date::format
+    if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat ()) == true)
+        month = stoi (tmp_month);
+    else
+        throw format_error ();
+
+    // Check format for month from string against Date::format
+    if (check_dateFormat (tmp_year, date_in.getFormat ().get_yearFormat ()) == true)
+        year = stoi (tmp_year);
+    else
+        throw format_error ();
+
     return is;
 }
 
