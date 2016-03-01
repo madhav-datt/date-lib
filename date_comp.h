@@ -41,3 +41,21 @@ uint32_t month_length (uint32_t month, uint32_t year);
  * Week 1 (W01) of a year starts contains the first Thursday of the year.
  */
 int number_of_weeks (uint32_t year);
+
+/**
+ * Date formatter function
+ * Accept date in specified format
+ */
+void formatter_date (const char* dateString, char* dateFormat);
+
+/**
+ * Month formatter function
+ * Accept month in specified format
+ */
+void formatter_month (const char* dateString, char* monthFormat);
+
+/**
+ * Year formatter function
+ * Accept year in specified format
+ */
+void formatter_year (const char* dateString, char* yearFormat);

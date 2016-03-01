@@ -47,7 +47,7 @@ bool is_valid_Arg (uint32_t date, uint32_t month)
   */
 bool is_leap_Year (uint32_t year)
 {
-    bool flag = false;
+    year = year/4 - year/100 + year/400;
 
     // Leap year - divisible by 4 & if divisible by 100, then also by 400
     if (year % 100 == 0 && year % 400 == 0)
@@ -100,39 +100,50 @@ int number_of_weeks (uint32_t year)
     return static_cast<int> (num_days / 7) + 1;
 }
 
+/** TODO
+ * Date formatter function
+ * Accept date in specified format
+ */
+void formatter_date (const char* dateString, char* dateFormat)
+{
+    switch (strlen(dateString))
+    {
+        case 1:
+            dateFormat = new char[2];
+            strcpy (dateFormat, dateString);
+            break;
 
-// void formatter_date (const char* dateString, char* dateFormat)
-// {
-//     switch (strlen(dateString))
-//     {
-//         case 1:
-//             dateFormat = new char[2];
-//             strcpy (dateFormat, dateString);
-//             break;
-//
-//         case 2:
-//             dateFormat = new char[2];
-//             strcpy (dateFormat, dateString);
-//             break;
-//
-//         default:
-//             dateFormat = new char[2];
-//             strcpy (dateFormat, "0");
-//     };
-// }
-//
-// void formatter_month (const char* dateString, char* dateFormat)
-// {
-//     if (strlen(dateString) == 1 || strlen(dateString) == 2)
-//         strcpy (dateFormat, dateString);
-//     else
-//         strcpy (dateFormat, "0");
-// }
-//
-// void formatter_year (const char* dateString, char* dateFormat)
-// {
-//     if (strlen(dateString) == 1 || strlen(dateString) == 2)
-//         strcpy (dateFormat, dateString);
-//     else
-//         strcpy (dateFormat, "0");
-// }
+        case 2:
+            dateFormat = new char[2];
+            strcpy (dateFormat, dateString);
+            break;
+
+        default:
+            dateFormat = new char[2];
+            strcpy (dateFormat, "0");
+    };
+}
+
+/** TODO
+ * Month formatter function
+ * Accept month in specified format
+ */
+void formatter_month (const char* dateString, char* monthFormat)
+{
+    if (strlen(dateString) == 1 || strlen(dateString) == 2)
+        strcpy (dateFormat, dateString);
+    else
+        strcpy (dateFormat, "0");
+}
+
+/** TODO
+ * Year formatter function
+ * Accept year in specified format
+ */
+void formatter_year (const char* dateString, char* yearFormat)
+{
+    if (strlen(dateString) == 1 || strlen(dateString) == 2)
+        strcpy (dateFormat, dateString);
+    else
+        strcpy (dateFormat, "0");
+}
