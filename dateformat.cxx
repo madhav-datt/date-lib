@@ -41,7 +41,7 @@ using namespace std;
  * Constructor for DateFormat Class
  * Convert passed to dateFormat, monthFormat, yearFormat to accepted formatting
  */
-DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) 
+DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)
 {
     // Date, Month and Year string formatters
     formatter_date (dateFormat, DateFormat::dateFormat);
@@ -73,38 +73,15 @@ DateFormat::DateFormat (const char* format)
  */
 DateFormat::DateFormat ()
 {
-    uint32_t date, month, year;
-
     // Allocate space for data members
     dateFormat = new char[3];
     monthFormat = new char[4];
     yearFormat = new char[3];
 
-    // Get current date and time
-    time_t current_time = time (0);
-    struct tm* now = localtime (&current_time);
-
-    // Assign date values - d, m, y
-    date = now -> tm_mday;
-    month = now -> tm_mon + 1;
-    year = now -> tm_year + 1900;
-
-    // Format date field
-    if (date < 10)
-    {
-        // Formator to 2 digits 0d form
-        strcat (dateFormat, "0");
-        strcat (dateFormat, to_string (date));
-    }
-    else
-        // Copy 2 digit date, as-is
-        strcat (dateFormat, to_string (date));
-
-    // Format month field
-    strcat (monthFormat, month_name (month));
-
-    // Format year field
-    strcat (yearFormat, to_string (year % 100));
+    // Create format as dd-mmm-yy
+    strcpy (dateFormat, "dd");
+    strcpy (monthFormat, "mmm");
+    strcpy (yearFormat, "yy");
 }
 
 /**

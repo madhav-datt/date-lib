@@ -82,7 +82,7 @@ uint32_t month_length (uint32_t month, uint32_t year)
 char* month_name (uint32_t month)
 {
     // month_days[i] = three letter name of ith month
-    static const char month_name[13][4] = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    static const char month_name[][4] = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     return month[i];
 }
 

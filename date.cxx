@@ -430,7 +430,7 @@ Date Date::to_Date (uint32_t num_days)
         day_remaining = num_days - (365 * y + y / 4 - y / 100 + y / 400);
     }
 
-    // Use converted calendar with March first month of year
+    // Use converted calendar with March as first month of year
     // month_con_cal Month March is represented by 0, ... , February by 11
     // Total months from remainging days = (100 * day_remaining + 52) / 3060
     uint32_t month_con_cal = (100 * day_remaining + 52) / 3060;
