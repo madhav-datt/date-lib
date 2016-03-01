@@ -47,7 +47,7 @@ bool is_valid_Arg (uint32_t date, uint32_t month)
   */
 bool is_leap_Year (uint32_t year)
 {
-    year = year/4 - year/100 + year/400;
+    bool flag = false;
 
     // Leap year - divisible by 4 & if divisible by 100, then also by 400
     if (year % 100 == 0 && year % 400 == 0)
@@ -65,7 +65,7 @@ bool is_leap_Year (uint32_t year)
 uint32_t month_length (uint32_t month, uint32_t year)
 {
     // month_days[i] = number of days in ith month
-    static const uint32_t month_days[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    static const uint32_t month_days[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     uint32_t month_length = month_days[month];
 
     // Leap year and month is February then length = 29
@@ -73,6 +73,16 @@ uint32_t month_length (uint32_t month, uint32_t year)
         month_length = 29;
 
     return month_length;
+}
+
+/**
+ * Give three letter name of month
+ */
+char* month_name (uint32_t month)
+{
+    // month_days[i] = three letter name of ith month
+    static const char month_name[13][4] = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    return month[i];
 }
 
 /**

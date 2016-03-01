@@ -101,7 +101,7 @@ DateFormat::DateFormat ()
         strcat (dateFormat, to_string (date));
 
     // Format month field
-    strcat (monthFormat, give_month_name (month));
+    strcat (monthFormat, month_name (month));
 
     // Format year field
     strcat (yearFormat, to_string (year % 100));
