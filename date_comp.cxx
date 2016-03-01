@@ -120,23 +120,22 @@ int number_of_weeks (uint32_t year)
  * "d": single digit date in one digit, double digit date in two digits (7, 23)
  * "dd": all dates in two digits with single digit dates with leading 0 (07, 23)
  */
-void formatter_date (const char* dateString, char* dateFormat)
+void formatter_date (const char* dateString, char* dateFormat) throw (format_error)
 {
     switch (strlen(dateString))
     {
         case 1:
-            dateFormat = new char[2];
+            dateFormat = new char[3];
             strcpy (dateFormat, dateString);
             break;
 
         case 2:
-            dateFormat = new char[2];
+            dateFormat = new char[3];
             strcpy (dateFormat, dateString);
             break;
 
         default:
-            dateFormat = new char[2];
-            strcpy (dateFormat, "0");
+            throw format_error ();
     };
 }
 
@@ -150,7 +149,7 @@ void formatter_date (const char* dateString, char* dateFormat)
  * "mm": all months in two digits with single digit months with leading 0 (02, 11)
  * "mmm": each month with first three letters of its name (Feb, Nov). This is valid for output only.
  */
-void formatter_month (const char* dateString, char* monthFormat)
+void formatter_month (const char* dateString, char* monthFormat) throw (format_error)
 {
     if (strlen(dateString) == 1 || strlen(dateString) == 2)
         strcpy (dateFormat, dateString);
@@ -167,7 +166,7 @@ void formatter_month (const char* dateString, char* monthFormat)
  * "yy": year in last two digits (1961 as 61, 2016 as 16)
  * "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
  */
-void formatter_year (const char* dateString, char* yearFormat)
+void formatter_year (const char* dateString, char* yearFormat) throw (format_error)
 {
     if (strlen(dateString) == 1 || strlen(dateString) == 2)
         strcpy (dateFormat, dateString);

@@ -41,7 +41,7 @@ using namespace std;
  * Constructor for DateFormat Class
  * Convert passed to dateFormat, monthFormat, yearFormat to accepted formatting
  */
-DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)
+DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) throw (format_error)
 {
     // Date, Month and Year string formatters
     formatter_date (dateFormat, DateFormat::dateFormat);
@@ -54,7 +54,7 @@ DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const c
  * dateFormat, monthFormat, and yearFormat separated by ’-’
  * "dd-mmm-yy", "d-mm-yyyy", etc. formats
  */
-DateFormat::DateFormat (const char* format)
+DateFormat::DateFormat (const char* format) throw (format_error)
 {
     // Take '-' as delimiter to break string
     char* tmp_date = strtok (format,"-");
