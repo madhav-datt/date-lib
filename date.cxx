@@ -264,6 +264,7 @@ operator Date::WeekNumber () const
  */
 operator Date::Month () const
 {
+    // Month of current Date
     Month month_val = month;
     return month_val;
 }
@@ -274,6 +275,7 @@ operator Date::Month () const
 operator Date::WeekDay () const
 {
     // Array of constant pre-determined values to optimize computation
+    // Based on recurring day-of-week patterns at the beginning of each month/year
     static const int fixed[] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
     year = year - (month < 3);
     WeekDay DayofWeek = (year + year / 4 - year / 100 + year / 400 + fixed[m-1] + date) % 7;
@@ -404,7 +406,7 @@ uint32_t Date::to_days () const
     return 365 * year_mod + year_mod / 4 - year_mod / 100 + year_mod / 400 + (month_mod * 306 + 5) / 10 + (date - 1);
 }
 
-/**TODO
+/**
  * Give Date based on number of days from YEAR 0 (Reference Date Point)
  * End date is excluded in calculation
  */
@@ -412,24 +414,39 @@ Date Date::to_Date (uint32_t num_days)
 {
     uint32_t d, m, y;
 
-    // Convert days to years from 1950
-    for (y = 1950; num_days >= 365; y++)
+    // Close approximation for the year given a number of days
+    // y = num_days / 365.2425 (Considers leap years)
+    y = (10000 * num_days + 14780) / 3652425;
+
+    // Total days in given years from Reference = 365 * year + year / 4 - year / 100 + year / 400
+    // Removing years from total days from Reference
+    uint32_t day_remaining = num_days - (365 * y + y / 4 - y / 100 + y / 400);
+
+    // Handle overshoot
+    if (day_remaining < 0)
     {
-        if (is_leap_Year(y) == true && num_days >= 366)
-            num_days = num_days - 366;
-        else if (is_leap_Year(y) == false)
-            num_days = num_days - 365;
+        y = y - 1;
+        // Update remaing days after removing years from total days from Reference
+        day_remaining = num_days - (365 * y + y / 4 - y / 100 + y / 400);
     }
 
-    // Convert days to months
-    for (m = 1; num_days > month_length (m, y); m++)
-    {
-        num_days = num_days - month_length (m, y);
-    }
+    // Use converted calendar with March first month of year
+    // month_con_cal Month March is represented by 0, ... , February by 11
+    // Total months from remainging days = (100 * day_remaining + 52) / 3060
+    uint32_t month_con_cal = (100 * day_remaining + 52) / 3060;
 
-    // Convert days to date
-    d = num_days + 1;
+    // Modifying calendar back to Gregorian calendar
+    // January as first month and December as last
+    m = (month_con_cal + 2) % 12 + 1;
 
+    // Modify year number back to Gregorian calendar
+    y = y + (month_con_cal + 2) / 12
+
+    // Get date by subtracting days in counted month from remaining days
+    // Number of days in months (according to modified calendar) = (month_con_cal * 306 + 5) / 10
+    d = day_remaining - (month_con_cal * 306 + 5) / 10 + 1;
+
+    // Create and return date object
     Date conv_Date (d, m, y);
     return conv_Date;
 }
