@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <exception>
+#include <cstdint>
 
 using namespace std;
 
@@ -82,7 +83,8 @@ public:
 
     // Default DateFormat created as "dd-mmm-yy"
     DateFormat ();
-    
+
+    // Destructor for DateFormat Class
     ~DateFormat ();
 
 private:
@@ -151,12 +153,12 @@ public:
     // BASIC I/O using FRIEND FUNCTIONS
 
     // These functions use Date::format to write or read
-    friend ostream& operator<<(ostream&, const Date&);
-    friend istream& operator>>(istream&, Date&);
+    friend ostream& operator<< (ostream&, const Date&);
+    friend istream& operator>> (istream&, Date&);
 
     // Format Function
-    static void setFormat(DateFormat&);
-    static DateFormat& getFormat();
+    static void setFormat (DateFormat&);
+    static DateFormat& getFormat ();
 
 private:
 

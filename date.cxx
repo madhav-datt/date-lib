@@ -450,3 +450,34 @@ Date Date::to_Date (uint32_t num_days)
     Date conv_Date (d, m, y);
     return conv_Date;
 }
+
+// Implementation of Date Class friend functions for BASIC I/O using Date::format
+
+ostream& Date::operator<< (ostream& os, const Date& date_output)
+{
+
+    return os;
+}
+
+istream& Date::operator>> (istream& is, Date& date_input)
+{
+
+}
+
+// Format Function
+
+/**
+ * Set Date Format for input/output of Dates
+ */
+static void Date::setFormat (DateFormat& date_formatting_input)
+{
+    format = date_formatting_input;
+}
+
+/**
+ * Get previously set Date Format for input/output of Dates
+ */
+static DateFormat& Date::getFormat ()
+{
+    return format;
+}
