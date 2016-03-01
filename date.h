@@ -74,17 +74,15 @@ public:
     // 0: No year. This is valid for output only.
     // "yy": year in last two digits (1961 as 61, 2016 as 16)
     // "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
-    DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)
-    throw (format_error);
+    DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) throw (format_error);
 
     // Single C-string format where dateFormat, monthFormat, and yearFormat are separated by ’-’
     // Example: "dd-mmm-yy", "d-mm-yyyy", etc
-    DateFormat (const char* format)
-    throw (format_error);
+    DateFormat (const char* format) throw (format_error);
 
     // Default DateFormat created as "dd-mmm-yy"
     DateFormat ();
-
+    
     ~DateFormat ();
 
 private:

@@ -122,21 +122,19 @@ int number_of_weeks (uint32_t year)
  */
 void formatter_date (const char* dateString, char* dateFormat) throw (format_error)
 {
-    switch (strlen(dateString))
-    {
-        case 1:
-            dateFormat = new char[3];
-            strcpy (dateFormat, dateString);
-            break;
+    if (strcmp (dateString, "d") == 0)
+        dateFormat = new char[2];
 
-        case 2:
-            dateFormat = new char[3];
-            strcpy (dateFormat, dateString);
-            break;
+    else if (strcmp (dateString, "dd") == 0)
+        dateFormat = new char[3];
 
-        default:
-            throw format_error ();
-    };
+    else if (strcmp (dateString, "0") == 0)
+        dateFormat = new char[2];
+
+    else
+        throw format_error ();
+
+    strcpy (dateFormat, dateString);
 }
 
 /**
@@ -151,10 +149,7 @@ void formatter_date (const char* dateString, char* dateFormat) throw (format_err
  */
 void formatter_month (const char* dateString, char* monthFormat) throw (format_error)
 {
-    if (strlen(dateString) == 1 || strlen(dateString) == 2)
-        strcpy (dateFormat, dateString);
-    else
-        strcpy (dateFormat, "0");
+
 }
 
 /**
@@ -168,8 +163,5 @@ void formatter_month (const char* dateString, char* monthFormat) throw (format_e
  */
 void formatter_year (const char* dateString, char* yearFormat) throw (format_error)
 {
-    if (strlen(dateString) == 1 || strlen(dateString) == 2)
-        strcpy (dateFormat, dateString);
-    else
-        strcpy (dateFormat, "0");
+
 }
