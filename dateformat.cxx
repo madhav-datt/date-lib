@@ -17,42 +17,6 @@
 
 using namespace std;
 
-// void formatter_date (const char* dateString, char* dateFormat)
-// {
-//     switch (strlen(dateString))
-//     {
-//         case 1:
-//             dateFormat = new char[2];
-//             strcpy (dateFormat, dateString);
-//             break;
-//
-//         case 2:
-//             dateFormat = new char[2];
-//             strcpy (dateFormat, dateString);
-//             break;
-//
-//         default:
-//             dateFormat = new char[2];
-//             strcpy (dateFormat, "0");
-//     };
-// }
-//
-// void formatter_month (const char* dateString, char* dateFormat)
-// {
-//     if (strlen(dateString) == 1 || strlen(dateString) == 2)
-//         strcpy (dateFormat, dateString);
-//     else
-//         strcpy (dateFormat, "0");
-// }
-//
-// void formatter_year (const char* dateString, char* dateFormat)
-// {
-//     if (strlen(dateString) == 1 || strlen(dateString) == 2)
-//         strcpy (dateFormat, dateString);
-//     else
-//         strcpy (dateFormat, "0");
-// }
-
 /**
  * Format semantics for date, month, year formatter
  *
