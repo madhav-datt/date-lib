@@ -17,41 +17,41 @@
 
 using namespace std;
 
-void formatter_date (const char* dateString, char* dateFormat)
-{
-    switch (strlen(dateString))
-    {
-        case 1:
-            dateFormat = new char[2];
-            strcpy (dateFormat, dateString);
-            break;
-
-        case 2:
-            dateFormat = new char[2];
-            strcpy (dateFormat, dateString);
-            break;
-
-        default:
-            dateFormat = new char[2];
-            strcpy (dateFormat, "0");
-    };
-}
-
-void formatter_month (const char* dateString, char* dateFormat)
-{
-    if (strlen(dateString) == 1 || strlen(dateString) == 2)
-        strcpy (dateFormat, dateString);
-    else
-        strcpy (dateFormat, "0");
-}
-
-void formatter_year (const char* dateString, char* dateFormat)
-{
-    if (strlen(dateString) == 1 || strlen(dateString) == 2)
-        strcpy (dateFormat, dateString);
-    else
-        strcpy (dateFormat, "0");
-}
+// void formatter_date (const char* dateString, char* dateFormat)
+// {
+//     switch (strlen(dateString))
+//     {
+//         case 1:
+//             dateFormat = new char[2];
+//             strcpy (dateFormat, dateString);
+//             break;
+//
+//         case 2:
+//             dateFormat = new char[2];
+//             strcpy (dateFormat, dateString);
+//             break;
+//
+//         default:
+//             dateFormat = new char[2];
+//             strcpy (dateFormat, "0");
+//     };
+// }
+//
+// void formatter_month (const char* dateString, char* dateFormat)
+// {
+//     if (strlen(dateString) == 1 || strlen(dateString) == 2)
+//         strcpy (dateFormat, dateString);
+//     else
+//         strcpy (dateFormat, "0");
+// }
+//
+// void formatter_year (const char* dateString, char* dateFormat)
+// {
+//     if (strlen(dateString) == 1 || strlen(dateString) == 2)
+//         strcpy (dateFormat, dateString);
+//     else
+//         strcpy (dateFormat, "0");
+// }
 
 // The parameters below takes designated values with the specified format semantics
 
@@ -70,15 +70,18 @@ void formatter_year (const char* dateString, char* dateFormat)
 // "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
 DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)
 {
-    DateFormat::dateFormat = new char[MAX_DATE_LENGTH];
-    DateFormat::monthFormat = new char[MAX_MONTH_LENGTH];
-    DateFormat::yearFormat = new char[MAX_YEAR_LENGTH];
+
 }
 
 // Single C-string format where dateFormat, monthFormat, and yearFormat are separated by ’-’
 // Example: "dd-mmm-yy", "d-mm-yyyy", etc
 DateFormat::DateFormat (const char* format)
 {
+    // Take '-' as delimiter to break string
+    char* tmp_date = strtok (format,"-");
+    char* tmp_month = strtok (NULL,"-");
+    char* tmp_year = strtok (NULL,"-");
+
 
 }
 
