@@ -111,9 +111,14 @@ int number_of_weeks (uint32_t year)
     return static_cast<int> (num_days / 7) + 1;
 }
 
-/** TODO
+/**
  * Date formatter function
  * Accept date in specified format
+ *
+ * dateFormat:
+ * 0: No date. This is valid for output only.
+ * "d": single digit date in one digit, double digit date in two digits (7, 23)
+ * "dd": all dates in two digits with single digit dates with leading 0 (07, 23)
  */
 void formatter_date (const char* dateString, char* dateFormat)
 {
@@ -135,9 +140,15 @@ void formatter_date (const char* dateString, char* dateFormat)
     };
 }
 
-/** TODO
+/**
  * Month formatter function
  * Accept month in specified format
+ *
+ * monthFormat:
+ * 0: each month in its full name (February, November). This is valid for output only.
+ * "m": single digit month in one digit, double digit month in two digits (2, 11)
+ * "mm": all months in two digits with single digit months with leading 0 (02, 11)
+ * "mmm": each month with first three letters of its name (Feb, Nov). This is valid for output only.
  */
 void formatter_month (const char* dateString, char* monthFormat)
 {
@@ -147,9 +158,14 @@ void formatter_month (const char* dateString, char* monthFormat)
         strcpy (dateFormat, "0");
 }
 
-/** TODO
+/**
  * Year formatter function
  * Accept year in specified format
+ *
+ * yearFormat:
+ * 0: No year. This is valid for output only.
+ * "yy": year in last two digits (1961 as 61, 2016 as 16)
+ * "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
  */
 void formatter_year (const char* dateString, char* yearFormat)
 {

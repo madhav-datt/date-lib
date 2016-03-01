@@ -15,8 +15,6 @@
 #include "date.h"
 #include "date_comp.h"
 
-using namespace std;
-
 /**
  * Format semantics for date, month, year formatter
  *
@@ -36,6 +34,8 @@ using namespace std;
  * "yy": year in last two digits (1961 as 61, 2016 as 16)
  * "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
  */
+
+using namespace std;
 
 /**
  * Constructor for DateFormat Class
