@@ -93,3 +93,29 @@ DateFormat::~DateFormat ()
     delete[] monthFormat;
     delete[] yearFormat;
 }
+
+// Getter functions for private format specifying members
+
+/**
+ * Get dateFormat for Date I/O
+ */
+char* DateFormat::get_dateFormat () const
+{
+    return dateFormat;
+}
+
+/**
+ * Get monthFormat for Date I/O
+ */
+char* DateFormat::get_monthFormat () const
+{
+    return monthFormat;
+}
+
+/**
+ * Get yearFormat for Date I/O
+ */
+char* DateFormat::get_yearFormat () const
+{
+    return yearFormat;
+}

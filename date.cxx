@@ -464,7 +464,10 @@ istream& Date::operator>> (istream& is, Date& date_input)
 
 }
 
-// Format Function
+// Format Functions to get/set Date Format
+
+// Initialize static member format with default DateFormat
+DateFormat Date::format ();
 
 /**
  * Set Date Format for input/output of Dates
@@ -477,7 +480,7 @@ static void Date::setFormat (DateFormat& date_formatting_input)
 /**
  * Get previously set Date Format for input/output of Dates
  */
-static DateFormat& Date::getFormat ()
+static DateFormat& Date::getFormat () const
 {
     return format;
 }

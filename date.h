@@ -87,6 +87,11 @@ public:
     // Destructor for DateFormat Class
     ~DateFormat ();
 
+    // Getter functions for private format specifying members
+    char* get_dateFormat () const;
+    char* get_monthFormat () const;
+    char* get_yearFormat () const;
+
 private:
 
     char* dateFormat; // C-string specifying format of date
@@ -158,7 +163,7 @@ public:
 
     // Format Function
     static void setFormat (DateFormat&);
-    static DateFormat& getFormat ();
+    static DateFormat& getFormat () const;
 
 private:
 
