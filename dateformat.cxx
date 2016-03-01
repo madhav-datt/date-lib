@@ -9,7 +9,7 @@
 #include <iostream>
 #include <exception>
 #include <cstdio>
-#include <string>
+#include <cstring>
 #include <ctime>
 
 #include "date.h"
@@ -104,11 +104,28 @@ DateFormat::DateFormat ()
     month = now -> tm_mon + 1;
     year = now -> tm_year + 1900;
 
-    if 
+    // Format date field
+    if (date < 10)
+    {
+        // Formator to 2 digits 0d form
+        strcat (dateFormat, "0");
+        strcat (dateFormat, to_string (date));
+    }
+    else
+        // Copy 2 digit date, as-is
+        strcat (dateFormat, to_string (date));
+
+    // Format month field
+    strcat (monthFormat, give_month_name (month));
+
+    // Format year field
+    strcat (yearFormat, to_string (year % 100));
 }
 
 // Destructor for the DateFormat class
 DateFormat::~DateFormat ()
 {
-
+    delete[] dateFormat;
+    delete[] monthFormat;
+    delete[] yearFormat;
 }

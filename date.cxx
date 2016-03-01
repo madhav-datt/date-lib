@@ -9,7 +9,7 @@
 #include <iostream>
 #include <exception>
 #include <cstdio>
-#include <string>
+#include <cstring>
 #include <ctime>
 
 #include "date.h"
