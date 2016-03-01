@@ -80,3 +80,10 @@ void formatter_month (const char* dateString, char* monthFormat);
  * "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
  */
 void formatter_year (const char* dateString, char* yearFormat);
+
+/**
+ * Check if passed dateString matches format value
+ */
+bool check_dateFormat (char* dateString, const char* format, bool is_input = false);
+bool check_monthFormat (char* dateString, const char* format, bool is_input = false);
+bool check_yearFormat (char* dateString, const char* format, bool is_input = false);

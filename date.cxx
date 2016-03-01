@@ -74,7 +74,7 @@ explicit Date::Date (const char* date_in) throw(invalid_argument, domain_error, 
         throw format_error ();
 
     // Check format for month from string against Date::format
-    if (check_dateFormat (tmp_year, date_in.getFormat ().get_yearFormat ()) == true)
+    if (check_yearFormat (tmp_year, date_in.getFormat ().get_yearFormat ()) == true)
         year = stoi (tmp_year);
     else
         throw format_error ();
@@ -495,25 +495,28 @@ istream& Date::operator>> (istream& is, Date& date_in)
     char* tmp_month = new char[4];
     char* tmp_year = new char[5];
 
-    // Get input from input stream
+    // Get input from input stream, using '-' as delimiter
     getline(is, tmp_date, '-');
     getline(is, tmp_month, '-');
     getline(is, tmp_year);
 
     // Check format for date from string against Date::format
-    if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat ()) == true)
+    // is_input flag set to true
+    if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat (), true) == true)
         date = stoi (tmp_date);
     else
         throw format_error ();
 
     // Check format for month from string against Date::format
-    if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat ()) == true)
+    // is_input flag set to true
+    if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat (), true) == true)
         month = stoi (tmp_month);
     else
         throw format_error ();
 
     // Check format for month from string against Date::format
-    if (check_dateFormat (tmp_year, date_in.getFormat ().get_yearFormat ()) == true)
+    // is_input flag set to true
+    if (check_yearFormat (tmp_year, date_in.getFormat ().get_yearFormat (), true) == true)
         year = stoi (tmp_year);
     else
         throw format_error ();
