@@ -47,7 +47,7 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
 
 /** TODO
  * Construct a Date from string
- * Parse as static DateFormat member  - format
+ * Parse as static DateFormat member - format
  *
  * Throw exceptions when:
  * invalid_argument - d or m is invalid
@@ -56,6 +56,11 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
  */
 explicit Date::Date (const char* date) throw(invalid_argument, domain_error, out_of_range)
 {
+    // Take '-' as delimiter to break string date
+    char* tmp_date = strtok (format,"-");
+    char* tmp_month = strtok (NULL,"-");
+    char* tmp_year = strtok (NULL,"-");
+
     // Throw exception if date or month are invalid
     if (is_valid_Arg (date, month) == false)
         throw invalid_argument ();
@@ -453,15 +458,22 @@ Date Date::to_Date (uint32_t num_days)
 
 // Implementation of Date Class friend functions for BASIC I/O using Date::format
 
+/**
+ * Date object output operator
+ */
 ostream& Date::operator<< (ostream& os, const Date& date_output)
 {
 
     return os;
 }
 
+/**
+ * Date object input operator
+ */
 istream& Date::operator>> (istream& is, Date& date_input)
 {
-
+    
+    return is;
 }
 
 // Format Functions to get/set Date Format
@@ -471,16 +483,18 @@ DateFormat Date::format ();
 
 /**
  * Set Date Format for input/output of Dates
+ * setFormat is a static function
  */
-static void Date::setFormat (DateFormat& date_formatting_input)
+void Date::setFormat (DateFormat& date_formatting_input)
 {
     format = date_formatting_input;
 }
 
 /**
  * Get previously set Date Format for input/output of Dates
+ * getFormat is a static function
  */
-static DateFormat& Date::getFormat () const
+DateFormat& Date::getFormat () const
 {
     return format;
 }
