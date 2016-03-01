@@ -10,6 +10,7 @@
 #include <cstdio>
 #include <cstring>
 #include <cstdint>
+#include <exception>
 
 #include "date_comp.h"
 #include "date.h"

@@ -41,7 +41,7 @@ using namespace std;
  * Constructor for DateFormat Class
  * Convert passed to dateFormat, monthFormat, yearFormat to accepted formatting
  */
-DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)
+DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) 
 {
     // Date, Month and Year string formatters
     formatter_date (dateFormat, DateFormat::dateFormat);

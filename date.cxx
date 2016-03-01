@@ -234,7 +234,7 @@ Date Date::operator+ (int noOfDays) throw (domain_error, out_of_range)
 /**
  * Cast current date to week number of the year
  */
-operator Date::WeekNumber() const
+operator Date::WeekNumber () const
 {
     WeekNumber week_num;
 
@@ -262,7 +262,7 @@ operator Date::WeekNumber() const
 /**
  * Cast current date to the month of the year
  */
-operator Date::Month() const
+operator Date::Month () const
 {
     Month month_val = month;
     return month_val;
@@ -271,7 +271,7 @@ operator Date::Month() const
 /**
  * Cast current date to the day of the week
  */
-operator Date::WeekDay() const
+operator Date::WeekDay () const
 {
     // Array of constant pre-determined values to optimize computation
     static const int fixed[] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
@@ -288,7 +288,7 @@ operator Date::WeekDay() const
 /**
  * Check if the year of the current date is a leap year
  */
-bool Date::leapYear() const
+bool Date::leapYear () const
 {
     return is_leap_Year (year);
 }
@@ -383,37 +383,29 @@ bool Date::operator>= (const Date& otherDate)
     return false;
 }
 
-/**TODO
- * Give number of days from 01/01/1950 (beginning of range) to (d, m, y) Date
+/**
+ * Give number of days from YEAR 0 (Reference Date Point) to (d, m, y) Date
  * End date is excluded in calculation
  */
 uint32_t Date::to_days () const
 {
-    uint32_t num_days = 0;
+    // Convert calendar to make March first month of year
+    // Moves leap day in February to last day of leap year
+    // Years now start in March, end in February
+    // Month March is represented by 0, ... , February by 11
+    uint32_t month_mod = (month + 9) % 12;
 
-    // Convert (years - 1950) to days
-    for (int y = 1950; y < year; y++)
-    {
-        if (is_leap_Year(y) == true)
-            num_days = num_days + 366;
-        else
-            num_days = num_days + 365;
-    }
+    // Modify year number according to new modified calendar
+    uint32_t year_mod = year - month_mod / 10;
 
-    // Convert months to days
-    for (int m = 1; m < month; m++)
-    {
-        num_days = num_days + month_length (m, y);
-    }
-
-    // Add days to day count
-    num_days = num_days + date - 1;
-
-    return num_days;
+    // Total days in given years from Reference = 365 * year_mod + year_mod / 4 - year_mod / 100 + year_mod / 400
+    // Total days in given months from year = month_mod * 306 + 5
+    // Total days from start of month to date = date - 1
+    return 365 * year_mod + year_mod / 4 - year_mod / 100 + year_mod / 400 + (month_mod * 306 + 5) / 10 + (date - 1);
 }
 
 /**TODO
- * Give Date based on number of days from 01/01/1950
+ * Give Date based on number of days from YEAR 0 (Reference Date Point)
  * End date is excluded in calculation
  */
 Date Date::to_Date (uint32_t num_days)
