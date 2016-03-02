@@ -449,7 +449,7 @@ Date Date::to_Date (uint32_t num_days)
  */
 ostream& Date::operator<< (ostream& os, const Date& date_out)
 {
-    // Output Date as per Date::format
+    // Output DATE as per Date::format
     // "d": single digit date in one digit, double digit date in two digits
     if (strcmp (date_out.getFormat ().get_dateFormat (), "d") == 0)
         os << date_out.date << "-";
@@ -464,7 +464,7 @@ ostream& Date::operator<< (ostream& os, const Date& date_out)
             os << date_out.date << "-";
     }
 
-    // Output Month as per Date::format
+    // Output MONTH as per Date::format
     // "m": single digit month in one digit, double digit month in two digits
     if (strcmp (date_out.getFormat ().get_monthFormat (), "m") == 0)
         os << date_out.month;
@@ -481,11 +481,20 @@ ostream& Date::operator<< (ostream& os, const Date& date_out)
 
     // "mmm": each month with first three letters of its name
     else if (strcmp (date_out.getFormat ().get_monthFormat (), "mmm") == 0)
-        os << 
+        os << month_name (date_out.month);
 
     // 0: each month in its full name
     else if (strcmp (date_out.getFormat ().get_monthFormat (), "0") == 0)
-        monthFormat = new char[2];
+        os << month_name_full (date_out.month);
+
+    // Output YEAR as per Date::format
+    // "yy": year in last two digits
+    if (strcmp (dateString, "yy") == 0)
+        os << "-" << (date_out.year % 100);
+
+    // "yyyy": year in four digits
+    else if (strcmp (dateString, "yyyy") == 0)
+        os << "-" << (date_out.year);
 
     return os;
 }
