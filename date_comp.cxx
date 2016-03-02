@@ -10,6 +10,7 @@
 #include <cstdio>
 #include <cstring>
 #include <cstdint>
+#include <regex>
 #include <exception>
 
 #include "date_comp.h"
@@ -221,7 +222,24 @@ void formatter_year (const char* dateString, char* yearFormat) throw (format_err
  */
 bool check_dateFormat (char* dateString, const char* format, bool is_input)
 {
+    bool flag = false;
 
+    // "d": single digit date in one digit, double digit date in two digits
+    if (strcmp (format, "d") == 0)
+        if (regex_match (dateString, regex ("[1-3]?[0-9]")) == true)
+            flag = true;
+
+    // "dd": all dates in two digits with single digit dates with leading 0
+    else if (strcmp (format, "dd") == 0)
+        if (regex_match (dateString, regex ("0[1-9]|[1-3][0-9]")) == true)
+            flag = true;
+
+    // 0: No date
+    else if (strcmp (format, "0") == 0 && is_input == false)
+        if (strcmp (dateString, "") == true)
+            flag = true
+
+    return flag;
 }
 
 /**
@@ -229,7 +247,39 @@ bool check_dateFormat (char* dateString, const char* format, bool is_input)
  */
 bool check_monthFormat (char* dateString, const char* format, bool is_input)
 {
+    bool flag = false;
 
+    // "m": single digit month in one digit, double digit month in two digits
+    if (strcmp (dateString, "m") == 0)
+        if (regex_match (dateString, regex ("1?[0-9]")) == true)
+            flag = true;
+
+    // "mm": all months in two digits with single digit months with leading 0
+    else if (strcmp (dateString, "mm") == 0)
+        if (regex_match (dateString, regex ("0[1-9]|[1-3][1-9]")) == true)
+            flag = true;
+
+    // "mmm": each month with first three letters of its name
+    else if (strcmp (dateString, "mmm") == 0 && is_input == false)
+        monthFormat = new char[4];
+
+    // 0: each month in its full name
+    else if (strcmp (dateString, "0") == 0 && is_input == false)
+        monthFormat = new char[2];
+
+
+
+    // "dd": all dates in two digits with single digit dates with leading 0
+    else if (strcmp (format, "dd") == 0)
+        if (regex_match (dateString, regex ("0[1-9]|[1-3][1-9]")) == true)
+            flag = true;
+
+    // 0: No date
+    else if (strcmp (format, "0") == 0 && is_input == false)
+        if (strcmp (dateString, "") == true)
+            flag = true
+
+    return flag;
 }
 
 /**
