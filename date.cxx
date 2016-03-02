@@ -45,7 +45,7 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
         throw out_of_range ();
 }
 
-/** TODO
+/** 
  * Construct a Date from string
  * Parse as static DateFormat member - format
  *
