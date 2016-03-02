@@ -38,7 +38,7 @@ bool is_valid_Date (uint32_t date, uint32_t month, uint32_t year)
 bool is_valid_Arg (uint32_t date, uint32_t month)
 {
     // date or month are out of bounds/take invalid values
-    if (date > 32 || month > 12)
+    if (date > 31 || date < 1 || month > 12 || month < 1)
         return false;
 
     return true;
@@ -237,7 +237,7 @@ bool check_dateFormat (char* dateString, const char* format, bool is_input)
     // 0: No date
     else if (strcmp (format, "0") == 0 && is_input == false)
         if (strcmp (dateString, "") == true)
-            flag = true
+            flag = true;
 
     return flag;
 }
@@ -256,28 +256,17 @@ bool check_monthFormat (char* dateString, const char* format, bool is_input)
 
     // "mm": all months in two digits with single digit months with leading 0
     else if (strcmp (dateString, "mm") == 0)
-        if (regex_match (dateString, regex ("0[1-9]|[1-3][1-9]")) == true)
+        if (regex_match (dateString, regex ("0[1-9]|1[0-2]")) == true)
             flag = true;
 
     // "mmm": each month with first three letters of its name
     else if (strcmp (dateString, "mmm") == 0 && is_input == false)
-        monthFormat = new char[4];
+        if (regex_match (dateString, regex ("0[1-9]|1[0-2]")) == true)
+            flag = true;
 
     // 0: each month in its full name
     else if (strcmp (dateString, "0") == 0 && is_input == false)
         monthFormat = new char[2];
-
-
-
-    // "dd": all dates in two digits with single digit dates with leading 0
-    else if (strcmp (format, "dd") == 0)
-        if (regex_match (dateString, regex ("0[1-9]|[1-3][1-9]")) == true)
-            flag = true;
-
-    // 0: No date
-    else if (strcmp (format, "0") == 0 && is_input == false)
-        if (strcmp (dateString, "") == true)
-            flag = true
 
     return flag;
 }
@@ -287,5 +276,22 @@ bool check_monthFormat (char* dateString, const char* format, bool is_input)
  */
 bool check_yearFormat (char* dateString, const char* format, bool is_input)
 {
+    bool flag = false;
 
+    // "yy": year in last two digits
+    if (strcmp (dateString, "yy") == 0)
+        if (regex_match (dateString, regex ("[0-9][0-9]")) == true)
+            flag = true;
+
+    // "yyyy": year in four digits
+    else if (strcmp (dateString, "yyyy") == 0)
+        if (regex_match (dateString, regex ("[1-2][09][0-9][0-9]")) == true)
+            flag = true;
+
+    // 0: No year
+    else if (strcmp (dateString, "0") == 0 && is_input == false)
+        if (strcmp (dateString, "") == true)
+            flag = true;
+
+    return flag;
 }
