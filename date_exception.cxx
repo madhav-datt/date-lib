@@ -99,8 +99,19 @@ ostream& operator<< (ostream& os, const domain_error& e)
  */
 ostream& operator<< (ostream& os, const out_of_range& e)
 {
-    os << "Invalid Argument Exception:\n";
-    os << "\t At: (date " << e.date << ", month " << e.month << ")\n";
+    os << "Out of Range Exception:\n";
+    os << "\t At: (year " << e.year << ")\n";
+    os << "\t" << static_cast<const Exception&> (e);
+    return os;
+}
+
+/**
+ * Output operator for format_error Exception Class
+ */
+ostream& operator<< (ostream& os, const format_error& e)
+{
+    os << "Incorrect Format Exception:\n";
+    os << "\t At: (format " << e.format << ")\n";
     os << "\t" << static_cast<const Exception&> (e);
     return os;
 }
