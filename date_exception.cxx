@@ -60,3 +60,47 @@ format_error::format_error (char* function, uint32_t line, char* format) :
 Exception (function, line), format_error::format (format)
 {
 }
+
+// Implementation of overloaded I/O Operators
+
+/**
+ * Output operator for Base Exception Class
+ */
+ostream& operator<< (ostream& os, const Exception& e)
+{
+    os << e.line_num << ": " << e.function_name << "\n";
+    return os;
+}
+
+/**
+ * Output operator for invalid_argument Exception Class
+ */
+ostream& operator<< (ostream& os, const invalid_argument& e)
+{
+    os << "Invalid Argument Exception:\n";
+    os << "\t At: (date " << e.date << ", month " << e.month << ")\n";
+    os << "\t" << static_cast<const Exception&> (e);
+    return os;
+}
+
+/**
+ * Output operator for domain_error Exception Class
+ */
+ostream& operator<< (ostream& os, const domain_error& e)
+{
+    os << "Domain Error (Invalid Date) Exception:\n";
+    os << "\t At: (date " << e.date << ", month " << e.month << ", year " << e.year << ")\n";
+    os << "\t" << static_cast<const Exception&> (e);
+    return os;
+}
+
+/**
+ * Output operator for out_of_range Exception Class
+ */
+ostream& operator<< (ostream& os, const out_of_range& e)
+{
+    os << "Invalid Argument Exception:\n";
+    os << "\t At: (date " << e.date << ", month " << e.month << ")\n";
+    os << "\t" << static_cast<const Exception&> (e);
+    return os;
+}

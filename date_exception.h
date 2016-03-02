@@ -26,7 +26,7 @@ public:
     Exception (char* function, uint32_t line);
 
     // I/O using friend overloaded operators
-    friend ostream& operator<<(ostream& os, const Exception& e);
+    friend ostream& operator<< (ostream& os, const Exception& e);
 
 private:
     char* function_name; // Name of function for where exception is thrown
