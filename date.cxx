@@ -14,7 +14,6 @@
 
 #include "date.h"
 #include "date_comp.h"
-#include "date_exception.h"
 
 using namespace std;
 
