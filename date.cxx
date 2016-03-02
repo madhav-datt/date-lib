@@ -69,7 +69,23 @@ explicit Date::Date (const char* date_in) throw(invalid_argument, domain_error, 
 
     // Check format for month from string against Date::format
     if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat ()) == true)
-        month = stoi (tmp_month);
+    {
+        // If Month is in numberical form
+        if (strcmp (date_in.getFormat ().get_monthFormat (), "m") == 0 || strcmp (date_in.getFormat ().get_monthFormat (), "mm") == 0)
+            month = stoi (tmp_month);
+
+        // If Month name/full name is used
+        else
+            for (int i = 1; i < 12; i++)
+            {
+                // Check match for names against each month for format
+                if (strcmp (dateString, month_name (i)) == 0 || strcmp (dateString, month_name_full (i)) == 0)
+                {
+                    month = i;
+                    break
+                }
+            }
+    }
     else
         throw format_error ();
 

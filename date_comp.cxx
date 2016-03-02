@@ -250,23 +250,29 @@ bool check_monthFormat (char* dateString, const char* format, bool is_input)
     bool flag = false;
 
     // "m": single digit month in one digit, double digit month in two digits
-    if (strcmp (dateString, "m") == 0)
+    if (strcmp (format, "m") == 0)
         if (regex_match (dateString, regex ("1?[0-9]")) == true)
             flag = true;
 
     // "mm": all months in two digits with single digit months with leading 0
-    else if (strcmp (dateString, "mm") == 0)
+    else if (strcmp (format, "mm") == 0)
         if (regex_match (dateString, regex ("0[1-9]|1[0-2]")) == true)
             flag = true;
 
     // "mmm": each month with first three letters of its name
-    else if (strcmp (dateString, "mmm") == 0 && is_input == false)
-        if (regex_match (dateString, regex ("0[1-9]|1[0-2]")) == true)
-            flag = true;
-
     // 0: each month in its full name
-    else if (strcmp (dateString, "0") == 0 && is_input == false)
-        monthFormat = new char[2];
+    else if ((strcmp (format, "mmm") == 0 || strcmp (format, "0") == 0) && is_input == false)
+    {
+        for (int i = 1; i < 12; i++)
+        {
+            // Check match for names against each month for format
+            if (strcmp (dateString, month_name (i)) == 0 || strcmp (dateString, month_name_full (i)) == 0)
+            {
+                flag = true;
+                break
+            }
+        }
+    }
 
     return flag;
 }
@@ -279,17 +285,17 @@ bool check_yearFormat (char* dateString, const char* format, bool is_input)
     bool flag = false;
 
     // "yy": year in last two digits
-    if (strcmp (dateString, "yy") == 0)
+    if (strcmp (format, "yy") == 0)
         if (regex_match (dateString, regex ("[0-9][0-9]")) == true)
             flag = true;
 
     // "yyyy": year in four digits
-    else if (strcmp (dateString, "yyyy") == 0)
+    else if (strcmp (format, "yyyy") == 0)
         if (regex_match (dateString, regex ("[1-2][09][0-9][0-9]")) == true)
             flag = true;
 
     // 0: No year
-    else if (strcmp (dateString, "0") == 0 && is_input == false)
+    else if (strcmp (format, "0") == 0 && is_input == false)
         if (strcmp (dateString, "") == true)
             flag = true;
 
