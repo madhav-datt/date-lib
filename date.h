@@ -78,6 +78,9 @@ public:
     // 0: No year. This is valid for output only.
     // "yy": year in last two digits (1961 as 61, 2016 as 16)
     // "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
+
+    // Three C-strings format with dateFormat, monthFormat, and yearFormat provided
+    // format_error: Incorrect format input provided
     DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) throw (format_error);
 
     // Single C-string format where dateFormat, monthFormat, and yearFormat are separated by ’-’
@@ -110,9 +113,9 @@ public:
     // CONSTRUCTORS
 
     // Construct a Date from (d, m, y)
-    // One or more of the arguments d or m is/are invalid (27, 13, 13)
-    // (d, m, y) as a triplet does not define a valid date (30, 2, 61)
-    // Date is out of range (4, 7, 2053)
+    // invalid_argument: One or more of the arguments d or m is/are invalid (27, 13, 13)
+    // domain_error: (d, m, y) as a triplet does not define a valid date (30, 2, 61)
+    // out_of_range: Date is out of range (4, 7, 2053)
     Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_of_range);
 
     // date in string format -- to be parsed as static format member

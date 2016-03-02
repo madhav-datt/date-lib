@@ -1,0 +1,37 @@
+/**
+ * Madhav Datt - 14CS30015
+ *
+ * Software Engineering Lab - Assignment 3
+ * Custom defined exception classes for Date handling
+ *
+ */
+
+#ifndef _DATE_EXCEPTION_H_
+#define _DATE_EXCEPTION_H_
+
+class Exception
+{
+    char *fileName; unsigned int lineNo; public: virtual ~Exception() = 0 {}
+    Exception(char *file, unsigned int line) : fileName(file), lineNo(line) {}
+    friend ostream& operator<<(ostream& os, const Exception& e) { os << "File = ";
+    printf("%s. ", e.fileName); os << "Line = " << e.lineNo << endl; return os; }
+};
+
+class BinaryOpException : public Exception
+{
+    const Byte& arg1, arg2; public:
+    BinaryOpException(char *file, unsigned int line, const Byte& a1, const Byte& a2) :
+    Exception(file, line), arg1(a1), arg2(a2) {}
+    friend ostream& operator<<(ostream& os, const BinaryOpException& e);
+};
+
+class OverflowException : public BinaryOpException
+{
+public:
+OverflowException(char *file, unsigned int line, const Byte& a1, const Byte& a2) :
+BinaryOpException(file, line, a1, a2) {}
+friend ostream& operator<<(ostream& os, const OverflowException& e) {
+os << "Overflow for: " << static_cast<const BinaryOpException&>(e); return os; }
+};
+
+#endif
