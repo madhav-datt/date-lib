@@ -29,7 +29,7 @@ public:
     friend ostream& operator<<(ostream& os, const Exception& e);
 
 private:
-    char* function; // Name of function for where exception is thrown
+    char* function_name; // Name of function for where exception is thrown
     uint32_t line_num; // Line number of exception thrown
 };
 
@@ -101,4 +101,4 @@ private:
     char* format;
 };
 
-#endif
+#endif // _DATE_EXCEPTION_H_

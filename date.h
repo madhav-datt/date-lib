@@ -197,4 +197,4 @@ private:
     Date to_Date (uint32_t num_days);
 };
 
-#endif
+#endif // _DATE_H_
