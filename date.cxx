@@ -449,7 +449,44 @@ Date Date::to_Date (uint32_t num_days)
  */
 ostream& Date::operator<< (ostream& os, const Date& date_out)
 {
-    os << date_formatting ()
+    // Output Date as per Date::format
+    // "d": single digit date in one digit, double digit date in two digits
+    if (strcmp (date_out.getFormat ().get_dateFormat (), "d") == 0)
+        os << date_out.date << "-";
+
+    // "dd": all dates in two digits with single digit dates with leading 0
+    else if (strcmp (date_out.getFormat ().get_dateFormat (), "dd") == 0)
+    {
+        if (date_out.date < 10)
+            // Format single digit with 0 as prefix
+            os << "0" << date_out.date << "-";
+        else
+            os << date_out.date << "-";
+    }
+
+    // Output Month as per Date::format
+    // "m": single digit month in one digit, double digit month in two digits
+    if (strcmp (date_out.getFormat ().get_monthFormat (), "m") == 0)
+        os << date_out.month;
+
+    // "mm": all months in two digits with single digit months with leading 0
+    else if (strcmp (date_out.getFormat ().get_monthFormat (), "mm") == 0)
+    {
+        if (date_out.month < 10)
+            // Format single digit with 0 as prefix
+            os << "0" << date_out.month;
+        else
+            os << date_out.month;
+    }
+
+    // "mmm": each month with first three letters of its name
+    else if (strcmp (date_out.getFormat ().get_monthFormat (), "mmm") == 0)
+        os << 
+
+    // 0: each month in its full name
+    else if (strcmp (date_out.getFormat ().get_monthFormat (), "0") == 0)
+        monthFormat = new char[2];
+
     return os;
 }
 

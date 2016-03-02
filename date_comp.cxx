@@ -87,6 +87,16 @@ char* month_name (uint32_t month)
 }
 
 /**
+ * Give full name of month - "January" etc.
+ */
+char* month_name_full (uint32_t month)
+{
+    // month_days[i] = fulll name of ith month
+    static const char month_name[][4] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    return month[i];
+}
+
+/**
  * Give number of weeks in year y
  * A week starts on Monday and ends on Sunday. Weeks are numbered in a year from 1 to 52/53.
  * Week 1 (W01) of a year starts contains the first Thursday of the year.
