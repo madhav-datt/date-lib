@@ -11,12 +11,19 @@
 
 class Exception
 {
-    
+public:
+    Exception (char *file, unsigned int line);
+    friend ostream& operator<<(ostream& os, const Exception& e);
+
+private:
+    char *fileName;
+    unsigned int lineNo;
 };
 
 class invalid_argument : public Exception
 {
 public:
+    friend ostream& operator<< (ostream& os, const invalid_argument& e);
 
 private:
 
@@ -25,6 +32,7 @@ private:
 class domain_error : public Exception
 {
 public:
+    friend ostream& operator<< (ostream& os, const domain_error& e);
 
 private:
 
@@ -33,6 +41,7 @@ private:
 class out_of_range : public Exception
 {
 public:
+    friend ostream& operator<< (ostream& os, const out_of_range& e);
 
 private:
 
@@ -41,6 +50,7 @@ private:
 class format_error : public Exception
 {
 public:
+    friend ostream& operator<< (ostream& os, const format_error& e);
 
 private:
 
