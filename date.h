@@ -6,6 +6,9 @@
  *
  */
 
+#ifndef _DATE_H_
+#define _DATE_H_
+
 #include <iostream>
 #include <exception>
 #include <cstdint>
@@ -179,10 +182,14 @@ private:
     // Functions to help in computation of operator results, improve efficiency
 
     // Give number of days from YEAR 0 (Reference Date Point) to (d, m, y) Date
+    // Constant time algorithms for efficiency
     // End date is excluded in calculation
     uint32_t to_days () const;
 
     // Give Date based on number of days from YEAR 0 (Reference Date Point)
+    // Constant time algorithms for efficiency
     // End date is excluded in calculation
     Date to_Date (uint32_t num_days);
 };
+
+#endif

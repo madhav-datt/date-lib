@@ -205,3 +205,27 @@ void formatter_year (const char* dateString, char* yearFormat) throw (format_err
 
     strcpy (yearFormat, dateString);
 }
+
+/**
+ * Check if passed dateString matches format value for field date
+ */
+bool check_dateFormat (char* dateString, const char* format, bool is_input)
+{
+
+}
+
+/**
+ * Check if passed dateString matches format value for field month
+ */
+bool check_monthFormat (char* dateString, const char* format, bool is_input)
+{
+
+}
+
+/**
+ * Check if passed dateString matches format value for field year
+ */
+bool check_yearFormat (char* dateString, const char* format, bool is_input)
+{
+
+}

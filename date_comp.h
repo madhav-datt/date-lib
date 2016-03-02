@@ -8,6 +8,9 @@
  *
  */
 
+#ifndef _DATE_COMP_H_
+#define _DATE_COMP_H_
+
 #include <cstdio>
 #include <string>
 #include <cstdint>
@@ -82,8 +85,18 @@ void formatter_month (const char* dateString, char* monthFormat);
 void formatter_year (const char* dateString, char* yearFormat);
 
 /**
- * Check if passed dateString matches format value
+ * Check if passed dateString matches format value for field date
  */
 bool check_dateFormat (char* dateString, const char* format, bool is_input = false);
+
+/**
+ * Check if passed dateString matches format value for field month
+ */
 bool check_monthFormat (char* dateString, const char* format, bool is_input = false);
+
+/**
+ * Check if passed dateString matches format value for field year
+ */
 bool check_yearFormat (char* dateString, const char* format, bool is_input = false);
+
+#endif

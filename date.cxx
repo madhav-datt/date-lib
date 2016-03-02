@@ -153,26 +153,8 @@ Date& Date::operator= (const Date& equal_Date)
  */
 Date& Date::operator++ ()
 {
-    date++; // Increment date by 1
-
-    // Handle end of month situation
-    if (is_valid_Date (date, month, year) == false)
-    {
-        date = 1;
-        month++;
-
-        // Handle end of year situation
-        // Month will be invalid after increment at end of year
-        if (is_valid_Arg (date, month) == false)
-        {
-            month = 1;
-            year++;
-
-            // Handle end of range situation
-            if (year >= 2050)
-                throw out_of_range ();
-        }
-    }
+    // Increment by 1 day, using + operator
+    (*this) = (*this) + 1;
     return *this;
 }
 
@@ -193,23 +175,8 @@ Date& Date::operator++ (int)
  */
 Date& Date::operator-- ()
 {
-    date--; // Decrement date by 1
-
-    // Handle beginning of month situation
-    if (date == 0)
-    {
-        month--;
-        // Handle beginning of year situation
-        if (month == 0)
-        {
-            year--;
-            month = 12;
-            // Handle end of range situation
-            if (year <= 1949)
-                throw out_of_range ();
-        }
-        date = month_length (month, year);
-    }
+    // Decrement by 1 day, using + operator
+    (*this) = (*this) + (-1);
     return *this;
 }
 
@@ -220,7 +187,7 @@ Date& Date::operator-- ()
 Date& Date::operator-- (int)
 {
     // Decrement by 7 days, using + operator
-    (*this) = (*this) + 7;
+    (*this) = (*this) + (-7);
     return *this;
 }
 
@@ -236,6 +203,7 @@ unsigned int Date::operator- (const Date& otherDate)
 
 /**
  * Give Date noOfDays after (before) the current date (based on sign of noOfDays)
+ * Optimized to work in constant time
  */
 Date Date::operator+ (int noOfDays) throw (domain_error, out_of_range)
 {
