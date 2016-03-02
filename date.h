@@ -82,12 +82,12 @@ public:
     // "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
 
     // Three C-strings format with dateFormat, monthFormat, and yearFormat provided
-    // format_error: Incorrect format input provided
-    DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) throw (format_error);
+    // invalid_argument: Incorrect format input provided
+    DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) throw (invalid_argument);
 
     // Single C-string format where dateFormat, monthFormat, and yearFormat are separated by ’-’
     // Example: "dd-mmm-yy", "d-mm-yyyy", etc
-    DateFormat (const char* format) throw (format_error);
+    DateFormat (const char* format) throw (invalid_argument);
 
     // Default DateFormat created as "dd-mmm-yy"
     DateFormat ();

@@ -132,7 +132,7 @@ int number_of_weeks (uint32_t year)
  * "d": single digit date in one digit, double digit date in two digits (7, 23)
  * "dd": all dates in two digits with single digit dates with leading 0 (07, 23)
  */
-void formatter_date (const char* dateString, char* dateFormat) throw (format_error)
+void formatter_date (const char* dateString, char* dateFormat) throw (invalid_argument)
 {
     // "d": single digit date in one digit, double digit date in two digits
     if (strcmp (dateString, "d") == 0)
@@ -148,7 +148,7 @@ void formatter_date (const char* dateString, char* dateFormat) throw (format_err
 
     // Incorrect format entered
     else
-        throw format_error (__PRETTY_FUNCTION__, __LINE__, dateString);
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
     strcpy (dateFormat, dateString);
 }
@@ -163,7 +163,7 @@ void formatter_date (const char* dateString, char* dateFormat) throw (format_err
  * "mm": all months in two digits with single digit months with leading 0 (02, 11)
  * "mmm": each month with first three letters of its name (Feb, Nov). This is valid for output only.
  */
-void formatter_month (const char* dateString, char* monthFormat) throw (format_error)
+void formatter_month (const char* dateString, char* monthFormat) throw (invalid_argument)
 {
     // "m": single digit month in one digit, double digit month in two digits
     if (strcmp (dateString, "m") == 0)
@@ -183,7 +183,7 @@ void formatter_month (const char* dateString, char* monthFormat) throw (format_e
 
     // Incorrect format entered
     else
-        throw format_error (__PRETTY_FUNCTION__, __LINE__, dateString);
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
     strcpy (monthFormat, dateString);
 }
@@ -197,7 +197,7 @@ void formatter_month (const char* dateString, char* monthFormat) throw (format_e
  * "yy": year in last two digits (1961 as 61, 2016 as 16)
  * "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
  */
-void formatter_year (const char* dateString, char* yearFormat) throw (format_error)
+void formatter_year (const char* dateString, char* yearFormat) throw (invalid_argument)
 {
     // "yy": year in last two digits
     if (strcmp (dateString, "yy") == 0)
@@ -213,7 +213,7 @@ void formatter_year (const char* dateString, char* yearFormat) throw (format_err
 
     // Incorrect format entered
     else
-        throw format_error (__PRETTY_FUNCTION__, __LINE__, dateString);
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
     strcpy (yearFormat, dateString);
 }
