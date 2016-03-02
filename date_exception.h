@@ -11,6 +11,43 @@
 
 class Exception
 {
+    
+};
+
+class invalid_argument : public Exception
+{
+public:
+
+private:
+
+};
+
+class domain_error : public Exception
+{
+public:
+
+private:
+
+};
+
+class out_of_range : public Exception
+{
+public:
+
+private:
+
+};
+
+class format_error : public Exception
+{
+public:
+
+private:
+
+};
+
+class Exception
+{
     char *fileName; unsigned int lineNo; public: virtual ~Exception() = 0 {}
     Exception(char *file, unsigned int line) : fileName(file), lineNo(line) {}
     friend ostream& operator<<(ostream& os, const Exception& e) { os << "File = ";
@@ -27,11 +64,11 @@ class BinaryOpException : public Exception
 
 class OverflowException : public BinaryOpException
 {
-public:
-OverflowException(char *file, unsigned int line, const Byte& a1, const Byte& a2) :
-BinaryOpException(file, line, a1, a2) {}
-friend ostream& operator<<(ostream& os, const OverflowException& e) {
-os << "Overflow for: " << static_cast<const BinaryOpException&>(e); return os; }
+    public:
+    OverflowException(char *file, unsigned int line, const Byte& a1, const Byte& a2) :
+    BinaryOpException(file, line, a1, a2) {}
+    friend ostream& operator<<(ostream& os, const OverflowException& e) {
+        os << "Overflow for: " << static_cast<const BinaryOpException&>(e); return os; }
 };
 
 #endif
