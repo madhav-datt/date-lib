@@ -13,6 +13,8 @@
 #include <exception>
 #include <cstdint>
 
+#include "date_exception.h"
+
 using namespace std;
 
 typedef enum Day

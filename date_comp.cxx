@@ -15,6 +15,7 @@
 
 #include "date_comp.h"
 #include "date.h"
+#include "date_exception.h"
 
 /**
  * Check validity of (d, m, y) as a triplet

@@ -14,6 +14,7 @@
 
 #include "date.h"
 #include "date_comp.h"
+#include "date_exception.h"
 
 /**
  * Format semantics for date, month, year formatter

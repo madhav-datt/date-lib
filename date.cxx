@@ -14,6 +14,7 @@
 
 #include "date.h"
 #include "date_comp.h"
+#include "date_exception.h"
 
 using namespace std;
 
@@ -45,7 +46,7 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
         throw out_of_range ();
 }
 
-/** 
+/**
  * Construct a Date from string
  * Parse as static DateFormat member - format
  *
