@@ -16,6 +16,6 @@
 
 int main (void)
 {
-
+    Date a (2,5,2007);
     return 0;
 }
