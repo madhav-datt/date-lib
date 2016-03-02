@@ -35,15 +35,15 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
 {
     // Throw exception if date or month are invalid
     if (is_valid_Arg (date, month) == false)
-        throw invalid_argument ();
+        throw invalid_argument (__PRETTY_FUNCTION__, __LINE__, date, month);
 
     // Throw exception if (d, m, y) is not a valid date
     if (is_valid_Date (date, month, year) == false)
-        throw domain_error ();
+        throw domain_error (__PRETTY_FUNCTION__, __LINE__, date, month, year);
 
     // Throw exception if date is out of range
     if (year >= 2050 || year <= 1949)
-        throw out_of_range ();
+        throw out_of_range (__PRETTY_FUNCTION__, __LINE__, year);
 }
 
 /**
@@ -66,7 +66,7 @@ explicit Date::Date (const char* date_in) throw(invalid_argument, domain_error, 
     if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat ()) == true)
         date = stoi (tmp_date);
     else
-        throw format_error ();
+        throw format_error (__PRETTY_FUNCTION__, __LINE__, tmp_date);
 
     // Check format for month from string against Date::format
     if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat ()) == true)
@@ -88,25 +88,25 @@ explicit Date::Date (const char* date_in) throw(invalid_argument, domain_error, 
             }
     }
     else
-        throw format_error ();
+        throw format_error (__PRETTY_FUNCTION__, __LINE__, tmp_month);
 
     // Check format for month from string against Date::format
     if (check_yearFormat (tmp_year, date_in.getFormat ().get_yearFormat ()) == true)
         year = stoi (tmp_year);
     else
-        throw format_error ();
+        throw format_error (__PRETTY_FUNCTION__, __LINE__, tmp_year);
 
     // Throw exception if date or month are invalid
     if (is_valid_Arg (date, month) == false)
-        throw invalid_argument ();
+        throw invalid_argument (__PRETTY_FUNCTION__, __LINE__, date, month);
 
     // Throw exception if (d, m, y) is not a valid date
     if (is_valid_Date (date, month, year) == false)
-        throw domain_error ();
+        throw domain_error (__PRETTY_FUNCTION__, __LINE__, date, month, year);
 
     // Throw exception if date is out of range
     if (year >= 2050 || year <= 1949)
-        throw out_of_range ();
+        throw out_of_range (__PRETTY_FUNCTION__, __LINE__, year);
 }
 
 /**
@@ -126,7 +126,7 @@ Date::Date () throw (domain_error, out_of_range)
 
     // Throw exception if date is out of range
     if (year >= 2050 || year <= 1949)
-        throw out_of_range ();
+        throw out_of_range (__PRETTY_FUNCTION__, __LINE__, year);
 }
 
 /**
@@ -228,11 +228,11 @@ Date Date::operator+ (int noOfDays) throw (domain_error, out_of_range)
 
     // Throw exception if (d, m, y) is not a valid date
     if (is_valid_Date (shifted_Date.date, shifted_Date.month, shifted_Date.year) == false)
-        throw domain_error ();
+        throw domain_error (__PRETTY_FUNCTION__, __LINE__, shifted_Date.date, shifted_Date.month, shifted_Date.year);
 
     // Throw exception if date is out of range
     if (shifted_Date.year >= 2050 || shifted_Date.year <= 1949)
-        throw out_of_range ();
+        throw out_of_range (__PRETTY_FUNCTION__, __LINE__, shifted_Date.year);
 
     return shifted_Date;
 }
@@ -536,21 +536,21 @@ istream& Date::operator>> (istream& is, Date& date_in)
     if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat (), true) == true)
         date = stoi (tmp_date);
     else
-        throw format_error ();
+        throw format_error (__PRETTY_FUNCTION__, __LINE__, tmp_date);
 
     // Check format for month from string against Date::format
     // is_input flag set to true
     if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat (), true) == true)
         month = stoi (tmp_month);
     else
-        throw format_error ();
+        throw format_error (__PRETTY_FUNCTION__, __LINE__, tmp_month);
 
     // Check format for month from string against Date::format
     // is_input flag set to true
     if (check_yearFormat (tmp_year, date_in.getFormat ().get_yearFormat (), true) == true)
         year = stoi (tmp_year);
     else
-        throw format_error ();
+        throw format_error (__PRETTY_FUNCTION__, __LINE__, tmp_year);
 
     return is;
 }

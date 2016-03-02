@@ -148,7 +148,7 @@ void formatter_date (const char* dateString, char* dateFormat) throw (format_err
 
     // Incorrect format entered
     else
-        throw format_error ();
+        throw format_error (__PRETTY_FUNCTION__, __LINE__, dateString);
 
     strcpy (dateFormat, dateString);
 }
@@ -183,7 +183,7 @@ void formatter_month (const char* dateString, char* monthFormat) throw (format_e
 
     // Incorrect format entered
     else
-        throw format_error ();
+        throw format_error (__PRETTY_FUNCTION__, __LINE__, dateString);
 
     strcpy (monthFormat, dateString);
 }
@@ -213,7 +213,7 @@ void formatter_year (const char* dateString, char* yearFormat) throw (format_err
 
     // Incorrect format entered
     else
-        throw format_error ();
+        throw format_error (__PRETTY_FUNCTION__, __LINE__, dateString);
 
     strcpy (yearFormat, dateString);
 }

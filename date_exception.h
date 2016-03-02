@@ -9,6 +9,13 @@
 #ifndef _DATE_EXCEPTION_H_
 #define _DATE_EXCEPTION_H_
 
+#include <iostream>
+#include <exception>
+#include <cstdio>
+#include <cstring>
+
+using namespace std;
+
 /**
  * Base Exception Class
  */
