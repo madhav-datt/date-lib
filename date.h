@@ -24,12 +24,12 @@ typedef enum Day
     D21 = 21, D22 = 22, D23 = 23, D24 = 24, D25 = 25,
     D26 = 26, D27 = 27, D28 = 28, D29 = 29, D30 = 30,
     D31 = 31
-};
+} Day;
 
 typedef enum WeekDay
 {
     Mon = 1, Tue = 2, Wed = 3, Thr = 4, Fri = 5, Sat = 6, Sun = 7
-};
+} WeekDay;
 
 // A week starts on Monday and ends on Sunday. Weeks are numbered in a year from 1 to 52
 // (or 53). Week 1 (W01) of a year starts contains the first Thursday of the year. Hence
@@ -48,13 +48,13 @@ typedef enum WeekNumber
     W41 = 41, W42 = 42, W43 = 43, W44 = 44, W45 = 45,
     W46 = 46, W47 = 47, W48 = 48, W49 = 49, W50 = 50,
     W51 = 51, W52 = 52, W53 = 53
-};
+} WeekNumber;
 
 typedef enum Month
 {
     Jan = 1, Feb = 2, Mar = 3, Apr = 4, May = 5, Jun = 6,
     Jul = 7, Aug = 8, Sep = 9, Oct = 10, Nov = 11, Dec = 12
-};
+} Month;
 
 typedef unsigned int Year;
 
@@ -169,7 +169,7 @@ public:
 
     // Format Function
     static void setFormat (DateFormat&);
-    static DateFormat& getFormat () const;
+    static DateFormat& getFormat ();
 
 private:
 

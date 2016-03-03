@@ -566,7 +566,7 @@ void Date::setFormat (DateFormat& date_formatting_input)
  * Get previously set Date Format for input/output of Dates
  * getFormat is a static function
  */
-DateFormat& Date::getFormat () const
+DateFormat& Date::getFormat ()
 {
     return format;
 }
