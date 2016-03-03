@@ -59,16 +59,16 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
     char* tmp_year = strtok (NULL,"-");
 
     // Check format for date from string against Date::format
-    if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat ()) == true)
+    if (check_dateFormat (tmp_date, getFormat ().get_dateFormat ()) == true)
         date = stoi (tmp_date);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
-    if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat ()) == true)
+    if (check_monthFormat (tmp_month,  getFormat ().get_monthFormat ()) == true)
     {
         // If Month is in numberical form
-        if (strcmp (date_in.getFormat ().get_monthFormat (), "m") == 0 || strcmp (date_in.getFormat ().get_monthFormat (), "mm") == 0)
+        if (strcmp (getFormat ().get_monthFormat (), "m") == 0 || strcmp (getFormat ().get_monthFormat (), "mm") == 0)
             month = stoi (tmp_month);
 
         // If Month name/full name is used
@@ -87,7 +87,7 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
-    if (check_yearFormat (tmp_year, date_in.getFormat ().get_yearFormat ()) == true)
+    if (check_yearFormat (tmp_year, getFormat ().get_yearFormat ()) == true)
         year = stoi (tmp_year);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
@@ -568,5 +568,5 @@ void Date::setFormat (DateFormat& date_formatting_input)
  */
 DateFormat& Date::getFormat ()
 {
-    return format;
+    return Date::format;
 }
