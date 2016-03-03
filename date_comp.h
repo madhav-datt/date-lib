@@ -92,17 +92,17 @@ void formatter_year (const char* dateString, char* yearFormat);
 /**
  * Check if passed dateString matches format value for field date
  */
-bool check_dateFormat (char* dateString, const char* format, bool is_input = false);
+bool check_dateFormat (string dateString, const char* format, bool is_input = false);
 
 /**
  * Check if passed dateString matches format value for field month
  */
-bool check_monthFormat (char* dateString, const char* format, bool is_input = false);
+bool check_monthFormat (string dateString, const char* format, bool is_input = false);
 
 /**
  * Check if passed dateString matches format value for field year
  */
-bool check_yearFormat (char* dateString, const char* format, bool is_input = false);
+bool check_yearFormat (string dateString, const char* format, bool is_input = false);
 
 /**
  * Generate error messages for exceptions thrown

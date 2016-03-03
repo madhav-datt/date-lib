@@ -59,10 +59,10 @@ DateFormat::DateFormat (const char* format) throw (invalid_argument)
     // Temperory format and date, month, year fields
     string tmp_field[3];
     string tmp_format (date_in);
-    size_t pos = 0;
+    uint32_t pos = 0, i = 0;
 
     // Take '-' as delimiter to break string date
-    while ((pos = tmp_format.find (delimiter)) != std::string::npos)
+    while ((pos = tmp_format.find (delimiter)) != string::npos)
     {
         tmp_field[i] = tmp_format.substr (0, pos);
         i++;

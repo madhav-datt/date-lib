@@ -56,10 +56,10 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
     // Temperory format and date, month, year fields
     string tmp_field[3];
     string tmp_format (date_in);
-    size_t pos = 0;
+    uint32_t pos = 0, i = 0;
 
     // Take '-' as delimiter to break string date
-    while ((pos = tmp_format.find (delimiter)) != std::string::npos)
+    while ((pos = tmp_format.find (delimiter)) != string::npos)
     {
         tmp_field[i] = tmp_format.substr (0, pos);
         i++;
@@ -247,10 +247,10 @@ Date Date::operator+ (int noOfDays) throw (domain_error, out_of_range)
  */
 Date::operator WeekNumber () const
 {
-    WeekNumber week_num;
+    int week_num;
 
     // Find first Thursday of year
-    Date year_start (1, 1, year);
+    Date year_start (static_cast<Day> (1), static_cast<Month> (1), year);
     while ((WeekDay)year_start != 4)
         ++year_start;
 
@@ -258,7 +258,7 @@ Date::operator WeekNumber () const
     year_start = year_start + (-3);
 
     // Number of days between first week and current Date
-    int num_days = (*this) - year_start;
+    int num_days = (*this) - (year_start);
 
     // Consider days before week containing first Thursday of year
     if (num_days < 0)
@@ -267,7 +267,7 @@ Date::operator WeekNumber () const
     else
         week_num = static_cast<int> (num_days / 7) + 1;
 
-    return week_num;
+    return static_cast<WeekNumber> (week_num);
 }
 
 /**
@@ -276,8 +276,7 @@ Date::operator WeekNumber () const
 Date::operator Month () const
 {
     // Month of current Date
-    Month month_val = month;
-    return month_val;
+    return static_cast<Month> (month);
 }
 
 /**
@@ -289,13 +288,13 @@ Date::operator WeekDay () const
     // Based on recurring day-of-week patterns at the beginning of each month/year
     static const int fixed[] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
     year = year - (month < 3);
-    WeekDay DayofWeek = (year + year / 4 - year / 100 + year / 400 + fixed[m-1] + date) % 7;
+    int DayofWeek = (year + year / 4 - year / 100 + year / 400 + fixed[month-1] + date) % 7;
 
     // Change Sunday DayofWeek value from 0 to 7
     if (DayofWeek == 0)
         DayofWeek = 7;
 
-    return DayofWeek;
+    return static_cast<WeekDay> (DayofWeek);
 }
 
 /**
