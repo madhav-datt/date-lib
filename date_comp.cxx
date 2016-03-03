@@ -302,6 +302,11 @@ bool check_yearFormat (char* dateString, const char* format, bool is_input)
     return flag;
 }
 
+
+/**
+ * Generate error messages for exceptions thrown
+ * Error message includes type of exception, throwing function and line
+ */
 char* create_message (char* function, char* line, char* error_type)
 {
     char* message;

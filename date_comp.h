@@ -99,4 +99,10 @@ bool check_monthFormat (char* dateString, const char* format, bool is_input = fa
  */
 bool check_yearFormat (char* dateString, const char* format, bool is_input = false);
 
+/**
+ * Generate error messages for exceptions thrown
+ * Error message includes type of exception, throwing function and line
+ */
+char* create_message (char* function, char* line, char* error_type);
+
 #endif // _DATE_COMP_H_

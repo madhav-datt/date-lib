@@ -51,7 +51,7 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
  * domain_error - (d, m, y) as a triplet does not define a valid date
  * out_of_range - Date is out of range
  */
-explicit Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_range)
+Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_range)
 {
     // Take '-' as delimiter to break string date
     char* tmp_date = strtok (date_in,"-");
