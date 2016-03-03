@@ -307,12 +307,12 @@ bool check_yearFormat (char* dateString, const char* format, bool is_input)
  * Generate error messages for exceptions thrown
  * Error message includes type of exception, throwing function and line
  */
-char* create_message (char* function, char* line, char* error_type)
+const string create_message (char* function, uint32_t line, string error_type)
 {
-    char* message;
+    string message;
     strcpy (message, error_type);
     strcat (message, "at ");
-    strcat (message, line);
+    strcat (message, to_string (line));
     strcat (message, ": ");
     strcat (message, function);
     return message;

@@ -150,7 +150,7 @@ Date& Date::operator= (const Date& equal_Date)
 {
     date = equal_Date.date;
     month = equal_Date.month;
-    year = equal_date.year;
+    year = equal_Date.year;
 
     return *this;
 }
