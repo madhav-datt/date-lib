@@ -76,10 +76,10 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
             for (int i = 1; i < 12; i++)
             {
                 // Check match for names against each month for format
-                if (strcmp (dateString, month_name (i)) == 0 || strcmp (dateString, month_name_full (i)) == 0)
+                if (strcmp (tmp_month, month_name (i)) == 0 || strcmp (tmp_month, month_name_full (i)) == 0)
                 {
                     month = i;
-                    break
+                    break;
                 }
             }
     }
@@ -235,7 +235,7 @@ Date Date::operator+ (int noOfDays) throw (domain_error, out_of_range)
 /**
  * Cast current date to week number of the year
  */
-operator Date::WeekNumber () const
+Date::operator WeekNumber () const
 {
     WeekNumber week_num;
 
@@ -263,7 +263,7 @@ operator Date::WeekNumber () const
 /**
  * Cast current date to the month of the year
  */
-operator Date::Month () const
+Date::operator Month () const
 {
     // Month of current Date
     Month month_val = month;
@@ -273,7 +273,7 @@ operator Date::Month () const
 /**
  * Cast current date to the day of the week
  */
-operator Date::WeekDay () const
+Date::operator WeekDay () const
 {
     // Array of constant pre-determined values to optimize computation
     // Based on recurring day-of-week patterns at the beginning of each month/year
