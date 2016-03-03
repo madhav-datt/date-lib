@@ -69,24 +69,24 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
     }
 
     // Check format for date from string against Date::format
-    if (check_dateFormat (tmp_date, getFormat ().get_dateFormat ()) == true)
-        date = stoi (tmp_date);
+    if (check_dateFormat (tmp_field[0], getFormat ().get_dateFormat ()) == true)
+        date = stoi (tmp_field[0]);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
-    if (check_monthFormat (tmp_month,  getFormat ().get_monthFormat ()) == true)
+    if (check_monthFormat (tmp_field[1],  getFormat ().get_monthFormat ()) == true)
     {
         // If Month is in numberical form
         if (strcmp (getFormat ().get_monthFormat (), "m") == 0 || strcmp (getFormat ().get_monthFormat (), "mm") == 0)
-            month = stoi (tmp_month);
+            month = stoi (tmp_field[1]);
 
         // If Month name/full name is used
         else
             for (int i = 1; i < 12; i++)
             {
                 // Check match for names against each month for format
-                if (strcmp (tmp_month, month_name (i)) == 0 || strcmp (tmp_month, month_name_full (i)) == 0)
+                if (strcmp (tmp_field[1], month_name (i)) == 0 || strcmp (tmp_field[1], month_name_full (i)) == 0)
                 {
                     month = i;
                     break;
@@ -97,8 +97,8 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
-    if (check_yearFormat (tmp_year, getFormat ().get_yearFormat ()) == true)
-        year = stoi (tmp_year);
+    if (check_yearFormat (tmp_field[2], getFormat ().get_yearFormat ()) == true)
+        year = stoi (tmp_field[2]);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
