@@ -53,10 +53,20 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
  */
 Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_range)
 {
+    // Temperory format and date, month, year fields
+    string tmp_field[3];
+    string tmp_format (date_in);
+    size_t pos = 0;
+
     // Take '-' as delimiter to break string date
-    char* tmp_date = strtok (date_in,"-");
-    char* tmp_month = strtok (NULL,"-");
-    char* tmp_year = strtok (NULL,"-");
+    while ((pos = tmp_format.find (delimiter)) != std::string::npos)
+    {
+        tmp_field[i] = tmp_format.substr (0, pos);
+        i++;
+
+        // Remove already considered portion from string
+        tmp_format.erase (0, pos + delimiter.length ());
+    }
 
     // Check format for date from string against Date::format
     if (check_dateFormat (tmp_date, getFormat ().get_dateFormat ()) == true)

@@ -58,6 +58,9 @@ typedef enum Month
 
 typedef unsigned int Year;
 
+// Define string delimiter for string parsing
+const string delimiter = "-";
+
 // This class defines the format in which a date is output or input
 class DateFormat
 {

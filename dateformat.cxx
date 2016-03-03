@@ -56,15 +56,25 @@ DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const c
  */
 DateFormat::DateFormat (const char* format) throw (invalid_argument)
 {
-    // Take '-' as delimiter to break string
-    char* tmp_date = strtok (format,"-");
-    char* tmp_month = strtok (NULL,"-");
-    char* tmp_year = strtok (NULL,"-");
+    // Temperory format and date, month, year fields
+    string tmp_field[3];
+    string tmp_format (date_in);
+    size_t pos = 0;
+
+    // Take '-' as delimiter to break string date
+    while ((pos = tmp_format.find (delimiter)) != std::string::npos)
+    {
+        tmp_field[i] = tmp_format.substr (0, pos);
+        i++;
+
+        // Remove already considered portion from string
+        tmp_format.erase (0, pos + delimiter.length ());
+    }
 
     // Date, Month and Year string formatters
-    formatter_date (tmp_date, dateFormat);
-    formatter_month (tmp_month, monthFormat);
-    formatter_year (tmp_year, yearFormat);
+    formatter_date (tmp_field[0], dateFormat);
+    formatter_month (tmp_field[1], monthFormat);
+    formatter_year (tmp_field[2], yearFormat);
 }
 
 /**
