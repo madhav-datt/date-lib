@@ -10,6 +10,7 @@
 #include <exception>
 #include <cstdio>
 #include <cstring>
+#include <cmath>
 #include <ctime>
 
 #include "date.h"
@@ -86,7 +87,7 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
             for (int i = 1; i < 12; i++)
             {
                 // Check match for names against each month for format
-                if (strcmp (tmp_field[1], month_name (i)) == 0 || strcmp (tmp_field[1], month_name_full (i)) == 0)
+                if (tmp_field[1] == month_name (i) || tmp_field[1] == month_name_full (i))
                 {
                     month = i;
                     break;
@@ -218,7 +219,7 @@ Date& Date::operator-- (int)
  */
 unsigned int Date::operator- (const Date& otherDate)
 {
-    return this -> to_days () - otherDate.to_days ();
+    return abs (this -> to_days () - otherDate.to_days ());
 }
 
 /**
@@ -258,7 +259,7 @@ Date::operator WeekNumber () const
     year_start = year_start + (-3);
 
     // Number of days between first week and current Date
-    int num_days = (*this) - (year_start);
+    int num_days = this -> to_days () - year_start.to_days ();
 
     // Consider days before week containing first Thursday of year
     if (num_days < 0)
@@ -287,8 +288,8 @@ Date::operator WeekDay () const
     // Array of constant pre-determined values to optimize computation
     // Based on recurring day-of-week patterns at the beginning of each month/year
     static const int fixed[] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
-    year = year - (month < 3);
-    int DayofWeek = (year + year / 4 - year / 100 + year / 400 + fixed[month-1] + date) % 7;
+    int year_mod = year - (month < 3);
+    int DayofWeek = (year_mod + year_mod / 4 - year_mod / 100 + year_mod / 400 + fixed[month - 1] + date) % 7;
 
     // Change Sunday DayofWeek value from 0 to 7
     if (DayofWeek == 0)
@@ -450,14 +451,14 @@ Date Date::to_Date (uint32_t num_days)
     m = (month_con_cal + 2) % 12 + 1;
 
     // Modify year number back to Gregorian calendar
-    y = y + (month_con_cal + 2) / 12
+    y = y + (month_con_cal + 2) / 12;
 
     // Get date by subtracting days in counted month from remaining days
     // Number of days in months (according to modified calendar) = (month_con_cal * 306 + 5) / 10
     d = day_remaining - (month_con_cal * 306 + 5) / 10 + 1;
 
     // Create and return date object
-    Date conv_Date (d, m, y);
+    Date conv_Date (static_cast<Day> (d), static_cast<Month> (m), y);
     return conv_Date;
 }
 
@@ -466,7 +467,7 @@ Date Date::to_Date (uint32_t num_days)
 /**
  * Date object output operator
  */
-ostream& Date::operator<< (ostream& os, const Date& date_out)
+ostream& operator<< (ostream& os, const Date& date_out)
 {
     // Output DATE as per Date::format
     // "d": single digit date in one digit, double digit date in two digits
@@ -508,11 +509,11 @@ ostream& Date::operator<< (ostream& os, const Date& date_out)
 
     // Output YEAR as per Date::format
     // "yy": year in last two digits
-    if (strcmp (dateString, "yy") == 0)
+    if (strcmp (date_out.getFormat ().get_yearFormat (), "yy") == 0)
         os << "-" << (date_out.year % 100);
 
     // "yyyy": year in four digits
-    else if (strcmp (dateString, "yyyy") == 0)
+    else if (strcmp (date_out.getFormat ().get_yearFormat (), "yyyy") == 0)
         os << "-" << (date_out.year);
 
     return os;
@@ -521,12 +522,10 @@ ostream& Date::operator<< (ostream& os, const Date& date_out)
 /**
  * Date object input operator
  */
-istream& Date::operator>> (istream& is, Date& date_in)
+istream& operator>> (istream& is, Date& date_in)
 {
     // Allocate tmp variables to check format
-    char* tmp_date = new char[3];
-    char* tmp_month = new char[4];
-    char* tmp_year = new char[5];
+    string tmp_date, tmp_month, tmp_year;
 
     // Get input from input stream, using '-' as delimiter
     getline(is, tmp_date, '-');
@@ -536,21 +535,21 @@ istream& Date::operator>> (istream& is, Date& date_in)
     // Check format for date from string against Date::format
     // is_input flag set to true
     if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat (), true) == true)
-        date = stoi (tmp_date);
+        date_in.date = stoi (tmp_date);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
     // is_input flag set to true
     if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat (), true) == true)
-        month = stoi (tmp_month);
+        date_in.month = stoi (tmp_month);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
     // is_input flag set to true
     if (check_yearFormat (tmp_year, date_in.getFormat ().get_yearFormat (), true) == true)
-        year = stoi (tmp_year);
+        date_in.year = stoi (tmp_year);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
 
@@ -560,7 +559,7 @@ istream& Date::operator>> (istream& is, Date& date_in)
 // Format Functions to get/set Date Format
 
 // Initialize static member format with default DateFormat
-DateFormat Date::format ();
+DateFormat Date::format;
 
 /**
  * Set Date Format for input/output of Dates

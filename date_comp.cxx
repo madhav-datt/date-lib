@@ -80,21 +80,21 @@ uint32_t month_length (uint32_t month, uint32_t year)
 /**
  * Give three letter name of month
  */
-char* month_name (uint32_t month)
+const char* month_name (uint32_t month)
 {
     // month_days[i] = three letter name of ith month
     static const char month_name[][4] = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-    return month[i];
+    return month_name[month];
 }
 
 /**
  * Give full name of month - "January" etc.
  */
-char* month_name_full (uint32_t month)
+const char* month_name_full (uint32_t month)
 {
     // month_days[i] = fulll name of ith month
-    static const char month_name[][4] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    return month[i];
+    static const char month_name[][10] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    return month_name[month];
 }
 
 /**
@@ -105,10 +105,10 @@ char* month_name_full (uint32_t month)
 int number_of_weeks (uint32_t year)
 {
     // Last day of year (falls in last week)
-    Date year_end (31, 12, year);
+    Date year_end (static_cast<Day> (31), static_cast<Month> (12), year);
 
     // Find first Thursday of year
-    Date year_start (1, 1, year);
+    Date year_start (static_cast<Day> (1), static_cast<Month> (1), year);
     while ((WeekDay)year_start != 4)
         ++year_start;
 
