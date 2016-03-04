@@ -236,7 +236,7 @@ bool check_dateFormat (string dateString, const char* format, bool is_input)
 
     // 0: No date
     else if (strcmp (format, "0") == 0 && is_input == false)
-        if (strcmp (dateString, "") == true)
+        if (dateString == "")
             flag = true;
 
     return flag;
@@ -266,10 +266,10 @@ bool check_monthFormat (string dateString, const char* format, bool is_input)
         for (int i = 1; i < 12; i++)
         {
             // Check match for names against each month for format
-            if (strcmp (dateString, month_name (i)) == 0 || strcmp (dateString, month_name_full (i)) == 0)
+            if (strcmp (dateString.c_str (), month_name (i)) == 0 || strcmp (dateString.c_str (), month_name_full (i)) == 0)
             {
                 flag = true;
-                break
+                break;
             }
         }
     }
@@ -296,7 +296,7 @@ bool check_yearFormat (string dateString, const char* format, bool is_input)
 
     // 0: No year
     else if (strcmp (format, "0") == 0 && is_input == false)
-        if (strcmp (dateString, "") == true)
+        if (dateString == "")
             flag = true;
 
     return flag;
