@@ -309,11 +309,6 @@ bool check_yearFormat (string dateString, const char* format, bool is_input)
  */
 const string create_message (const char* function, uint32_t line, string error_type)
 {
-    string message;
-    strcpy (message, error_type);
-    strcat (message, "at ");
-    strcat (message, to_string (line));
-    strcat (message, ": ");
-    strcat (message, function);
+    string message = error_type + " at " + to_string (line) + ": " + function;
     return message;
 }
