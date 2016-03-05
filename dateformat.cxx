@@ -69,7 +69,7 @@ dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
     uint32_t pos = 0, i = 0;
 
     // Take '-' as delimiter to break string date
-    while ((pos = tmp_format.find (delimiter)) != string::npos)
+    while ((pos = tmp_format.find (delimiter)) != string::npos && i < 3)
     {
         tmp_field[i] = tmp_format.substr (0, pos);
         i++;
