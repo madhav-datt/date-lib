@@ -147,7 +147,7 @@ void formatter_date (const char* dateString, char* dateFormat) throw (invalid_ar
 
     // Incorrect format entered
     else
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     strcpy (dateFormat, dateString);
 }
@@ -182,7 +182,7 @@ void formatter_month (const char* dateString, char* monthFormat) throw (invalid_
 
     // Incorrect format entered
     else
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     strcpy (monthFormat, dateString);
 }
@@ -212,7 +212,7 @@ void formatter_year (const char* dateString, char* yearFormat) throw (invalid_ar
 
     // Incorrect format entered
     else
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     strcpy (yearFormat, dateString);
 }
@@ -307,8 +307,8 @@ bool check_yearFormat (string dateString, const char* format, bool is_input)
  * Generate error messages for exceptions thrown
  * Error message includes type of exception, throwing function and line
  */
-const string create_message (const char* function, uint32_t line, string error_type)
+const string create_message (const char* function, uint32_t line, const char* filename, string error_type)
 {
-    string message = error_type + " at " + to_string (line) + ": " + function;
+    string message = error_type + " in " + filename + " at " + to_string (line) + ":\n" + function;
     return message;
 }

@@ -108,6 +108,6 @@ bool check_yearFormat (string dateString, const char* format, bool is_input = fa
  * Generate error messages for exceptions thrown
  * Error message includes type of exception, throwing function and line
  */
-const string create_message (const char* function, uint32_t line, string error_type);
+const string create_message (const char* function, uint32_t line, const char* filename, string error_type);
 
 #endif // _DATE_COMP_H_

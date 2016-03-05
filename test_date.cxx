@@ -17,7 +17,7 @@
 void testDateFormatConstructor()
 {
 	cout<<"Testing Date Format First Constructor true statements will be printed"<<endl<<endl;
-	const char*  day[]={"0","d","dd","abd","de"};
+	const char*  day[]={NULL,"d","dd","abd","de"};
 	const char*  month[]={"0","m","mm","mmm","ad","amm"};
 	const char* year[]={"0","yy","yyyy","as","ayyy"};
 	for(int i=0;i<5;++i){

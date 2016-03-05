@@ -45,7 +45,7 @@ DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const c
 {
     // Check for NULL inputs
     if (dateFormat == NULL || monthFormat == NULL || yearFormat == NULL)
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Date, Month and Year string formatters
     formatter_date (dateFormat, DateFormat::dateFormat);
@@ -62,7 +62,7 @@ DateFormat::DateFormat (const char* format) throw (invalid_argument)
 {
     // Check for NULL inputs
     if (format == NULL)
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Temperory format and date, month, year fields
     string tmp_field[3];

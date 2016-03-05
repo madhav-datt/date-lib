@@ -32,15 +32,15 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
 {
     // Throw exception if date or month are invalid
     if (is_valid_Arg (date, month) == false)
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Throw exception if (d, m, y) is not a valid date
     if (is_valid_Date (date, month, year) == false)
-        throw domain_error (create_message (__PRETTY_FUNCTION__, __LINE__, "Domain Error"));
+        throw domain_error (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Domain Error"));
 
     // Throw exception if date is out of range
     if (year >= 2050 || year <= 1949)
-        throw out_of_range (create_message (__PRETTY_FUNCTION__, __LINE__, "Out of Range"));
+        throw out_of_range (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Out of Range"));
 }
 
 /**
@@ -73,7 +73,7 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
     if (check_dateFormat (tmp_field[0], (*this).getFormat ().get_dateFormat ()) == true)
         date = stoi (tmp_field[0]);
     else
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
     if (check_monthFormat (tmp_field[1],  (*this).getFormat ().get_monthFormat ()) == true)
@@ -95,25 +95,25 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
             }
     }
     else
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
     if (check_yearFormat (tmp_field[2], (*this).getFormat ().get_yearFormat ()) == true)
         year = stoi (tmp_field[2]);
     else
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Throw exception if date or month are invalid
     if (is_valid_Arg (date, month) == false)
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Throw exception if (d, m, y) is not a valid date
     if (is_valid_Date (date, month, year) == false)
-        throw domain_error (create_message (__PRETTY_FUNCTION__, __LINE__, "Domain Error"));
+        throw domain_error (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Domain Error"));
 
     // Throw exception if date is out of range
     if (year >= 2050 || year <= 1949)
-        throw out_of_range (create_message (__PRETTY_FUNCTION__, __LINE__, "Out of Range"));
+        throw out_of_range (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Out of Range"));
 }
 
 /**
@@ -133,7 +133,7 @@ Date::Date () throw (domain_error, out_of_range)
 
     // Throw exception if date is out of range
     if (year >= 2050 || year <= 1949)
-        throw out_of_range (create_message (__PRETTY_FUNCTION__, __LINE__, "Out of Range"));
+        throw out_of_range (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Out of Range"));
 }
 
 /**
@@ -232,11 +232,11 @@ Date Date::operator+ (int noOfDays) throw (domain_error, out_of_range)
 
     // Throw exception if (d, m, y) is not a valid date
     if (is_valid_Date (shifted_Date.date, shifted_Date.month, shifted_Date.year) == false)
-        throw domain_error (create_message (__PRETTY_FUNCTION__, __LINE__, "Domain Error"));
+        throw domain_error (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Domain Error"));
 
     // Throw exception if date is out of range
     if (shifted_Date.year >= 2050 || shifted_Date.year <= 1949)
-        throw out_of_range (create_message (__PRETTY_FUNCTION__, __LINE__, "Out of Range"));
+        throw out_of_range (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Out of Range"));
 
     return shifted_Date;
 }
@@ -543,21 +543,21 @@ istream& operator>> (istream& is, Date& date_in)
     if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat (), true) == true)
         date_in.date = stoi (tmp_date);
     else
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
     // is_input flag set to true
     if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat (), true) == true)
         date_in.month = stoi (tmp_month);
     else
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
     // is_input flag set to true
     if (check_yearFormat (tmp_year, date_in.getFormat ().get_yearFormat (), true) == true)
         date_in.year = stoi (tmp_year);
     else
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, "Invalid Argument"));
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     return is;
 }
