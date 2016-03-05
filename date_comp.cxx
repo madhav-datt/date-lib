@@ -11,6 +11,7 @@
 #include <cstring>
 #include <cstdint>
 #include <regex>
+#include <cstdlib>
 #include <exception>
 
 #include "date_comp.h"

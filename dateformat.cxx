@@ -10,6 +10,7 @@
 #include <exception>
 #include <cstdio>
 #include <cstring>
+#include <cstdlib>
 #include <ctime>
 
 #include "date.h"
