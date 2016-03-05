@@ -80,8 +80,8 @@ int main (void)
     const char* day = "0";
     const char* month = "0";
     const char* year = "0";
-    DateFormat f(day,month,year);
+    //DateFormat f(day,month,year);
 //    DateFormat f(day,month,year);
-    //testDateFormatConstructor();
+    testDateFormatConstructor();
     return 0;
 }

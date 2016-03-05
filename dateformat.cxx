@@ -44,10 +44,6 @@ using namespace std;
  */
 DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) throw (invalid_argument)
 {
-    // Check for NULL inputs
-    if (dateFormat == NULL || monthFormat == NULL || yearFormat == NULL)
-        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
-
     // Date, Month and Year string formatters
     formatter_date (dateFormat, DateFormat::dateFormat);
     formatter_month (monthFormat, DateFormat::monthFormat);
@@ -108,9 +104,9 @@ DateFormat::DateFormat ()
  */
 DateFormat::~DateFormat ()
 {
-    delete[] dateFormat;
-    delete[] monthFormat;
-    delete[] yearFormat;
+//    delete[] dateFormat;
+//    delete[] monthFormat;
+//    delete[] yearFormat;
 }
 
 // Getter functions for private format specifying members

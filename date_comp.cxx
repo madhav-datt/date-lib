@@ -134,6 +134,10 @@ int number_of_weeks (uint32_t year)
  */
 void formatter_date (const char* dateString, char* dateFormat) throw (invalid_argument)
 {
+    // Check for NULL inputs
+    if (dateString == NULL)
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
+        
     // "d": single digit date in one digit, double digit date in two digits
     if (strcmp (dateString, "d") == 0)
         dateFormat = new char[2];
@@ -165,6 +169,10 @@ void formatter_date (const char* dateString, char* dateFormat) throw (invalid_ar
  */
 void formatter_month (const char* dateString, char* monthFormat) throw (invalid_argument)
 {
+    // Check for NULL inputs
+    if (dateString == NULL)
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
+
     // "m": single digit month in one digit, double digit month in two digits
     if (strcmp (dateString, "m") == 0)
         monthFormat = new char[2];
@@ -199,6 +207,10 @@ void formatter_month (const char* dateString, char* monthFormat) throw (invalid_
  */
 void formatter_year (const char* dateString, char* yearFormat) throw (invalid_argument)
 {
+    // Check for NULL inputs
+    if (dateString == NULL)
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
+
     // "yy": year in last two digits
     if (strcmp (dateString, "yy") == 0)
         yearFormat = new char[3];
