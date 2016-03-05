@@ -108,6 +108,8 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
+    // Check Initialized Date for errors
+    
     // Throw exception if date or month are invalid
     if (is_valid_Arg (date, month) == false)
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));

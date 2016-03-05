@@ -137,7 +137,7 @@ void formatter_date (const char* dateString, char* dateFormat) throw (invalid_ar
     // Check for NULL inputs
     if (dateString == NULL)
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
-        
+
     // "d": single digit date in one digit, double digit date in two digits
     if (strcmp (dateString, "d") == 0)
         dateFormat = new char[2];
@@ -322,6 +322,7 @@ bool check_yearFormat (string dateString, const char* format, bool is_input)
  */
 const string create_message (const char* function, uint32_t line, const char* filename, string error_type)
 {
+    // Concatenate details to generate error message
     string message = error_type + " in " + filename + " at " + to_string (line) + ":\n" + function;
     return message;
 }
