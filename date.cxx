@@ -510,7 +510,12 @@ ostream& operator<< (ostream& os, const Date& date_out)
     // Output YEAR as per Date::format
     // "yy": year in last two digits
     if (strcmp (date_out.getFormat ().get_yearFormat (), "yy") == 0)
-        os << "-" << (date_out.year % 100);
+    {
+        if (date_out.year % 100 < 10)
+            os << "-" << "0" << (date_out.year % 100);
+        else
+            os << "-" << (date_out.year % 100);
+    }
 
     // "yyyy": year in four digits
     else if (strcmp (date_out.getFormat ().get_yearFormat (), "yyyy") == 0)
