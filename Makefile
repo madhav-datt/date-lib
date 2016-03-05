@@ -16,13 +16,19 @@ CFLAGS  = -ggdb3 -std=c++11
 
 # target executable name
 #
-default: testdate
+default: tester
 
 # for executable file testdate
 # object files are date.o, date_comp.o:
 #
-testdate:  date.o date_comp.o dateformat.o
-	$(CC) $(CFLAGS) -o testdate date.o date_comp.o dateformat.o
+tester:  test_date.o date.o date_comp.o dateformat.o
+	$(CC) $(CFLAGS) -o tester test_date.o date.o date_comp.o dateformat.o
+
+# for object file test_date.o
+# source files test_date.cxx, date.h:
+#
+test_date.o:  test_date.cxx date.h
+	$(CC) $(CFLAGS) -c test_date.cxx
 
 # for object file date.o
 # source files date.cxx, dateformat.cxx, date.h:
