@@ -21,19 +21,25 @@ default: testdate
 # for executable file testdate
 # object files are date.o, date_comp.o:
 #
-testdate:  date.o date_comp.o
-	$(CC) $(CFLAGS) -o testdate date.o date_comp.o
+testdate:  date.o date_comp.o dateformat.o
+	$(CC) $(CFLAGS) -o testdate date.o date_comp.o dateformat.o
 
 # for object file date.o
 # source files date.cxx, dateformat.cxx, date.h:
 #
-date.o:  date.cxx dateformat.cxx date.h date_comp.h
-	$(CC) $(CFLAGS) -c date.cxx dateformat.cxx
+date.o:  date.cxx date.h date_comp.h
+	$(CC) $(CFLAGS) -c date.cxx
+
+# for object file dateformat.o
+# source files dateformat.cxx, date.h, date_comp.h:
+#
+dateformat.o:  dateformat.cxx date.h date_comp.h
+	$(CC) $(CFLAGS) -c dateformat.cxx
 
 # for object file date_comp.o
 # source files date_comp.cxx, date_comp.h:
 #
-date_comp.o:  date_comp.cxx date_comp.h date.h
+date_comp.o:  date_comp.cxx date.h date_comp.h
 	$(CC) $(CFLAGS) -c date_comp.cxx
 
 # remove old *.o object files and *~ backup files:
