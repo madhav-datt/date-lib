@@ -512,6 +512,7 @@ ostream& operator<< (ostream& os, const Date& date_out)
     if (strcmp (date_out.getFormat ().get_yearFormat (), "yy") == 0)
     {
         if (date_out.year % 100 < 10)
+            // Format single digit with 0 as prefix
             os << "-" << "0" << (date_out.year % 100);
         else
             os << "-" << (date_out.year % 100);
