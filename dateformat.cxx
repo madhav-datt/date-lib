@@ -42,7 +42,8 @@ using namespace std;
  * Constructor for DateFormat Class
  * Convert passed to dateFormat, monthFormat, yearFormat to accepted formatting
  */
-DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) throw (invalid_argument)
+DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat) throw (invalid_argument) :
+dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
 {
     // Date, Month and Year string formatters
     formatter_date (dateFormat, DateFormat::dateFormat);
@@ -55,7 +56,8 @@ DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const c
  * dateFormat, monthFormat, and yearFormat separated by ’-’
  * "dd-mmm-yy", "d-mm-yyyy", etc. formats
  */
-DateFormat::DateFormat (const char* format) throw (invalid_argument)
+DateFormat::DateFormat (const char* format) throw (invalid_argument) :
+dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
 {
     // Check for NULL inputs
     if (format == NULL)
@@ -104,9 +106,14 @@ DateFormat::DateFormat ()
  */
 DateFormat::~DateFormat ()
 {
-//    delete[] dateFormat;
-//    delete[] monthFormat;
-//    delete[] yearFormat;
+    if (dateFormat != NULL)
+        delete[] dateFormat;
+
+    if (monthFormat != NULL)
+        delete[] monthFormat;
+
+    if (yearFormat != NULL)
+        delete[] yearFormat;
 }
 
 // Getter functions for private format specifying members

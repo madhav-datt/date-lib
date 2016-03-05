@@ -55,6 +55,10 @@ Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_o
  */
 Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_range)
 {
+    // Check for NULL values
+    if (date_in == NULL)
+        throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
+
     // Temperory format and date, month, year fields
     string tmp_field[3];
     string tmp_format (date_in);
