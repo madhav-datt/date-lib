@@ -12,7 +12,7 @@ CC = g++
 
 # flags to pass compiler
 #
-CFLAGS  = -ggdb3 -O0 -std=c++11
+CFLAGS  = -ggdb3 -std=c++11
 
 # target executable name
 #
@@ -27,13 +27,13 @@ testdate:  date.o date_comp.o
 # for object file date.o
 # source files date.cxx, dateformat.cxx, date.h:
 #
-date.o:  date.cxx dateformat.cxx date.h
+date.o:  date.cxx dateformat.cxx date.h date_comp.h
 	$(CC) $(CFLAGS) -c date.cxx dateformat.cxx
 
 # for object file date_comp.o
 # source files date_comp.cxx, date_comp.h:
 #
-date_comp.o:  date_comp.cxx date_comp.h
+date_comp.o:  date_comp.cxx date_comp.h date.h
 	$(CC) $(CFLAGS) -c date_comp.cxx
 
 # remove old *.o object files and *~ backup files:

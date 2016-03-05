@@ -17,5 +17,6 @@
 int main (void)
 {
     Date a (static_cast<Day> (2), static_cast<Month> (5),2007);
+    cout << a << "\n";
     return 0;
 }

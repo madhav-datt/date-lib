@@ -111,7 +111,7 @@ DateFormat::~DateFormat ()
  */
 char* DateFormat::get_dateFormat () const
 {
-    return dateFormat;
+    return DateFormat::dateFormat;
 }
 
 /**
@@ -119,7 +119,7 @@ char* DateFormat::get_dateFormat () const
  */
 char* DateFormat::get_monthFormat () const
 {
-    return monthFormat;
+    return DateFormat::monthFormat;
 }
 
 /**
@@ -127,5 +127,5 @@ char* DateFormat::get_monthFormat () const
  */
 char* DateFormat::get_yearFormat () const
 {
-    return yearFormat;
+    return DateFormat::yearFormat;
 }
