@@ -92,7 +92,7 @@ dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
  */
 DateFormat::DateFormat ()
 {
-    // Date, Month and Year string formatters
+    // Date, Month and Year string formatters with default "dd", "mmm", "yy" values
     formatter_date ("dd", &dateFormat);
     formatter_month ("mmm", &monthFormat);
     formatter_year ("yy", &yearFormat);

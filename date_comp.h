@@ -64,7 +64,7 @@ int number_of_weeks (uint32_t year);
  * "d": single digit date in one digit, double digit date in two digits (7, 23)
  * "dd": all dates in two digits with single digit dates with leading 0 (07, 23)
  */
-void formatter_date (const char* dateString, char* dateFormat) throw (invalid_argument);
+void formatter_date (const char* dateString, char** dateFormatter) throw (invalid_argument);
 
 /**
  * Month formatter function
@@ -76,7 +76,7 @@ void formatter_date (const char* dateString, char* dateFormat) throw (invalid_ar
  * "mm": all months in two digits with single digit months with leading 0 (02, 11)
  * "mmm": each month with first three letters of its name (Feb, Nov). This is valid for output only.
  */
-void formatter_month (const char* dateString, char* monthFormat) throw (invalid_argument);
+void formatter_month (const char* dateString, char** monthFormatter) throw (invalid_argument);
 
 /**
  * Year formatter function
@@ -87,7 +87,7 @@ void formatter_month (const char* dateString, char* monthFormat) throw (invalid_
  * "yy": year in last two digits (1961 as 61, 2016 as 16)
  * "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
  */
-void formatter_year (const char* dateString, char* yearFormat) throw (invalid_argument);
+void formatter_year (const char* dateString, char** yearFormatter) throw (invalid_argument);
 
 /**
  * Check if passed dateString matches format value for field date
