@@ -43,6 +43,11 @@ int main (void)
 	//cout << Date::getFormat().get_dateFormat () << " " << Date::getFormat().get_monthFormat () << " " << Date::getFormat().get_yearFormat ();
 	Date a ("01-01-00");
 	Date b;
+
+	testAddNumberOfDays(b, -25);
+	testDifferenceOperator(b, a);
+	testLeapYear(a);
+
 //Date(D01,Jan,1950);
 //cout << Date(D01,Jan,1950);
 
