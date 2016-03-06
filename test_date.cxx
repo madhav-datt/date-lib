@@ -304,6 +304,7 @@ void Date_operator1 ()
 	Date::setFormat (form);
 
 	Date date_orig (D21, Mar, 1998);
+	Date date_copy;
 	date_copy = date_orig;
 
 	cout << "date_orig = " << date_orig
@@ -325,8 +326,23 @@ void Date_operator2 ()
 	for (int i = 0; i < 6; i++)
 	{
 		cout << "++ (" << datelist[i] << ") = ";
-		++datelist[i];
-		cout << datelist[i] << "\n";
+		try
+		{
+			++datelist[i];
+			cout << datelist[i] << "\n";
+		}
+		catch (invalid_argument e)
+		{
+			cout << e.what () <<"\n";
+		}
+		catch (domain_error e)
+		{
+			cout << e.what () <<"\n";
+		}
+		catch (out_of_range e)
+		{
+			cout << e.what () <<"\n";
+		}
 	}
 
 	cout << "\n\n";
@@ -345,8 +361,23 @@ void Date_operator3 ()
 	for (int i = 0; i < 6; i++)
 	{
 		cout << "(" << datelist[i] << ") ++ = ";
-		datelist[i]++;
-		cout << datelist[i] << "\n";
+		try
+		{
+			datelist[i]++;
+			cout << datelist[i] << "\n";
+		}
+		catch (invalid_argument e)
+		{
+			cout << e.what () <<"\n";
+		}
+		catch (domain_error e)
+		{
+			cout << e.what () <<"\n";
+		}
+		catch (out_of_range e)
+		{
+			cout << e.what () <<"\n";
+		}
 	}
 
 	cout << "\n\n";
@@ -365,8 +396,23 @@ void Date_operator4 ()
 	for (int i = 0; i < 6; i++)
 	{
 		cout << "-- (" << datelist[i] << ") = ";
-		--datelist[i];
-		cout << datelist[i] << "\n";
+		try
+		{
+			--datelist[i];
+			cout << datelist[i] << "\n";
+		}
+		catch (invalid_argument e)
+		{
+			cout << e.what () <<"\n";
+		}
+		catch (domain_error e)
+		{
+			cout << e.what () <<"\n";
+		}
+		catch (out_of_range e)
+		{
+			cout << e.what () <<"\n";
+		}
 	}
 
 	cout << "\n\n";
@@ -385,8 +431,23 @@ void Date_operator5 ()
 	for (int i = 0; i < 6; i++)
 	{
 		cout << "(" << datelist[i] << ") -- = ";
-		datelist[i]--;
-		cout << datelist[i] << "\n";
+		try
+		{
+			datelist[i]--;
+			cout << datelist[i] << "\n";
+		}
+		catch (invalid_argument e)
+		{
+			cout << e.what () <<"\n";
+		}
+		catch (domain_error e)
+		{
+			cout << e.what () <<"\n";
+		}
+		catch (out_of_range e)
+		{
+			cout << e.what () <<"\n";
+		}
 	}
 
 	cout << "\n\n";
