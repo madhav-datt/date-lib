@@ -266,6 +266,15 @@ Date::operator WeekNumber () const
 {
     int week_num;
 
+    // Handle beginning of domain (underflow) cases - 1,2,3rd Jan, 1950
+    if (year == 1950 && month == 1)
+    {
+        if (date == 1)
+            return static_cast<WeekNumber> (52);
+        else if (date == 2 || date == 3)
+            return static_cast<WeekNumber> (1);
+    }
+
     // Find first Thursday of year
     Date year_start (static_cast<Day> (1), static_cast<Month> (1), year);
     while ((WeekDay)year_start != 4)
@@ -288,6 +297,10 @@ Date::operator WeekNumber () const
     // Year end falls in next years first week
     if (week_num = number_of_weeks (year))
     {
+        // Handle end of domain (overflow) cases
+        if (year == 2049)
+            return static_cast<WeekNumber> (week_num);
+
         Date next_year (static_cast<Day> (1), static_cast<Month> (1), year + 1);
         int weekStart = (WeekDay)next_year;
 
