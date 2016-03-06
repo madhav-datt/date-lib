@@ -113,7 +113,7 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
     if (year < 50)
         // For years 2000 to 2049
         year = year + 2000;
-    else if (year < 99)
+    else if (year <= 99)
         // For year 1950 to 1999
         year = year + 1900;
 
@@ -259,7 +259,7 @@ Date Date::operator+ (int noOfDays) throw (domain_error, out_of_range)
 
 // Implementation of CAST OPERATORS
 
-/**
+/** TODO
  * Cast current date to week number of the year
  */
 Date::operator WeekNumber () const
@@ -443,7 +443,8 @@ Date Date::to_Date (uint32_t num_days)
 
     // Close approximation for the year given a number of days
     // y = num_days / 365.2425 (Considers leap years)
-    y = (10000 * num_days + 14780) / 3652425;
+    uint64_t day_mult = (10000 * num_days + 14780);
+    y = num_days / 365.2425 + 14780.0 / 3652425.0;
 
     // Total days in given years from Reference = 365 * year + year / 4 - year / 100 + year / 400
     // Removing years from total days from Reference

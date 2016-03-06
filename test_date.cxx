@@ -14,101 +14,25 @@
 
 #include "date.h"
 
-void testDateConstructor(){
-
-	// cout<<"Testing Date Format First Constructor(Day,Month,Year) true statements will be printed"<<endl<<endl;
-	//
-	// Day day[]={D01,D15,D28,D29,D30,D31};
-	// Month month[]={Jan,Feb,Jul,Aug,Nov};
-	// Year year[]={1949,1950,2000,2049,2050};
-	//
-	// for(int i=0;i<6;++i){
-	// 	for(int j=0;j<5;++j){
-	// 		for(int k=0;k<5;++k){
-	// 			try{
-	// 				Date d(day[i],month[j],year[k]);
-	// 				cout<<"Date type constructed"<<" with day- "<<day[i]<<" month- "<<month[j]<<" year- "<<year[k]<<endl;
-	// 			}
-	// 			catch(invalid_argument e){
-	// 				cout<<"***ERROR invalid_argument- "<<e.what()<<" with day- "<<day[i]<<" month- "<<month[j]<<" year- "<<year[k]<<endl;
-	// 			}
-	// 			catch(domain_error e){
-	// 				cout<<"***ERROR domain_error- "<<e.what()<<" with day- "<<day[i]<<" month- "<<month[j]<<" year- "<<year[k]<<endl;
-	// 			}
-	// 			catch(out_of_range e){
-	// 				cout<<"***ERROR out_of_range-"<<e.what()<<" with day- "<<day[i]<<" month- "<<month[j]<<" year- "<<year[k]<<endl;
-	// 			}
-	// 		}
-	// 	}
-	// }
-	//
-	// cout<<endl;
-	cout<<"Testing Format not meant for input true statements will be printed"<<endl<<endl;
-	DateFormat formats[]={DateFormat("dd-mm-yy")};//,DateFormat("0","mm","yy"),DateFormat("dd","0","yy"),DateFormat("dd","mmm","yy"),DateFormat("dd","mm","0")};
-	for(int i=0;i<1;++i){
-		Date::setFormat(formats[i]);
-		try{
-
-			Date d("12-03-99");
-		}
-		catch(invalid_argument e){
-			cout<<"***ERROR invalid_argument- "<<e.what()<<endl;
-
-		}
-		catch(domain_error e){
-			cout<<"***ERROR domain_error- "<<e.what()<<endl;
-		}
-		catch(out_of_range e){
-			cout<<"***ERROR out_of_range- "<<e.what()<<endl;
-		}
-		catch(exception e){
-			cout<<"***ERROR Unknow Exception"<<endl;
-		}
-		try{
-			Date d("12-Jan-99");
-		}
-		catch(invalid_argument e){
-			cout<<"***ERROR invalid_argument- "<<e.what()<<endl;
-
-		}
-		catch(domain_error e){
-			cout<<"***ERROR domain_error- "<<e.what()<<endl;
-		}
-		catch(out_of_range e){
-			cout<<"***ERROR out_of_range- "<<e.what()<<endl;
-		}
-		catch(exception e){
-			cout<<"***ERROR Unknow Exception"<<endl;
-		}
-	}
-
-
-	try{
-
-			cout<<"up";
-		}
-		catch(invalid_argument e){
-			cout<<"***ERROR invalid_argument- "<<e.what()<<endl;
-
-		}
-		catch(domain_error e){
-			cout<<"***ERROR domain_error- "<<e.what()<<endl;
-		}
-		catch(out_of_range e){
-			cout<<"***ERROR out_of_range- "<<e.what()<<endl;
-		}
-		catch(exception e){
-			cout<<"***ERROR Unknow Exception"<<endl;
-		}
-
+void testAddNumberOfDays(Date & d1, int days){
+	cout<<"Testing Adding Number Of Days true statements will be printed"<<endl<<endl;
+	cout<<d1<<" + "<<days<<" is "<<(d1+days);
 	cout<<endl;
-
-	DateFormat f("d-mm-yyyy");
-	Date::setFormat(f);
-	cout<<"Testing Date Format Second Constructor(const char *) with input format dd-mm-yyyy true statements will be printed"<<endl<<endl;
-	string days[]={"1-","1","28-","29-","30-","31-","32-"};
-	string months[]={"1-","2","01-","12-","13-"};
-	string years[]={"1949","99","1950","2016","2049","2050"};
+}
+void testDifferenceOperator(Date & d1,Date & d2){
+	cout<<"Testing Difference in days true statements will be printed"<<endl<<endl;
+	cout<<d1<<" - "<<d2<<" is "<<(d1-d2);
+	cout<<d2<<" - "<<d1<<" is "<<(d2-d1);
+	cout<<endl;
+}
+void testLeapYear(Date & d1){
+	cout<<"Testing LeapYear Function true statements will be printed"<<endl<<endl;
+	if(d1.leapYear()){
+		cout<<d1<<" is a leap year"<<endl;
+	}else{
+		cout<<d1<<" is not a leap year"<<endl;
+	}
+	cout<<endl;
 }
 
 int main (void)
@@ -117,8 +41,42 @@ int main (void)
 	DateFormat f("dd-mm-yy");
 	Date::setFormat(f);
 	//cout << Date::getFormat().get_dateFormat () << " " << Date::getFormat().get_monthFormat () << " " << Date::getFormat().get_yearFormat ();
-	Date a ("03-04-13");
-    cout << a << "\n\n";
+	Date a ("01-01-00");
+	Date b;
+//Date(D01,Jan,1950);
+//cout << Date(D01,Jan,1950);
+
+	    //cout<<Date(D01,Jan,1950)<<"->"<<(WeekNumber) Date(D01,Jan,1950)<< endl;
+//        cout<<Date("01-01-53")<<"->"<<(WeekNumber) Date("01-01-53")<< endl;
+        //  cout<<Date(D31,Dec,1983)<<"->"<<(WeekNumber) Date(D31,Dec,1983)<< endl;
+        //  cout<<Date(D02,Jan,1990)<<"->"<<(WeekNumber) Date(D02,Jan,1990)<< endl;
+        //  cout<<Date(D30,Dec,1999)<<"->"<<(WeekNumber) Date(D30,Dec,1999)<< endl;
+        //  cout<<Date(D19,May,2000)<<"->"<<(WeekNumber) Date(D19,May,2000)<< endl;
+        //  cout<<Date(D03,Jan,2007)<<"->"<<(WeekNumber) Date(D03,Jan,2007)<< endl;
+        //  cout<<Date(D25,May,2014)<<" -> "<<(WeekNumber) Date(D25,May,2014)<< endl;
+        //  cout<<Date(D01,Jan,2020)<<"->"<<(WeekNumber) Date(D01,Jan,2020)<< endl;
+        //  cout<<Date(D29,Dec,2030)<<"->"<<(WeekNumber) Date(D29,Dec,2030)<< endl;
+        //  cout<<Date(D05,Jan,2038)<<"->"<<(WeekNumber) Date(D05,Jan,2038)<< endl;
+        //  cout<<Date(D29,Dec,2049)<<"->"<<(WeekNumber) Date(D29,Dec,2049)<< endl;
+
+//	cout << a.to_days() << "\n" << Date::to_Date (a.to_days());
+//	++a;
+//	cout << a << "\n";
+//	--a;
+	//cout << a << "\n";
+	// cout << b << "\n";
+	// b++;
+	// cout << b << "\n";
+	// b--;
+	// cout << b << "\n";
+	// ++b;
+	// cout << b << "\n";
+	// --b;
+	// cout << b << "\n";
+	//test (b);
+
+//testCopyAssignment(b, a);
+    //cout << a << "\n\n";
     //testDateConstructor();
     return 0;
 }

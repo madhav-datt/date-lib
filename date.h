@@ -186,7 +186,7 @@ private:
 
     // NEW FUNCTIONS DEFINED
     // Functions to help in computation of operator results, improve efficiency
-
+public:
     // Give number of days from YEAR 0 (Reference Date Point) to (d, m, y) Date
     // Constant time algorithms for efficiency
     // End date is excluded in calculation
@@ -195,7 +195,7 @@ private:
     // Give Date based on number of days from YEAR 0 (Reference Date Point)
     // Constant time algorithms for efficiency
     // End date is excluded in calculation
-    Date to_Date (uint32_t num_days);
+    static Date to_Date (uint32_t num_days);
 };
 
 #endif // _DATE_H_
