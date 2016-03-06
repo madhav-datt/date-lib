@@ -151,10 +151,10 @@ public:
     Date operator+ (int noOfDays) throw (domain_error, out_of_range);
 
     // CAST OPERATORS
-    operator WeekNumber() const; // Cast to the week number of the year in which the current date falls
-    operator Month() const; // Cast to the month of the year in which the current date falls
-    operator WeekDay() const; // Cast to the day of the week of the current date
-    bool leapYear() const; // True if the year of the current date is a leap year
+    operator WeekNumber () const; // Cast to the week number of the year in which the current date falls
+    operator Month () const; // Cast to the month of the year in which the current date falls
+    operator WeekDay () const; // Cast to the day of the week of the current date
+    bool leapYear () const; // True if the year of the current date is a leap year
 
     // BINARY RELATIONAL OPERATORS
     bool operator== (const Date& otherDate);

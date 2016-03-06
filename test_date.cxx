@@ -465,6 +465,53 @@ void Date_operator5 ()
 	cout << "\n\n";
 }
 
+/**
+ * Test operator WeekNumber () const
+ * Test operator Month () const
+ * Test operator WeekDay () const
+ */
+void Date_cast ()
+{
+	cout << "Testing Date& operator-- (int)\n\n";
+
+	DateFormat form ("dd-mm-yyyy");
+	Date::setFormat (form);
+
+	// Input array
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1950), Date (D28, Feb, 1998), Date (D22, Jun, 2014), Date (D31, Dec, 2004), Date (D03, Sep, 2007), Date (D27, Mar, 2015), Date (D19, Oct, 2004)};
+
+	for (int i = 0; i < 8; i++)
+	{
+		
+	}
+
+	cout << "\n\n";
+}
+
+/**
+ * Test bool leapYear () const
+ */
+void Date_leap ()
+{
+	cout << "Testing bool leapYear () const\n\n";
+
+	DateFormat form ("dd-mm-yyyy");
+	Date::setFormat (form);
+
+	// Input array
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1950), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D19, Oct, 2004)};
+
+	for (int i = 0; i < 6; i++)
+	{
+		if (datelist[i].leapYear ())
+			cout << datelist[i] << "is a leap year\n";
+		else
+			cout << datelist[i] << "is not a leap year\n";
+	}
+
+	cout << "\n\n";
+}
+
 int main (void)
 {
 	// Calling unit test functions
