@@ -244,7 +244,7 @@ bool check_dateFormat (string dateString, const char* format, bool is_input)
 
     // "dd": all dates in two digits with single digit dates with leading 0
     if (strcmp (format, "dd") == 0)
-        if (regex_match (dateString, regex ("0[1-9]|[1-3][0-9]")) == true)
+        if (regex_match (dateString, regex ("[0-3][0-9]")) == true)
             flag = true;
 
     // 0: No date
@@ -269,7 +269,7 @@ bool check_monthFormat (string dateString, const char* format, bool is_input)
 
     // "mm": all months in two digits with single digit months with leading 0
     if (strcmp (format, "mm") == 0)
-        if (regex_match (dateString, regex ("0[1-9]|1[0-2]")) == true)
+        if (regex_match (dateString, regex ("[0-1][1-9]")) == true)
             flag = true;
 
     // "mmm": each month with first three letters of its name
@@ -304,7 +304,7 @@ bool check_yearFormat (string dateString, const char* format, bool is_input)
 
     // "yyyy": year in four digits
     if (strcmp (format, "yyyy") == 0)
-        if (regex_match (dateString, regex ("[1-2][09][0-9][0-9]")) == true)
+        if (regex_match (dateString, regex ("[1-9][0-9][0-9][0-9]")) == true)
             flag = true;
 
     // 0: No year
