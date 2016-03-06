@@ -235,7 +235,7 @@ Date& Date::operator-- (int)
  */
 unsigned int Date::operator- (const Date& otherDate)
 {
-    return abs (this -> to_days () - otherDate.to_days ());
+    return (this -> to_days () > otherDate.to_days ()) ? (this -> to_days () - otherDate.to_days ()) : (otherDate.to_days () - this -> to_days ());
 }
 
 /**
@@ -259,7 +259,7 @@ Date Date::operator+ (int noOfDays) throw (domain_error, out_of_range)
 
 // Implementation of CAST OPERATORS
 
-/** TODO
+/**
  * Cast current date to week number of the year
  */
 Date::operator WeekNumber () const
@@ -283,6 +283,20 @@ Date::operator WeekNumber () const
         week_num = number_of_weeks (year - 1);
     else
         week_num = static_cast<int> (num_days / 7) + 1;
+
+    // Handle end of year special case
+    // Year end falls in next years first week
+    if (week_num = number_of_weeks (year))
+    {
+        Date next_year (static_cast<Day> (1), static_cast<Month> (1), year + 1);
+        int weekStart = (WeekDay)next_year;
+
+        // Consider days at end of year, falling in the first week of next year
+        // If year yyyy starts with a Tuesday, then 31/12/(yyyy-1) is a Monday, in week 1 of yyyy
+        if (weekStart > 1 && weekStart <= 4)
+            if (next_year - (*this) < weekStart)
+                week_num = 1;
+    }
 
     return static_cast<WeekNumber> (week_num);
 }
