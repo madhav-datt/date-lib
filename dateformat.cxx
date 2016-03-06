@@ -46,9 +46,9 @@ DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const c
 dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
 {
     // Date, Month and Year string formatters
-    formatter_date (dateFormat, DateFormat::dateFormat);
-    formatter_month (monthFormat, DateFormat::monthFormat);
-    formatter_year (yearFormat, DateFormat::yearFormat);
+    formatter_date (dateFormat, &DateFormat::dateFormat);
+    formatter_month (monthFormat, &DateFormat::monthFormat);
+    formatter_year (yearFormat, &DateFormat::yearFormat);
 }
 
 /**
@@ -79,9 +79,9 @@ dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
     }
 
     // Date, Month and Year string formatters
-    formatter_date (tmp_field[0].c_str (), dateFormat);
-    formatter_month (tmp_field[1].c_str (), monthFormat);
-    formatter_year (tmp_field[2].c_str (), yearFormat);
+    formatter_date (tmp_field[0].c_str (), &dateFormat);
+    formatter_month (tmp_field[1].c_str (), &monthFormat);
+    formatter_year (tmp_field[2].c_str (), &yearFormat);
 
     cout << dateFormat << "hi" << "\n";
 }
@@ -92,15 +92,10 @@ dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
  */
 DateFormat::DateFormat ()
 {
-    // Allocate space for data members
-    dateFormat = new char[3];
-    monthFormat = new char[4];
-    yearFormat = new char[3];
-
-    // Create format as dd-mmm-yy
-    strcpy (dateFormat, "dd");
-    strcpy (monthFormat, "mmm");
-    strcpy (yearFormat, "yy");
+    // Date, Month and Year string formatters
+    formatter_date ("dd", &dateFormat);
+    formatter_month ("mmm", &monthFormat);
+    formatter_year ("yy", &yearFormat);
 }
 
 /**
