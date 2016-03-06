@@ -46,9 +46,9 @@ DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const c
 dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
 {
     // Date, Month and Year string formatters
-    formatter_date (dateFormat, &DateFormat::dateFormat);
-    formatter_month (monthFormat, &DateFormat::monthFormat);
-    formatter_year (yearFormat, &DateFormat::yearFormat);
+    formatter_date (dateFormat, &(DateFormat::dateFormat));
+    formatter_month (monthFormat, &(DateFormat::monthFormat));
+    formatter_year (yearFormat, &(DateFormat::yearFormat));
 }
 
 /**
@@ -82,8 +82,6 @@ dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
     formatter_date (tmp_field[0].c_str (), &dateFormat);
     formatter_month (tmp_field[1].c_str (), &monthFormat);
     formatter_year (tmp_field[2].c_str (), &yearFormat);
-
-    cout << dateFormat << "hi" << "\n";
 }
 
 /**

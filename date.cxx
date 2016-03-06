@@ -77,7 +77,7 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
 
     // Check format for date from string against Date::format
     if (check_dateFormat (tmp_field[0], (*this).getFormat ().get_dateFormat ()) == true)
-        date = stoi (tmp_field[0]);
+        date = atoi (tmp_field[0]);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
@@ -86,7 +86,7 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
     {
         // If Month is in numberical form
         if (strcmp ((*this).getFormat ().get_monthFormat (), "m") == 0 || strcmp ((*this).getFormat ().get_monthFormat (), "mm") == 0)
-            month = stoi (tmp_field[1]);
+            month = atoi (tmp_field[1]);
 
         // If Month name/full name is used
         else
@@ -105,9 +105,17 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
 
     // Check format for month from string against Date::format
     if (check_yearFormat (tmp_field[2], (*this).getFormat ().get_yearFormat ()) == true)
-        year = stoi (tmp_field[2]);
+        year = atoi (tmp_field[2]);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
+
+    // Convert 2 digit year (in "yy" format) to full 2 digit year values
+    if (year < 50)
+        // For years 2000 to 2049
+        year = year + 2000;
+    else if (year < 99)
+        // For year 1950 to 1999
+        year = year + 1900;
 
     // Check Initialized Date for errors
 

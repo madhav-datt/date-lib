@@ -116,10 +116,8 @@ int main (void)
     //Date a (static_cast<Day> (2), static_cast<Month> (5),2007);
 	DateFormat f("dd-mm-yy");
 	Date::setFormat(f);
-	if (f.get_dateFormat () == NULL)
-	cout << "gg";
-	//cout << Date::getFormat().get_dateFormat ();// << " " << Date::getFormat().get_monthFormat () << " " << Date::getFormat().get_yearFormat ();
-	//Date a ("03-04-13");
+	//cout << Date::getFormat().get_dateFormat () << " " << Date::getFormat().get_monthFormat () << " " << Date::getFormat().get_yearFormat ();
+	Date a ("03-04-13");
     //cout << a << "\n\n";
     //testDateConstructor();
     return 0;
