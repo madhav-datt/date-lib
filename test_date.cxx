@@ -37,7 +37,7 @@ void DateFormat_Constructor1 ()
 				try
 				{
 					DateFormat format_test (date[i], month[j], year[k]);
-					cout << "DateFormat object constructed: " << date[i] << " " << month[j] << " " << year[k] << "\n";
+					cout << "***** DateFormat object constructed: " << date[i] << " " << month[j] << " " << year[k] << "\n";
 				}
 				catch (invalid_argument e)
 				{
@@ -63,7 +63,7 @@ void DateFormat_Constructor1 ()
 				try
 				{
 					DateFormat format_test (date[i], month[j], year[k]);
-					cout << "DateFormat object constructed: " << ((date[i] != NULL) ? date[i] : "NULL") << " "
+					cout << "***** DateFormat object constructed: " << ((date[i] != NULL) ? date[i] : "NULL") << " "
 					<< ((month[j] != NULL) ? month[j] : "NULL") << " " << ((year[k] != NULL) ? year[k] : "NULL") << "\n";
 				}
 				catch (invalid_argument e)
@@ -114,7 +114,7 @@ void DateFormat_Constructor2 ()
 					strcat (format_string, year[i]);
 
 					DateFormat format_test (format_string);
-					cout << "DateFormat object constructed: " << date[i] << month[j] << year[k] << "\n";
+					cout << "***** DateFormat object constructed: " << date[i] << month[j] << year[k] << "\n";
 				}
 				catch (invalid_argument e)
 				{
@@ -145,7 +145,7 @@ void DateFormat_Constructor2 ()
 					strcat (format_string, year[i]);
 
 					DateFormat format_test (format_string);
-					cout << "DateFormat object constructed: " << date[i] << month[j] << year[k] << "\n";
+					cout << "***** DateFormat object constructed: " << date[i] << month[j] << year[k] << "\n";
 				}
 				catch (invalid_argument e)
 				{
@@ -173,7 +173,7 @@ void DateFormat_Constructor3 ()
 {
 	cout << "Testing DateFormat::DateFormat ()\n\n";
 	DateFormat format_test;
-	cout << "Default DateFormat Constructed " << format_test.get_dateFormat () << " " << format_test.get_monthFormat () << " " << format_test.get_yearFormat ();
+	cout << "***** Default DateFormat Constructed " << format_test.get_dateFormat () << " " << format_test.get_monthFormat () << " " << format_test.get_yearFormat ();
 	cout << "\n\n";
 }
 
@@ -189,6 +189,9 @@ void Date_Constructor1 ()
 	int month[] = {1, 3, 8, 12, 2, 0};
 	int year[] = {1950, 2000, 2010, 2049, 1949, 2050};
 
+	DateFormat form ("dd-mm-yyyy");
+	Date::setFormat (form);
+
 	// Iterate over all acceptable/mon-acceptable dates and create Date Object/throw exceptions
 	for (int i = 0; i < 7; i++)
 		for (int j = 0; j < 6; j++)
@@ -197,7 +200,7 @@ void Date_Constructor1 ()
 				try
 				{
 					Date test_date (static_cast<Day> (date[i]), static_cast<Month> (month[j]), year[k]);
-					cout << "Date object constructed: " << test_date << "\n";
+					cout << "***** Date object constructed: " << test_date << "\n";
 				}
 				catch (invalid_argument e)
 				{
@@ -223,6 +226,36 @@ void Date_Constructor2 ()
 {
 	cout << "Testing Date::Date (const char* date)\n\n";
 
+	// Array of formats
+	DateFormat formatter[] = {DateFormat ("dd", "m", "yy"), DateFormat("d", "mm", "yy"), DateFormat("d", "m", "yyyy"), DateFormat ("dd", "0", "yyyy")};
+
+	// String to hold concatenation of various input types
+	const char* format_string[] = {"1-01-19", "01-1-19", "01-01-19", "20-11-2050", "20-0-2010"};
+
+	// Create Date object with multiple DateFormat formats and throw exceptions
+	for (int k = 0; k < 4; k++)
+		for (int i = 0; i < 5; i++)
+		{
+			try
+			{
+				Date::setFormat (formatter[k]);
+				Date test_date (format_string[i]);
+				cout << "***** Date object constructed: " << test_date << "\n";
+			}
+			catch (invalid_argument e)
+			{
+				cout << e.what () << " with inputs " << format_string[i] << "\n";
+			}
+			catch (domain_error e)
+			{
+				cout << e.what () << " with inputs " << format_string[i] << "\n";
+			}
+			catch (out_of_range e)
+			{
+				cout << e.what () << " with inputs " << format_string[i] << "\n";
+			}
+		}
+
 	cout << "\n\n";
 }
 
@@ -238,7 +271,7 @@ void Date_Constructor3 ()
 	Date::setFormat (form);
 	Date date_test;
 
-	cout << "Default Date (Today's) Constructed " << date_test;
+	cout << "***** Default Date (Today's) Constructed " << date_test;
 	cout << "\n\n";
 }
 
@@ -256,7 +289,7 @@ void Date_Constructor4 ()
 	Date date_orig (D21, Mar, 1998);
 	Date date_copy (date_orig);
 
-	cout << "Copy Date (Copy of 21-Mar-1998) Constructed " << date_copy;
+	cout << "***** Copy Date (Copy of 21-Mar-1998) Constructed " << date_copy;
 	cout << "\n\n";
 }
 
@@ -266,7 +299,7 @@ int main (void)
 
 	// DateFormat Constructors
 	DateFormat_Constructor1 ();
-	DateFormat_Constructor2 ();
+//	DateFormat_Constructor2 ();
 	DateFormat_Constructor3 ();
 
 	// Date Constructors
@@ -277,9 +310,14 @@ int main (void)
 
 	// Other tested functionalities
 	cout << "Other Functionalities Tested through Test DateFormat::DateFormat ():\n"
-	<< "char* DateFormat::get_dateFormat () const;\n"
-	<< "char* DateFormat::get_monthFormat () const;\n"
-	<< "char* DateFormat::get_yearFormat () const;\n\n";
+	<< "\tchar* DateFormat::get_dateFormat () const;\n"
+	<< "\tchar* DateFormat::get_monthFormat () const;\n"
+	<< "\tchar* DateFormat::get_yearFormat () const;\n\n";
+
+	cout << "Other Functionalities Tested through Date Constructor Tests:\n"
+	<< "\tostream& operator<< (ostream&, const Date&);\n"
+	<< "\tstatic void setFormat (DateFormat&);\n"
+	<< "\tstatic DateFormat& getFormat ();\n\n";
 
     return 0;
 }
