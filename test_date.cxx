@@ -4,6 +4,7 @@
  * Software Engineering Lab - Assignment 3
  * Contains Main function
  * Tests Date, DateFormat Classes and functionalities
+ * Unit tests for all functions/operators/Constructors
  *
  */
 
@@ -14,19 +15,78 @@
 
 #include "date.h"
 
+/**
+ * Test DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)
+ */
+void DateFormat_Constructor1 ()
+{
+	cout << "Testing DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)" << "\n\n";
+
+	// Input arrays
+	const char* date[] = {"0", "d", "dd", NULL, "ddd", "de"};
+	const char* month[] = {"0", "m", "mm", "mmm", NULL, "mt", "mtm"};
+	const char* year[] = {"0", "yy", "yyyy", NULL, "ye", "yeay"};
+
+	cout << "All accepted formats for the Constructor:\n\n";
+
+	// Iterate over all accpetable input formats and create DateFormat Object
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 4; j++)
+			for (int k = 0; k < 3; k++)
+			{
+				try
+				{
+					DateFormat format_test (date[i], month[j], year[k]);
+					cout << "DateFormat object constructed: " << date[i] << " " << month[j] << " " << year[k] << "\n";
+				}
+				catch (invalid_argument e)
+				{
+					cout << e.what () << " with inputs " << date[i] << " " << month[j] << " " << year[k] << "\n";
+				}
+				catch (domain_error e)
+				{
+					cout << e.what () << " with inputs " << date[i] << " " << month[j] << " " << year[k] << "\n";
+				}
+				catch (out_of_range e)
+				{
+					cout << e.what () << " with inputs " << date[i] << " " << month[j] << " " << year[k] << "\n";
+				}
+			}
+
+	// Iterate over all non-accpetable input formats and throw exceptions
+	for (int i = 3; i < 6; i++)
+		for (int j = 4; j < 7; j++)
+			for (int k = 3; k < 6; k++)
+			{
+				try
+				{
+					DateFormat format_test (date[i], month[j], year[k]);
+					cout << "DateFormat object constructed: " << ((date[i] != NULL) ? date[i] : "NULL") << " "
+					<< ((month[j] != NULL) ? month[j] : "NULL") << " " << ((year[k] != NULL) ? year[k] : "NULL") << "\n";
+				}
+				catch (invalid_argument e)
+				{
+					cout << e.what () << " with inputs " << ((date[i] != NULL) ? date[i] : "NULL") << " "
+					<< ((month[j] != NULL) ? month[j] : "NULL") << " " << ((year[k] != NULL) ? year[k] : "NULL") << "\n";
+				}
+				catch (domain_error e)
+				{
+					cout << e.what () << " with inputs " << ((date[i] != NULL) ? date[i] : "NULL") << " "
+					<< ((month[j] != NULL) ? month[j] : "NULL") << " " << ((year[k] != NULL) ? year[k] : "NULL") << "\n";
+				}
+				catch (out_of_range e)
+				{
+					cout << e.what () << " with inputs " << << ((date[i] != NULL) ? date[i] : "NULL") << " "
+					<< ((month[j] != NULL) ? month[j] : "NULL") << " " << ((year[k] != NULL) ? year[k] : "NULL") << "\n";
+				}
+			}
+
+	cout << "\n\n";
+}
+
 int main (void)
 {
-	cout<<Date(D01,Jan,1950)<<"->"<<(WeekNumber) Date(D01,Jan,1950)<< endl;
-         cout<<Date(D01,Jan,1968)<<"->"<<(WeekNumber) Date(D01,Jan,1968)<< endl;
-         cout<<Date(D31,Dec,1983)<<"->"<<(WeekNumber) Date(D31,Dec,1983)<< endl;
-         cout<<Date(D02,Jan,1990)<<"->"<<(WeekNumber) Date(D02,Jan,1990)<< endl;
-         cout<<Date(D30,Dec,1999)<<"->"<<(WeekNumber) Date(D30,Dec,1999)<< endl;
-         cout<<Date(D19,May,2000)<<"->"<<(WeekNumber) Date(D19,May,2000)<< endl;
-         cout<<Date(D03,Jan,2007)<<"->"<<(WeekNumber) Date(D03,Jan,2007)<< endl;
-         cout<<Date(D25,May,2014)<<"->"<<(WeekNumber) Date(D25,May,2014)<< endl;
-         cout<<Date(D01,Jan,2020)<<"->"<<(WeekNumber) Date(D01,Jan,2020)<< endl;
-         cout<<Date(D29,Dec,2030)<<"->"<<(WeekNumber) Date(D29,Dec,2030)<< endl;
-         cout<<Date(D05,Jan,2038)<<"->"<<(WeekNumber) Date(D05,Jan,2038)<< endl;
-         cout<<Date(D29,Dec,2049)<<"->"<<(WeekNumber) Date(D29,Dec,2049)<< endl;
+	// Calling unit test functions
+	DateFormat_Constructor1 ();
     return 0;
 }
