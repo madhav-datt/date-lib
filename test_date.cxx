@@ -320,28 +320,31 @@ void Date_operator2 ()
 {
 	cout << "Testing Date& operator++ ()\n\n";
 
+	DateFormat form ("dd-mm-yyyy");
+	Date::setFormat (form);
+
 	// Input array
-	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1949), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D28,Feb,2004)};
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1950), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D19, Oct, 2004)};
 
 	for (int i = 0; i < 6; i++)
 	{
-		cout << "++ (" << datelist[i] << ") = ";
 		try
 		{
+			cout << "++ (" << datelist[i] << ") = ";
 			++datelist[i];
 			cout << datelist[i] << "\n";
 		}
 		catch (invalid_argument e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 		catch (domain_error e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 		catch (out_of_range e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 	}
 
@@ -355,28 +358,31 @@ void Date_operator3 ()
 {
 	cout << "Testing Date& operator++ (int)\n\n";
 
+	DateFormat form ("dd-mm-yyyy");
+	Date::setFormat (form);
+
 	// Input array
-	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1949), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D28,Feb,2004)};
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1950), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D19, Oct, 2004)};
 
 	for (int i = 0; i < 6; i++)
 	{
-		cout << "(" << datelist[i] << ") ++ = ";
 		try
 		{
+			cout << "(" << datelist[i] << ") ++ = ";
 			datelist[i]++;
 			cout << datelist[i] << "\n";
 		}
 		catch (invalid_argument e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 		catch (domain_error e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 		catch (out_of_range e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 	}
 
@@ -390,8 +396,11 @@ void Date_operator4 ()
 {
 	cout << "Testing Date& operator-- ()\n\n";
 
+	DateFormat form ("dd-mm-yyyy");
+	Date::setFormat (form);
+
 	// Input array
-	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1949), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D28,Feb,2004)};
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1950), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D19, Oct, 2004)};
 
 	for (int i = 0; i < 6; i++)
 	{
@@ -403,15 +412,15 @@ void Date_operator4 ()
 		}
 		catch (invalid_argument e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 		catch (domain_error e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 		catch (out_of_range e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 	}
 
@@ -425,8 +434,11 @@ void Date_operator5 ()
 {
 	cout << "Testing Date& operator-- (int)\n\n";
 
+	DateFormat form ("dd-mm-yyyy");
+	Date::setFormat (form);
+
 	// Input array
-	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1949), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D28,Feb,2004)};
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1950), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D19, Oct, 2004)};
 
 	for (int i = 0; i < 6; i++)
 	{
@@ -438,15 +450,15 @@ void Date_operator5 ()
 		}
 		catch (invalid_argument e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 		catch (domain_error e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 		catch (out_of_range e)
 		{
-			cout << e.what () <<"\n";
+			cout << "\n" << e.what () <<"\n";
 		}
 	}
 
