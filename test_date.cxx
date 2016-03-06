@@ -167,12 +167,66 @@ void DateFormat_Constructor2 ()
 
 /**
  * Test DateFormat::DateFormat ()
+ * Default Constructor
  */
 void DateFormat_Constructor3 ()
 {
 	cout << "Testing DateFormat::DateFormat ()\n\n";
 	DateFormat format_test;
 	cout << "Default DateFormat Constructed " << format_test.get_dateFormat () << " " << format_test.get_monthFormat () << " " << format_test.get_yearFormat ();
+	cout << "\n\n";
+}
+
+/**
+ * Test Date::Date (Day d, Month m, Year y)
+ */
+void Date_Constructor1 ()
+{
+	cout << "Testing Date::Date (Day d, Month m, Year y)\n\n";
+	cout << "\n\n";
+}
+
+/**
+ * Test Date::Date (const char* date)
+ */
+void Date_Constructor2 ()
+{
+	cout << "Testing Date::Date (const char* date)\n\n";
+
+	cout << "\n\n";
+}
+
+/**
+ * Test Date::Date ()
+ * Default Constructor
+ */
+void Date_Constructor3 ()
+{
+	cout << "Testing Date::Date ()\n\n";
+
+	DateFormat form;
+	Date::setFormat (form);
+	Date date_test;
+
+	cout << "Default Date (Today's) Constructed " << date_test;
+	cout << "\n\n";
+}
+
+/**
+ * Test Date::Date (const Date&)
+ * Copy Constructor
+ */
+void Date_Constructor4 ()
+{
+	cout << "Testing Date::Date (const Date&)\n\n";
+
+	DateFormat form;
+	Date::setFormat (form);
+
+	Date date_orig (D21, Mar, 1998);
+	Date date_copy (date_orig);
+
+	cout << "Copy Date (Copy of 21-Mar-1998) Constructed " << date_test;
 	cout << "\n\n";
 }
 
@@ -184,5 +238,18 @@ int main (void)
 	DateFormat_Constructor1 ();
 	DateFormat_Constructor2 ();
 	DateFormat_Constructor3 ();
+
+	// Date Constructors
+	Date_Constructor1 ();
+	Date_Constructor2 ();
+	Date_Constructor3 ();
+	Date_Constructor4 ();
+
+	// Other tested functionalities
+	cout << "Other Functionalities Tested through Test DateFormat::DateFormat ():\n"
+	<< "char* DateFormat::get_dateFormat () const;\n"
+	<< "char* DateFormat::get_monthFormat () const;\n"
+	<< "char* DateFormat::get_yearFormat () const;\n\n"
+
     return 0;
 }
