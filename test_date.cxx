@@ -502,9 +502,9 @@ void Date_leap ()
 	for (int i = 0; i < 6; i++)
 	{
 		if (datelist[i].leapYear ())
-			cout << datelist[i] << "is a leap year\n";
+			cout << datelist[i] << " is a leap year\n";
 		else
-			cout << datelist[i] << "is not a leap year\n";
+			cout << datelist[i] << " is not a leap year\n";
 	}
 
 	cout << "\n\n";
@@ -518,7 +518,7 @@ void Date_leap ()
  * Test bool operator> (const Date& otherDate)
  * Test bool operator>= (const Date& otherDate)
  */
-void Date_leap ()
+void Date_bin_logic ()
 {
 	cout << "Testing Binary Logical Operators ==, !=, <, <=, >, >=\n\n";
 
@@ -543,7 +543,7 @@ void Date_leap ()
 				cout << datelist1[i] << " <= " << datelist2[j] << "\n";
 			if (datelist1[i] > datelist2[j])
 				cout << datelist1[i] << " >  " << datelist2[j] << "\n";
-			if (datelist1[i] => datelist2[j])
+			if (datelist1[i] >= datelist2[j])
 				cout << datelist1[i] << " >= " << datelist2[j] << "\n";
 		}
 
@@ -571,9 +571,11 @@ void Date_bin_arth ()
 
 	int num_days = second - first;
 	cout << first << " + " << num_days << " = " << first + num_days;
+
+	cout << "\n" << end << " + " << " 5 = ";
 	try
 	{
-		cout << datelist[0] << " + " << " 5 = " << end + 5;
+		cout << end + 5;
 	}
 	catch (invalid_argument e)
 	{
@@ -587,6 +589,8 @@ void Date_bin_arth ()
 	{
 		cout << "\n" << e.what () <<"\n";
 	}
+
+	cout << "\n\n";
 }
 
 int main (void)
