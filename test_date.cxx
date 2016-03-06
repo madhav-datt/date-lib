@@ -481,9 +481,7 @@ void Date_cast ()
 	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1950), Date (D28, Feb, 1998), Date (D22, Jun, 2014), Date (D31, Dec, 2004), Date (D03, Sep, 2007), Date (D27, Mar, 2015), Date (D19, Oct, 2004)};
 
 	for (int i = 0; i < 8; i++)
-	{
-		
-	}
+		cout << datelist[i] << ": WeekNumber: " << static_cast<WeekNumber> (datelist[i]) << " WeekDay: " << static_cast<WeekDay> (datelist[i]) << " Month: " << static_cast<Month> (datelist[i]) << "\n";
 
 	cout << "\n\n";
 }
@@ -512,6 +510,85 @@ void Date_leap ()
 	cout << "\n\n";
 }
 
+/**
+ * Test bool operator== (const Date& otherDate)
+ * Test bool operator!= (const Date& otherDate)
+ * Test bool operator< (const Date& otherDate)
+ * Test bool operator<= (const Date& otherDate)
+ * Test bool operator> (const Date& otherDate)
+ * Test bool operator>= (const Date& otherDate)
+ */
+void Date_leap ()
+{
+	cout << "Testing Binary Logical Operators ==, !=, <, <=, >, >=\n\n";
+
+	DateFormat form ("dd-mm-yyyy");
+	Date::setFormat (form);
+
+	// Input arrays
+	Date datelist1[] = {Date (D22, Jun, 2014), Date (D03, Sep, 2007), Date (D27, Mar, 2015), Date (D19, Oct, 2004)};
+	Date datelist2[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1950), Date (D03, Sep, 2007)};
+
+	for (int i = 0; i < 4; i++)
+		for (int j = 0; j < 3; j++)
+		{
+			// Check for each logical operator
+			if (datelist1[i] == datelist2[j])
+				cout << datelist1[i] << " == " << datelist2[j] << "\n";
+			if (datelist1[i] != datelist2[j])
+				cout << datelist1[i] << " != " << datelist2[j] << "\n";
+			if (datelist1[i] < datelist2[j])
+				cout << datelist1[i] << " <  " << datelist2[j] << "\n";
+			if (datelist1[i] <= datelist2[j])
+				cout << datelist1[i] << " <= " << datelist2[j] << "\n";
+			if (datelist1[i] > datelist2[j])
+				cout << datelist1[i] << " >  " << datelist2[j] << "\n";
+			if (datelist1[i] => datelist2[j])
+				cout << datelist1[i] << " >= " << datelist2[j] << "\n";
+		}
+
+	cout << "\n\n";
+}
+
+/**
+ * Test unsigned int operator- (const Date& otherDate)
+ * Test Date operator+ (int noOfDays)
+ */
+void Date_bin_arth ()
+{
+	cout << "Testing Binary Arithmetic Operators +, -\n\n";
+
+	DateFormat form ("dd-mm-yyyy");
+	Date::setFormat (form);
+
+	// Input array
+	Date end (D31, Dec, 2049);
+	Date first (D22, Jun, 2014);
+	Date second (D22, Jul, 2014);
+
+	cout << second << " - " << first << " = " << second - first << "\n";
+	cout << first << " - " << second << " = " << first - second << "\n\n";
+
+	int num_days = second - first;
+	cout << first << " + " << num_days << " = " << first + num_days;
+	try
+	{
+		cout << datelist[0] << " + " << " 5 = " << end + 5;
+	}
+	catch (invalid_argument e)
+	{
+		cout << "\n" << e.what () <<"\n";
+	}
+	catch (domain_error e)
+	{
+		cout << "\n" << e.what () <<"\n";
+	}
+	catch (out_of_range e)
+	{
+		cout << "\n" << e.what () <<"\n";
+	}
+}
+
 int main (void)
 {
 	// Calling unit test functions
@@ -535,6 +612,18 @@ int main (void)
 	Date_operator3 ();
 	Date_operator4 ();
 	Date_operator5 ();
+
+	// Date Binary Arithmetic Operators
+	Date_bin_arth ();
+
+	// Date Casting Operators
+	Date_cast ();
+
+	// Date leap year check
+	Date_leap ();
+
+	// Binary Logical Operators
+	Date_bin_logic ();
 
 	// Other tested functionalities
 	cout << "Other Functionalities Tested through Test DateFormat::DateFormat ():\n"
