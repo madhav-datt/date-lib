@@ -293,13 +293,32 @@ void Date_Constructor4 ()
 	cout << "\n\n";
 }
 
+/**
+ * Test Date& operator= (const Date&)
+ */
+void Date_operator1 ()
+{
+	cout << "Testing Date& operator= (const Date&)\n\n";
+
+	DateFormat form;
+	Date::setFormat (form);
+
+	Date date_orig (D21, Mar, 1998);
+	date_copy = date_orig;
+
+	cout << "date_orig = " << date_orig
+	<< "\ndate_copy = date_orig"
+	<< "\ndate_copy = " << date_copy;
+	cout << "\n\n";
+}
+
 int main (void)
 {
 	// Calling unit test functions
 
 	// DateFormat Constructors
 	DateFormat_Constructor1 ();
-//	DateFormat_Constructor2 ();
+	DateFormat_Constructor2 ();
 	DateFormat_Constructor3 ();
 
 	// Date Constructors
@@ -307,6 +326,9 @@ int main (void)
 	Date_Constructor2 ();
 	Date_Constructor3 ();
 	Date_Constructor4 ();
+
+	// Copy assignment Operator
+	Date_operator1 ();
 
 	// Other tested functionalities
 	cout << "Other Functionalities Tested through Test DateFormat::DateFormat ():\n"
