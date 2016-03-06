@@ -79,9 +79,11 @@ dateFormat (NULL), monthFormat (NULL), yearFormat (NULL)
     }
 
     // Date, Month and Year string formatters
-    formatter_date (tmp_field[0].c_str(), dateFormat);
-    formatter_month (tmp_field[1].c_str(), monthFormat);
-    formatter_year (tmp_field[2].c_str(), yearFormat);
+    formatter_date (tmp_field[0].c_str (), dateFormat);
+    formatter_month (tmp_field[1].c_str (), monthFormat);
+    formatter_year (tmp_field[2].c_str (), yearFormat);
+
+    cout << dateFormat << "hi" << "\n";
 }
 
 /**

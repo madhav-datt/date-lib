@@ -29,7 +29,8 @@ using namespace std;
  * domain_error - (d, m, y) as a triplet does not define a valid date
  * out_of_range - Date is out of range
  */
-Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_of_range) : date (d), month (m), year (y)
+Date::Date (Day d, Month m, Year y) throw (invalid_argument, domain_error, out_of_range) :
+date (d), month (m), year (y)
 {
     // Throw exception if date or month are invalid
     if (is_valid_Arg (date, month) == false)
@@ -109,7 +110,7 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Check Initialized Date for errors
-    
+
     // Throw exception if date or month are invalid
     if (is_valid_Arg (date, month) == false)
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
