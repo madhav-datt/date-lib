@@ -29,7 +29,7 @@ void DateFormat_Constructor1 ()
 
 	cout << "All accepted formats for the Constructor:\n\n";
 
-	// Iterate over all accpetable input formats and create DateFormat Object
+	// Iterate over all acceptable input formats and create DateFormat Object
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 4; j++)
 			for (int k = 0; k < 3; k++)
@@ -55,7 +55,7 @@ void DateFormat_Constructor1 ()
 
 	cout << "\n";
 
-	// Iterate over all non-accpetable input formats and throw exceptions
+	// Iterate over all non-acceptable input formats and throw exceptions
 	for (int i = 3; i < 6; i++)
 		for (int j = 4; j < 7; j++)
 			for (int k = 3; k < 6; k++)
@@ -101,7 +101,7 @@ void DateFormat_Constructor2 ()
 	// String to hold concatenation of various input types
 	char* format_string = new char[15];
 
-	// Iterate over all accpetable input formats and create DateFormat Object
+	// Iterate over all acceptable input formats and create DateFormat Object
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 4; j++)
 			for (int k = 0; k < 3; k++)
@@ -132,7 +132,7 @@ void DateFormat_Constructor2 ()
 
 	cout << "\n";
 
-	// Iterate over all non-accpetable input formats and throw exceptions
+	// Iterate over all non-acceptable input formats and throw exceptions
 	for (int i = 3; i < 7; i++)
 		for (int j = 4; j < 7; j++)
 			for (int k = 3; k < 7; k++)
@@ -183,6 +183,36 @@ void DateFormat_Constructor3 ()
 void Date_Constructor1 ()
 {
 	cout << "Testing Date::Date (Day d, Month m, Year y)\n\n";
+
+	// Input arrays
+	int date[] = {1, 12, 28, 29, 30, 31, 0};
+	int month[] = {1, 3, 8, 12, 2, 0};
+	int year[] = {1950, 2000, 2010, 2049, 1949, 2050};
+
+	// Iterate over all acceptable/mon-acceptable dates and create Date Object/throw exceptions
+	for (int i = 0; i < 7; i++)
+		for (int j = 0; j < 6; j++)
+			for (int k = 0; k < 6; k++)
+			{
+				try
+				{
+					Date test_date (static_cast<Day> (date[i]), static_cast<Month> (month[j]), year[k]);
+					cout << "Date object constructed: " << test_date << "\n";
+				}
+				catch (invalid_argument e)
+				{
+					cout << e.what () << " with inputs " << date[i] << "-" << month[j] << "-" << year[k] << "\n";
+				}
+				catch (domain_error e)
+				{
+					cout << e.what () << " with inputs " << date[i] << "-" << month[j] << "-" << year[k] << "\n";
+				}
+				catch (out_of_range e)
+				{
+					cout << e.what () << " with inputs " << date[i] << "-" << month[j] << "-" << year[k] << "\n";
+				}
+			}
+
 	cout << "\n\n";
 }
 
@@ -226,7 +256,7 @@ void Date_Constructor4 ()
 	Date date_orig (D21, Mar, 1998);
 	Date date_copy (date_orig);
 
-	cout << "Copy Date (Copy of 21-Mar-1998) Constructed " << date_test;
+	cout << "Copy Date (Copy of 21-Mar-1998) Constructed " << date_copy;
 	cout << "\n\n";
 }
 
@@ -249,7 +279,7 @@ int main (void)
 	cout << "Other Functionalities Tested through Test DateFormat::DateFormat ():\n"
 	<< "char* DateFormat::get_dateFormat () const;\n"
 	<< "char* DateFormat::get_monthFormat () const;\n"
-	<< "char* DateFormat::get_yearFormat () const;\n\n"
+	<< "char* DateFormat::get_yearFormat () const;\n\n";
 
     return 0;
 }
