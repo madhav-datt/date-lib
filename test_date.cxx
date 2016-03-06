@@ -593,10 +593,11 @@ void Date_bin_arth ()
 	cout << "\n\n";
 }
 
-int main (void)
+/**
+ * Calling unit test functions
+ */
+void TestDate ()
 {
-	// Calling unit test functions
-
 	// DateFormat Constructors
 	DateFormat_Constructor1 ();
 	DateFormat_Constructor2 ();
@@ -628,6 +629,12 @@ int main (void)
 
 	// Binary Logical Operators
 	Date_bin_logic ();
+}
+
+int main (void)
+{
+	// Test Date Class and Functionalities
+	TestDate ();
 
 	// Other tested functionalities
 	cout << "Other Functionalities Tested through Test DateFormat::DateFormat ():\n"
