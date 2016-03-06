@@ -132,7 +132,7 @@ int number_of_weeks (uint32_t year)
  * "d": single digit date in one digit, double digit date in two digits (7, 23)
  * "dd": all dates in two digits with single digit dates with leading 0 (07, 23)
  */
-void formatter_date (const char* dateString, char* dateFormat) throw (invalid_argument)
+void formatter_date (const char* dateString, char** dateFormatter) throw (invalid_argument)
 {
     // Check for NULL inputs
     if (dateString == NULL)
@@ -140,21 +140,21 @@ void formatter_date (const char* dateString, char* dateFormat) throw (invalid_ar
 
     // "d": single digit date in one digit, double digit date in two digits
     if (strcmp (dateString, "d") == 0)
-        dateFormat = new char[2];
+        *dateFormatter = new char[2];
 
     // "dd": all dates in two digits with single digit dates with leading 0
     else if (strcmp (dateString, "dd") == 0)
-        dateFormat = new char[3];
+        *dateFormatter = new char[3];
 
     // 0: No date
     else if (strcmp (dateString, "0") == 0)
-        dateFormat = new char[2];
+        *dateFormatter = new char[2];
 
     // Incorrect format entered
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
-    strcpy (dateFormat, dateString);
+    strcpy (*dateFormatter, dateString);
 }
 
 /**
@@ -167,7 +167,7 @@ void formatter_date (const char* dateString, char* dateFormat) throw (invalid_ar
  * "mm": all months in two digits with single digit months with leading 0 (02, 11)
  * "mmm": each month with first three letters of its name (Feb, Nov). This is valid for output only.
  */
-void formatter_month (const char* dateString, char* monthFormat) throw (invalid_argument)
+void formatter_month (const char* dateString, char** monthFormatter) throw (invalid_argument)
 {
     // Check for NULL inputs
     if (dateString == NULL)
@@ -175,25 +175,25 @@ void formatter_month (const char* dateString, char* monthFormat) throw (invalid_
 
     // "m": single digit month in one digit, double digit month in two digits
     if (strcmp (dateString, "m") == 0)
-        monthFormat = new char[2];
+        *monthFormatter = new char[2];
 
     // "mm": all months in two digits with single digit months with leading 0
     else if (strcmp (dateString, "mm") == 0)
-        monthFormat = new char[3];
+        *monthFormatter = new char[3];
 
     // "mmm": each month with first three letters of its name
     else if (strcmp (dateString, "mmm") == 0)
-        monthFormat = new char[4];
+        *monthFormatter = new char[4];
 
     // 0: each month in its full name
     else if (strcmp (dateString, "0") == 0)
-        monthFormat = new char[2];
+        *monthFormatter = new char[2];
 
     // Incorrect format entered
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
-    strcpy (monthFormat, dateString);
+    strcpy (*monthFormatter, dateString);
 }
 
 /**
@@ -205,7 +205,7 @@ void formatter_month (const char* dateString, char* monthFormat) throw (invalid_
  * "yy": year in last two digits (1961 as 61, 2016 as 16)
  * "yyyy": year in four digits (1961 as 1961, 2016 as 2016)
  */
-void formatter_year (const char* dateString, char* yearFormat) throw (invalid_argument)
+void formatter_year (const char* dateString, char** yearFormatter) throw (invalid_argument)
 {
     // Check for NULL inputs
     if (dateString == NULL)
@@ -213,21 +213,21 @@ void formatter_year (const char* dateString, char* yearFormat) throw (invalid_ar
 
     // "yy": year in last two digits
     if (strcmp (dateString, "yy") == 0)
-        yearFormat = new char[3];
+        *yearFormatter = new char[3];
 
     // "yyyy": year in four digits
     else if (strcmp (dateString, "yyyy") == 0)
-        yearFormat = new char[5];
+        *yearFormatter = new char[5];
 
     // 0: No year
     else if (strcmp (dateString, "0") == 0)
-        yearFormat = new char[2];
+        *yearFormatter = new char[2];
 
     // Incorrect format entered
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
-    strcpy (yearFormat, dateString);
+    strcpy (*yearFormatter, dateString);
 }
 
 /**
