@@ -300,7 +300,7 @@ void Date_operator1 ()
 {
 	cout << "Testing Date& operator= (const Date&)\n\n";
 
-	DateFormat form;
+	DateFormat form ("dd-mm-yyyy");
 	Date::setFormat (form);
 
 	Date date_orig (D21, Mar, 1998);
@@ -309,6 +309,86 @@ void Date_operator1 ()
 	cout << "date_orig = " << date_orig
 	<< "\ndate_copy = date_orig"
 	<< "\ndate_copy = " << date_copy;
+	cout << "\n\n";
+}
+
+/**
+ * Test Date& operator++ ()
+ */
+void Date_operator2 ()
+{
+	cout << "Testing Date& operator++ ()\n\n";
+
+	// Input array
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1949), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D28,Feb,2004)};
+
+	for (int i = 0; i < 6; i++)
+	{
+		cout << "++ (" << datelist[i] << ") = ";
+		++datelist[i];
+		cout << datelist[i] << "\n";
+	}
+
+	cout << "\n\n";
+}
+
+/**
+ * Test Date& operator++ (int)
+ */
+void Date_operator3 ()
+{
+	cout << "Testing Date& operator++ (int)\n\n";
+
+	// Input array
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1949), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D28,Feb,2004)};
+
+	for (int i = 0; i < 6; i++)
+	{
+		cout << "(" << datelist[i] << ") ++ = ";
+		datelist[i]++;
+		cout << datelist[i] << "\n";
+	}
+
+	cout << "\n\n";
+}
+
+/**
+ * Test Date& operator-- ()
+ */
+void Date_operator4 ()
+{
+	cout << "Testing Date& operator-- ()\n\n";
+
+	// Input array
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1949), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D28,Feb,2004)};
+
+	for (int i = 0; i < 6; i++)
+	{
+		cout << "-- (" << datelist[i] << ") = ";
+		--datelist[i];
+		cout << datelist[i] << "\n";
+	}
+
+	cout << "\n\n";
+}
+
+/**
+ * Test Date& operator-- (int)
+ */
+void Date_operator5 ()
+{
+	cout << "Testing Date& operator-- (int)\n\n";
+
+	// Input array
+	Date datelist[] = {Date (D31, Dec, 2049), Date (D01, Jan, 1949), Date (D28, Feb, 1998), Date (D31, Dec, 2004), Date (D27, Mar, 2015), Date (D28,Feb,2004)};
+
+	for (int i = 0; i < 6; i++)
+	{
+		cout << "(" << datelist[i] << ") -- = ";
+		datelist[i]--;
+		cout << datelist[i] << "\n";
+	}
+
 	cout << "\n\n";
 }
 
@@ -329,6 +409,12 @@ int main (void)
 
 	// Copy assignment Operator
 	Date_operator1 ();
+
+	// Unary Arithmetic Operators
+	Date_operator2 ();
+	Date_operator3 ();
+	Date_operator4 ();
+	Date_operator5 ();
 
 	// Other tested functionalities
 	cout << "Other Functionalities Tested through Test DateFormat::DateFormat ():\n"
