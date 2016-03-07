@@ -1,8 +1,9 @@
 /**
- * Madhav Datt - 14CS30015
+ * Date.h Class
+ * Handles Gregorian Calendar dates in the range 1st Jan, 1950 to 31st Dec, 2049
  *
- * Software Engineering Lab - Assignment 3
- * Date.h Code from the Question + New Functions defined
+ * Copyright (C)   2016    Madhav Datt
+ * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  */
 

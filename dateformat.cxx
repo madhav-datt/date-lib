@@ -1,8 +1,8 @@
 /**
- * Madhav Datt - 14CS30015
- *
- * Software Engineering Lab - Assignment 3
  * Contains implementation of the DateFormat Class
+ *
+ * Copyright (C)   2016    Madhav Datt
+ * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  */
 

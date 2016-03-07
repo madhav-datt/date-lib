@@ -1,11 +1,9 @@
 /**
- * Madhav Datt - 14CS30015
- *
- * Software Engineering Lab - Assignment 3
  * Contains declarations of Date Computation Functions
- *
  * Date Computations contains functions to help in various Date operations
  *
+ * Copyright (C)   2016    Madhav Datt
+ * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
 #ifndef _DATE_COMP_H_

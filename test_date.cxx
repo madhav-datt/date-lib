@@ -1,10 +1,10 @@
 /**
- * Madhav Datt - 14CS30015
- *
- * Software Engineering Lab - Assignment 3
  * Contains Main function
  * Tests Date, DateFormat Classes and functionalities
  * Unit tests for all functions/operators/Constructors
+ *
+ * Copyright (C)   2016    Madhav Datt
+ * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  */
 

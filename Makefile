@@ -2,8 +2,8 @@
 # Makefile for test_date program
 # Typing 'make' or 'make testdate' will create the executable file.
 #
-# Madhav Datt - 14CS30015
-# Software Engineering Lab - Assignment 3
+# Copyright (C)   2016    Madhav Datt
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 
 # compiler to use
