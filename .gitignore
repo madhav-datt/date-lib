@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# Compiled Executable of the program
+testdate
