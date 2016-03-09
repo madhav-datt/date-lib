@@ -13,7 +13,7 @@
 #include <cstring>
 #include <iostream>
 
-#include "date.h"
+#include "date-lib/date.h"
 
 /**
  * Test DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)
