@@ -638,14 +638,14 @@ int main (void)
 
 	// Other tested functionalities
 	cout << "Other Functionalities Tested through Test DateFormat::DateFormat ():\n"
-	<< "char* DateFormat::get_dateFormat () const;\n"
-	<< "char* DateFormat::get_monthFormat () const;\n"
-	<< "char* DateFormat::get_yearFormat () const;\n\n";
+	<< "\tchar* DateFormat::get_dateFormat () const;\n"
+	<< "\tchar* DateFormat::get_monthFormat () const;\n"
+	<< "\tchar* DateFormat::get_yearFormat () const;\n\n";
 
 	cout << "Other Functionalities Tested through Date Constructor Tests:\n"
-	<< "ostream& operator<< (ostream&, const Date&);\n"
-	<< "static void setFormat (DateFormat&);\n"
-	<< "static DateFormat& getFormat ();\n\n";
+	<< "\tostream& operator<< (ostream&, const Date&);\n"
+	<< "\tstatic void setFormat (DateFormat&);\n"
+	<< "\tstatic DateFormat& getFormat ();\n\n";
 
     return 0;
 }
