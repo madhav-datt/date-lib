@@ -33,13 +33,13 @@ test_date.o:  test_date.cxx date-lib/date.h
 # for object file date.o
 # source files date.cxx, dateformat.cxx, date.h:
 #
-date.o:  date-lib/date.cxx date-lib/date.h date-lib/date_comp.h
+date.o:  date-lib/date.cxx date-lib/date.h date-lib/date-comp-lib/date_comp.h
 	$(CC) $(CFLAGS) -c date-lib/date.cxx
 
 # for object file dateformat.o
 # source files dateformat.cxx, date.h, date_comp.h:
 #
-dateformat.o:  date-lib/dateformat.cxx date-lib/date.h date-lib/date_comp.h
+dateformat.o:  date-lib/dateformat.cxx date-lib/date.h date-lib/date-comp-lib/date_comp.h
 	$(CC) $(CFLAGS) -c date-lib/dateformat.cxx
 
 # for object file date_comp.o
