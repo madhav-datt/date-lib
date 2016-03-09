@@ -51,4 +51,4 @@ date_comp.o:  date-lib/date-comp-lib/date_comp.cxx date-lib/date.h date-lib/date
 # remove old *.o object files and *~ backup files:
 #
 clean:
-	$(RM) tester *.o *~
+	$(RM) testdate *.o *~
