@@ -11,12 +11,12 @@ The `dateformat` class defines the format in which a date is output or input.
 #### Date Formats:
 * **"0"**: No date provided. For output only.
 * **"d"**: Single digit date in one digit *(9)*, Double Digit date in two digits *(25)*.
-* **"dd"**: All dates in two digits with single digit dates with leading 0 *(09, 25)*.
+* **"dd"**: All dates in two digits. Single digit dates with leading 0 *(09, 25)*.
 
 #### Month Format:
 * **"0"**: Full names of months *(February, November)*. For output only.
 * **"m"**: Single digit month in one digit *(2)*, Double Digit month in two digits *(11)*.
-* **"mm"**: All months in two digits with single digit months with leading 0 *(02, 11)*.
+* **"mm"**: All months in two digits. Single digit months with leading 0 *(02, 11)*.
 * **"mmm"**: First three letters of month name *(Feb, Nov)*. For output only.
 
 #### Year Format:
