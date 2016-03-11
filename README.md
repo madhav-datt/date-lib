@@ -68,6 +68,21 @@ The `date` class gives functionalities to use dates and perform operation on the
 
 #### Arithmetic Operators
 
+    Date example_date (D25, M05, 2015);
+
+* `Date& operator++ ()` - Next day (`++example_date` gives 26th March, 2015).
+
+* `Date& operator++ (int)` -  Same day next week (`example_date++` gives 1st April, 2015).
+
+* `Date& operator-- ()` - Previous day (`--example_date` gives 24th March, 2015).
+
+* `Date& operator-- (int)` - Same day previous week
+(`example_date--` gives 18th March, 2015).
+
+* `unsigned int operator- (const Date& otherDate)` - Number of days between `otherDate` and current date. (`Date (D22, M04, 2015) - Date (D22, M05, 2015)` will return 30).
+
+* `Date operator+ (int noOfDays)` - Day `noOfDays` after (before) the current date. Ahead or behind current date depends on sign of `noOfDays`.
+
 #### Relational Operators
 
 The following operators can be used to compare dates:
@@ -87,6 +102,11 @@ For example, `Date () >= Date (D01, M01, 2016)` will return `true`.
 * `operator Month () const` - Cast to the month of the year in which the current date falls.
 * `operator WeekDay () const` - Cast to the day of the week of the current date.
 
+#### Date Format Setting
+
+* `static void setFormat (DateFormat&)` - Set/Change Input/Output `DateFormat` for dates.
+* `static DateFormat& getFormat ()` - Get Input/Output `DateFormat` for dates.
+
 #### Global Methods
 
 * `ostream& operator<< (ostream&, const Date&)` - Output dates as per the `format`.
@@ -101,10 +121,7 @@ For example, `Date () >= Date (D01, M01, 2016)` will return `true`.
     Date test_date (D28, M03, 2005);
     std::cin >> test_date;
 
-## Using the library
+#### Other Methods
 
-### Downloading the library
-
-### Using the library in a program
-
-Include the following header file in your program:
+* `Date& operator= (const Date&)` - Assignment operator for Date objects.
+* `bool leapYear () const` - Check if the year of the current date is a leap year.
