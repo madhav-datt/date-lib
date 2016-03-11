@@ -35,9 +35,7 @@ The `dateformat` class defines the format in which a date is output or input.
 ### Methods
 
 * `char* get_dateFormat () const` - Get Date Format.
-
 * `char* get_monthFormat () const` - Get Month Format.
-
 * `char* get_yearFormat () const` - Get Year Format.
 
 ### Usage with `date` Class
@@ -61,17 +59,47 @@ The `date` class gives functionalities to use dates and perform operation on the
 
 ### Constructors
 
-* `Date (Day d, Month m, Year y)` - Construct a Date from (d, m, y)
-
-* `Date (const char* date)` - date in string format -- to be parsed as static format member
-
-* `Date ()` - Default Constructor - construct ’today’ (get from system)
-
-* `Date (const Date&)` - Copy Constructor
+* `Date (Day d, Month m, Year y)` - Construct a Date from (d, m, y) values.
+* `Date (const char* date)` - Date in string format - parsed as specified by static `format` member.
+* `Date ()` - Default Constructor - construct Today's date.
+* `Date (const Date&)` - Copy Constructor.
 
 ### Methods
 
-### Global Methods
+#### Arithmetic Operators
+
+#### Relational Operators
+
+The following operators can be used to compare dates:
+
+    bool operator== (const Date& otherDate);
+    bool operator!= (const Date& otherDate);
+    bool operator< (const Date& otherDate);
+    bool operator<= (const Date& otherDate);
+    bool operator> (const Date& otherDate);
+    bool operator>= (const Date& otherDate);
+
+For example, `Date () >= Date (D01, M01, 2016)` will return `true`.
+
+#### Casting Operators
+
+* `operator WeekNumber () const` - Cast to the week number of the year in which the current date falls.
+* `operator Month () const` - Cast to the month of the year in which the current date falls.
+* `operator WeekDay () const` - Cast to the day of the week of the current date.
+
+#### Global Methods
+
+* `ostream& operator<< (ostream&, const Date&)` - Output dates as per the `format`.
+
+
+    Date test_date (D28, M03, 2005);
+    std::cout << test_date;
+
+* `istream& operator>> (istream&, Date&)` - Input dates as per the `format`.
+
+
+    Date test_date (D28, M03, 2005);
+    std::cin >> test_date;
 
 ## Using the library
 
