@@ -53,13 +53,21 @@ The `date` class gives functionalities to use dates and perform operation on the
 
 ### Date Data Types
 
-* `Day` - `DXX` representing the XXth Day of the Month, (`D28`, 28th), (`D01`, 1st)
-* `Month` - `MXX` representing the XXth Month of the Year, (`M09`, September)
-* `Year` - Unsigned Integer values
-* `WeekDay` - `Mon` representing Monday
-* `WeekNumber` - `WXX` representing the XXth Week of the Year, (`W34`, Week Number 34)
+* `Day` - `DXX` representing the XXth Day of the Month, (`D28`, 28th), (`D01`, 1st).
+* `Month` - `MXX` representing the XXth Month of the Year, (`M09`, September).
+* `Year` - Unsigned Integer values.
+* `WeekDay` - `Mon` representing Monday.
+* `WeekNumber` - `WXX` representing the XXth Week of the Year, (`W34`, Week Number 34).
 
 ### Constructors
+
+* `Date (Day d, Month m, Year y)` - Construct a Date from (d, m, y)
+
+* `Date (const char* date)` - date in string format -- to be parsed as static format member
+
+* `Date ()` - Default Constructor - construct ’today’ (get from system)
+
+* `Date (const Date&)` - Copy Constructor
 
 ### Methods
 
