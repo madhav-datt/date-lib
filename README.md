@@ -42,8 +42,10 @@ The `dateformat` class defines the format in which a date is output or input.
 
 To define the format in which `Date` objects are input and output, set the value of the static `format` member as follows:
 
-    DateFormat form ("dd-mm-yyyy");
-    Date::setFormat (form);
+```cpp
+DateFormat form ("dd-mm-yyyy");
+Date::setFormat (form);
+```
 
 ## date Functionalities
 
@@ -68,7 +70,9 @@ The `date` class gives functionalities to use dates and perform operation on the
 
 #### Arithmetic Operators
 
-    Date example_date (D25, M05, 2015);
+```cpp
+Date example_date (D25, M05, 2015);
+```
 
 * `Date& operator++ ()` - Next day (`++example_date` gives 26th March, 2015).
 * `Date& operator++ (int)` -  Same day next week (`example_date++` gives 1st April, 2015).
@@ -105,15 +109,17 @@ For example, `Date () >= Date (D01, M01, 2016)` will return `true`.
 
 * `ostream& operator<< (ostream&, const Date&)` - Output dates as per the `format`.
 
-
-      Date test_date (D28, M03, 2005);
-      std::cout << test_date;
+```cpp
+Date test_date (D28, M03, 2005);
+std::cout << test_date;
+```
 
 * `istream& operator>> (istream&, Date&)` - Input dates as per the `format`.
 
-
-      Date test_date (D28, M03, 2005);
-      std::cin >> test_date;
+```cpp
+Date test_date (D28, M03, 2005);
+std::cin >> test_date;
+```
 
 #### Other Methods
 
