@@ -26,9 +26,23 @@ The `dateformat` class defines the format in which a date is output or input.
 
 ### Constructors
 
+* `DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)` - Three C-strings format with Date Format, Month Format, and Year Format provided. `DateFormat format ("d", "mm", "yyyy")`.
+
+* `DateFormat (const char* format)` - Single C-string format where Date Format, Month Format, and Year Format are separated by ’-’. `DateFormat format ("d-mm-yyyy")`.
+
+* `DateFormat ()` - Creates default `DateFormat` - "dd-mmm-yy".
+
 ### Methods
 
-### Usage in `date` Class
+* `char* get_dateFormat () const` - Get Date Format.
+
+* `char* get_monthFormat () const` - Get Month Format.
+
+* `char* get_yearFormat () const` - Get Year Format.
+
+### Usage with `date` Class
+
+
 
 ## date Functionalities
 
