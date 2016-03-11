@@ -42,9 +42,22 @@ The `dateformat` class defines the format in which a date is output or input.
 
 ### Usage with `date` Class
 
+To define the format in which `Date` objects are input and output, set the value of the static `format` member as follows:
 
+    DateFormat form ("dd-mm-yyyy");
+    Date::setFormat (form);
 
 ## date Functionalities
+
+The `date` class gives functionalities to use dates and perform operation on them, in C++ programs.
+
+### Date Data Types
+
+* `Day` - `DXX` representing the XXth Day of the Month, (`D28`, 28th), (`D01`, 1st)
+* `Month` - `MXX` representing the XXth Month of the Year, (`M09`, September)
+* `Year` - Unsigned Integer values
+* `WeekDay` - `Mon` representing Monday
+* `WeekNumber` - `WXX` representing the XXth Week of the Year, (`W34`, Week Number 34)
 
 ### Constructors
 
