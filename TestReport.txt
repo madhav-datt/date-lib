@@ -39,59 +39,59 @@ All accepted formats for the Constructor:
 ***** DateFormat object constructed: dd mmm yy
 ***** DateFormat object constructed: dd mmm yyyy
 
-Invalid Argument in formatter_date at 139:
+Invalid Argument in formatter_date at 138:
 void formatter_date(const char*, char**) with inputs NULL NULL NULL
-Invalid Argument in formatter_date at 139:
+Invalid Argument in formatter_date at 138:
 void formatter_date(const char*, char**) with inputs NULL NULL ye
-Invalid Argument in formatter_date at 139:
+Invalid Argument in formatter_date at 138:
 void formatter_date(const char*, char**) with inputs NULL NULL yeay
-Invalid Argument in formatter_date at 139:
+Invalid Argument in formatter_date at 138:
 void formatter_date(const char*, char**) with inputs NULL mt NULL
-Invalid Argument in formatter_date at 139:
+Invalid Argument in formatter_date at 138:
 void formatter_date(const char*, char**) with inputs NULL mt ye
-Invalid Argument in formatter_date at 139:
+Invalid Argument in formatter_date at 138:
 void formatter_date(const char*, char**) with inputs NULL mt yeay
-Invalid Argument in formatter_date at 139:
+Invalid Argument in formatter_date at 138:
 void formatter_date(const char*, char**) with inputs NULL mtm NULL
-Invalid Argument in formatter_date at 139:
+Invalid Argument in formatter_date at 138:
 void formatter_date(const char*, char**) with inputs NULL mtm ye
-Invalid Argument in formatter_date at 139:
+Invalid Argument in formatter_date at 138:
 void formatter_date(const char*, char**) with inputs NULL mtm yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ddd NULL NULL
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ddd NULL ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ddd NULL yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ddd mt NULL
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ddd mt ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ddd mt yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ddd mtm NULL
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ddd mtm ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ddd mtm yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de NULL NULL
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de NULL ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de NULL yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de mt NULL
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de mt ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de mt yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de mtm NULL
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de mtm ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de mtm yeay
 
 
@@ -134,101 +134,101 @@ Testing DateFormat::DateFormat (const char* format)
 ***** DateFormat object constructed: dd-mmm-yy
 ***** DateFormat object constructed: dd-mmm-yyyy
 
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ---
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ---yy
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs --ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs --yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs -me--
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs -me--yy
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs -me-ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs -me-yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ----
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ----yy
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ---ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ---yeay
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs d--
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs d--yy
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs d-ye
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs d-yeay
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs dme--
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs dme--yy
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs dme-ye
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs dme-yeay
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs d---
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs d---yy
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs d--ye
-Invalid Argument in formatter_month at 194:
+Invalid Argument in formatter_month at 193:
 void formatter_month(const char*, char**) with inputs d--yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded---
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded---yy
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded--ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded--yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded-me--
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded-me--yy
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded-me-ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded-me-yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded----
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded----yy
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded---ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs ded---yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de--
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de--yy
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de-ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de-yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs deme--
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs deme--yy
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs deme-ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs deme-yeay
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de---
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de---yy
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de--ye
-Invalid Argument in formatter_date at 155:
+Invalid Argument in formatter_date at 154:
 void formatter_date(const char*, char**) with inputs de--yeay
 
 
@@ -242,444 +242,444 @@ Testing Date::Date (Day d, Month m, Year y)
 ***** Date object constructed: 01-01-2000
 ***** Date object constructed: 01-01-2010
 ***** Date object constructed: 01-01-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-1-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-1-2050
 ***** Date object constructed: 01-03-1950
 ***** Date object constructed: 01-03-2000
 ***** Date object constructed: 01-03-2010
 ***** Date object constructed: 01-03-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-3-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-3-2050
 ***** Date object constructed: 01-08-1950
 ***** Date object constructed: 01-08-2000
 ***** Date object constructed: 01-08-2010
 ***** Date object constructed: 01-08-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-8-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-8-2050
 ***** Date object constructed: 01-12-1950
 ***** Date object constructed: 01-12-2000
 ***** Date object constructed: 01-12-2010
 ***** Date object constructed: 01-12-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-12-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-12-2050
 ***** Date object constructed: 01-02-1950
 ***** Date object constructed: 01-02-2000
 ***** Date object constructed: 01-02-2010
 ***** Date object constructed: 01-02-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-2-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 1-2-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 1-0-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 1-0-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 1-0-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 1-0-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 1-0-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 1-0-2050
 ***** Date object constructed: 12-01-1950
 ***** Date object constructed: 12-01-2000
 ***** Date object constructed: 12-01-2010
 ***** Date object constructed: 12-01-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-1-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-1-2050
 ***** Date object constructed: 12-03-1950
 ***** Date object constructed: 12-03-2000
 ***** Date object constructed: 12-03-2010
 ***** Date object constructed: 12-03-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-3-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-3-2050
 ***** Date object constructed: 12-08-1950
 ***** Date object constructed: 12-08-2000
 ***** Date object constructed: 12-08-2010
 ***** Date object constructed: 12-08-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-8-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-8-2050
 ***** Date object constructed: 12-12-1950
 ***** Date object constructed: 12-12-2000
 ***** Date object constructed: 12-12-2010
 ***** Date object constructed: 12-12-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-12-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-12-2050
 ***** Date object constructed: 12-02-1950
 ***** Date object constructed: 12-02-2000
 ***** Date object constructed: 12-02-2010
 ***** Date object constructed: 12-02-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-2-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 12-2-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 12-0-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 12-0-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 12-0-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 12-0-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 12-0-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 12-0-2050
 ***** Date object constructed: 28-01-1950
 ***** Date object constructed: 28-01-2000
 ***** Date object constructed: 28-01-2010
 ***** Date object constructed: 28-01-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-1-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-1-2050
 ***** Date object constructed: 28-03-1950
 ***** Date object constructed: 28-03-2000
 ***** Date object constructed: 28-03-2010
 ***** Date object constructed: 28-03-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-3-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-3-2050
 ***** Date object constructed: 28-08-1950
 ***** Date object constructed: 28-08-2000
 ***** Date object constructed: 28-08-2010
 ***** Date object constructed: 28-08-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-8-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-8-2050
 ***** Date object constructed: 28-12-1950
 ***** Date object constructed: 28-12-2000
 ***** Date object constructed: 28-12-2010
 ***** Date object constructed: 28-12-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-12-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-12-2050
 ***** Date object constructed: 28-02-1950
 ***** Date object constructed: 28-02-2000
 ***** Date object constructed: 28-02-2010
 ***** Date object constructed: 28-02-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-2-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 28-2-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 28-0-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 28-0-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 28-0-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 28-0-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 28-0-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 28-0-2050
 ***** Date object constructed: 29-01-1950
 ***** Date object constructed: 29-01-2000
 ***** Date object constructed: 29-01-2010
 ***** Date object constructed: 29-01-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 29-1-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 29-1-2050
 ***** Date object constructed: 29-03-1950
 ***** Date object constructed: 29-03-2000
 ***** Date object constructed: 29-03-2010
 ***** Date object constructed: 29-03-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 29-3-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 29-3-2050
 ***** Date object constructed: 29-08-1950
 ***** Date object constructed: 29-08-2000
 ***** Date object constructed: 29-08-2010
 ***** Date object constructed: 29-08-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 29-8-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 29-8-2050
 ***** Date object constructed: 29-12-1950
 ***** Date object constructed: 29-12-2000
 ***** Date object constructed: 29-12-2010
 ***** Date object constructed: 29-12-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 29-12-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 29-12-2050
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 29-2-1950
 ***** Date object constructed: 29-02-2000
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 29-2-2010
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 29-2-2049
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 29-2-1949
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 29-2-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 29-0-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 29-0-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 29-0-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 29-0-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 29-0-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 29-0-2050
 ***** Date object constructed: 30-01-1950
 ***** Date object constructed: 30-01-2000
 ***** Date object constructed: 30-01-2010
 ***** Date object constructed: 30-01-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 30-1-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 30-1-2050
 ***** Date object constructed: 30-03-1950
 ***** Date object constructed: 30-03-2000
 ***** Date object constructed: 30-03-2010
 ***** Date object constructed: 30-03-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 30-3-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 30-3-2050
 ***** Date object constructed: 30-08-1950
 ***** Date object constructed: 30-08-2000
 ***** Date object constructed: 30-08-2010
 ***** Date object constructed: 30-08-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 30-8-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 30-8-2050
 ***** Date object constructed: 30-12-1950
 ***** Date object constructed: 30-12-2000
 ***** Date object constructed: 30-12-2010
 ***** Date object constructed: 30-12-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 30-12-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 30-12-2050
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 30-2-1950
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 30-2-2000
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 30-2-2010
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 30-2-2049
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 30-2-1949
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 30-2-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 30-0-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 30-0-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 30-0-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 30-0-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 30-0-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 30-0-2050
 ***** Date object constructed: 31-01-1950
 ***** Date object constructed: 31-01-2000
 ***** Date object constructed: 31-01-2010
 ***** Date object constructed: 31-01-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 31-1-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 31-1-2050
 ***** Date object constructed: 31-03-1950
 ***** Date object constructed: 31-03-2000
 ***** Date object constructed: 31-03-2010
 ***** Date object constructed: 31-03-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 31-3-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 31-3-2050
 ***** Date object constructed: 31-08-1950
 ***** Date object constructed: 31-08-2000
 ***** Date object constructed: 31-08-2010
 ***** Date object constructed: 31-08-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 31-8-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 31-8-2050
 ***** Date object constructed: 31-12-1950
 ***** Date object constructed: 31-12-2000
 ***** Date object constructed: 31-12-2010
 ***** Date object constructed: 31-12-2049
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 31-12-1949
-Out of Range in Date at 45:
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year) with inputs 31-12-2050
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 31-2-1950
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 31-2-2000
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 31-2-2010
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 31-2-2049
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 31-2-1949
-Domain Error in Date at 41:
+Domain Error in Date at 40:
 Date::Date(Day, Month, Year) with inputs 31-2-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 31-0-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 31-0-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 31-0-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 31-0-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 31-0-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 31-0-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-1-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-1-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-1-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-1-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-1-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-1-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-3-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-3-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-3-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-3-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-3-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-3-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-8-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-8-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-8-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-8-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-8-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-8-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-12-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-12-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-12-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-12-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-12-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-12-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-2-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-2-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-2-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-2-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-2-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-2-2050
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-0-1950
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-0-2000
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-0-2010
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-0-2049
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-0-1949
-Invalid Argument in Date at 37:
+Invalid Argument in Date at 36:
 Date::Date(Day, Month, Year) with inputs 0-0-2050
 
 
 Testing Date::Date (const char* date)
 
-Invalid Argument in Date at 82:
+Invalid Argument in Date at 81:
 Date::Date(const char*) with inputs 1-01-19
 ***** Date object constructed: 01-1-19
-Invalid Argument in Date at 104:
+Invalid Argument in Date at 103:
 Date::Date(const char*) with inputs 01-01-19
-Invalid Argument in Date at 110:
+Invalid Argument in Date at 109:
 Date::Date(const char*) with inputs 20-11-2050
-Invalid Argument in Date at 110:
+Invalid Argument in Date at 109:
 Date::Date(const char*) with inputs 20-0-2010
 ***** Date object constructed: 1-01-19
-Invalid Argument in Date at 82:
+Invalid Argument in Date at 81:
 Date::Date(const char*) with inputs 01-1-19
-Invalid Argument in Date at 82:
+Invalid Argument in Date at 81:
 Date::Date(const char*) with inputs 01-01-19
-Invalid Argument in Date at 110:
+Invalid Argument in Date at 109:
 Date::Date(const char*) with inputs 20-11-2050
-Invalid Argument in Date at 104:
+Invalid Argument in Date at 103:
 Date::Date(const char*) with inputs 20-0-2010
-Invalid Argument in Date at 104:
+Invalid Argument in Date at 103:
 Date::Date(const char*) with inputs 1-01-19
-Invalid Argument in Date at 82:
+Invalid Argument in Date at 81:
 Date::Date(const char*) with inputs 01-1-19
-Invalid Argument in Date at 82:
+Invalid Argument in Date at 81:
 Date::Date(const char*) with inputs 01-01-19
-Out of Range in Date at 132:
+Out of Range in Date at 131:
 Date::Date(const char*) with inputs 20-11-2050
-Invalid Argument in Date at 124:
+Invalid Argument in Date at 123:
 Date::Date(const char*) with inputs 20-0-2010
-Invalid Argument in Date at 82:
+Invalid Argument in Date at 81:
 Date::Date(const char*) with inputs 1-01-19
-Invalid Argument in Date at 104:
+Invalid Argument in Date at 103:
 Date::Date(const char*) with inputs 01-1-19
-Invalid Argument in Date at 104:
+Invalid Argument in Date at 103:
 Date::Date(const char*) with inputs 01-01-19
-Invalid Argument in Date at 104:
+Invalid Argument in Date at 103:
 Date::Date(const char*) with inputs 20-11-2050
-Invalid Argument in Date at 104:
+Invalid Argument in Date at 103:
 Date::Date(const char*) with inputs 20-0-2010
 
 
 Testing Date::Date ()
 
-***** Default Date (Today's) Constructed 06-Mar-16
+***** Default Date (Today's) Constructed 13-Mar-16
 
 Testing Date::Date (const Date&)
 
@@ -693,8 +693,8 @@ date_copy = 21-03-1998
 
 Testing Date& operator++ ()
 
-++ (31-12-2049) =
-Out of Range in Date at 45:
+++ (31-12-2049) = 
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year)
 ++ (01-01-1950) = 02-01-1950
 ++ (28-02-1998) = 01-03-1998
@@ -705,8 +705,8 @@ Date::Date(Day, Month, Year)
 
 Testing Date& operator++ (int)
 
-(31-12-2049) ++ =
-Out of Range in Date at 45:
+(31-12-2049) ++ = 
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year)
 (01-01-1950) ++ = 08-01-1950
 (28-02-1998) ++ = 07-03-1998
@@ -718,8 +718,8 @@ Date::Date(Day, Month, Year)
 Testing Date& operator-- ()
 
 -- (31-12-2049) = 30-12-2049
--- (01-01-1950) =
-Out of Range in Date at 45:
+-- (01-01-1950) = 
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year)
 -- (28-02-1998) = 27-02-1998
 -- (31-12-2004) = 30-12-2004
@@ -730,8 +730,8 @@ Date::Date(Day, Month, Year)
 Testing Date& operator-- (int)
 
 (31-12-2049) -- = 24-12-2049
-(01-01-1950) -- =
-Out of Range in Date at 45:
+(01-01-1950) -- = 
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year)
 (28-02-1998) -- = 21-02-1998
 (31-12-2004) -- = 24-12-2004
@@ -745,21 +745,21 @@ Testing Binary Arithmetic Operators +, -
 22-06-2014 - 22-07-2014 = 30
 
 22-06-2014 + 30 = 22-07-2014
-31-12-2049 +  5 =
-Out of Range in Date at 45:
+31-12-2049 +  5 = 
+Out of Range in Date at 44:
 Date::Date(Day, Month, Year)
 
 
-Testing Date& operator-- (int)
+Testing casting operators
 
 31-12-2049: WeekNumber: 52 WeekDay: 5 Month: 12
 01-01-1950: WeekNumber: 52 WeekDay: 7 Month: 1
-28-02-1998: WeekNumber: 53 WeekDay: 6 Month: 2
-22-06-2014: WeekNumber: 53 WeekDay: 7 Month: 6
+28-02-1998: WeekNumber: 9 WeekDay: 6 Month: 2
+22-06-2014: WeekNumber: 25 WeekDay: 7 Month: 6
 31-12-2004: WeekNumber: 53 WeekDay: 5 Month: 12
-03-09-2007: WeekNumber: 53 WeekDay: 1 Month: 9
-27-03-2015: WeekNumber: 53 WeekDay: 5 Month: 3
-19-10-2004: WeekNumber: 53 WeekDay: 2 Month: 10
+03-09-2007: WeekNumber: 36 WeekDay: 1 Month: 9
+27-03-2015: WeekNumber: 13 WeekDay: 5 Month: 3
+19-10-2004: WeekNumber: 43 WeekDay: 2 Month: 10
 
 
 Testing bool leapYear () const
@@ -813,11 +813,12 @@ Testing Binary Logical Operators ==, !=, <, <=, >, >=
 
 
 Other Functionalities Tested through Test DateFormat::DateFormat ():
-char* DateFormat::get_dateFormat () const;
-char* DateFormat::get_monthFormat () const;
-char* DateFormat::get_yearFormat () const;
+	char* DateFormat::get_dateFormat () const;
+	char* DateFormat::get_monthFormat () const;
+	char* DateFormat::get_yearFormat () const;
 
 Other Functionalities Tested through Date Constructor Tests:
-ostream& operator<< (ostream&, const Date&);
-static void setFormat (DateFormat&);
-static DateFormat& getFormat ();
+	ostream& operator<< (ostream&, const Date&);
+	static void setFormat (DateFormat&);
+	static DateFormat& getFormat ();
+
