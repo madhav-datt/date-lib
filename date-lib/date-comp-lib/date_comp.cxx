@@ -275,7 +275,7 @@ bool check_monthFormat (string dateString, const char* format, bool is_input)
     // 0: each month in its full name
     if ((strcmp (format, "mmm") == 0 || strcmp (format, "0") == 0) && is_input == false)
     {
-        for (int i = 1; i < 12; i++)
+        for (int i = 1; i <= 12; i++)
         {
             // Check match for names against each month for format
             if (strcmp (dateString.c_str (), month_name (i)) == 0 || strcmp (dateString.c_str (), month_name_full (i)) == 0)

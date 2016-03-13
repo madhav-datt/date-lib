@@ -89,7 +89,7 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
 
         // If Month name/full name is used
         else
-            for (int i = 1; i < 12; i++)
+            for (int i = 1; i <= 12; i++)
             {
                 // Check match for names against each month for format
                 if (tmp_field[1] == month_name (i) || tmp_field[1] == month_name_full (i))
@@ -154,7 +154,8 @@ Date::Date () throw (domain_error, out_of_range)
 /**
  * Copy Constructor for Date
  */
-Date::Date (const Date& cpy_date): date (cpy_date.date), month (cpy_date.month), year (cpy_date.year)
+Date::Date (const Date& cpy_date) :
+date (cpy_date.date), month (cpy_date.month), year (cpy_date.year)
 {
 }
 
