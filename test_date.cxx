@@ -472,7 +472,7 @@ void Date_operator5 ()
  */
 void Date_cast ()
 {
-	cout << "Testing Date& operator-- (int)\n\n";
+	cout << "Testing casting operators\n\n";
 
 	DateFormat form ("dd-mm-yyyy");
 	Date::setFormat (form);

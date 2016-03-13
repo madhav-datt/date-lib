@@ -294,7 +294,7 @@ Date::operator WeekNumber () const
 
     // Handle end of year special case
     // Year end falls in next years first week
-    if (week_num = number_of_weeks (year))
+    if (week_num == number_of_weeks (year))
     {
         // Handle end of domain (overflow) cases
         if (year == 2049)
