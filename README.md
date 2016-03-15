@@ -125,3 +125,17 @@ std::cin >> test_date;
 
 * `Date& operator= (const Date&)` - Assignment operator for Date objects.
 * `bool leapYear () const` - Check if the year of the current date is a leap year.
+
+## Using the library
+
+### Downloading from Source
+
+    $ wget -P ~/Downloads https://github.com/madhav-datt/date-lib/archive/v1.0.zip
+    $ unzip v1.0.zip
+    $ rm -f v1.0.zip
+
+### Using in a Program
+
+```cpp
+#include "~/Downloads/date-lib-v1.0/date-lib/date.h"
+```
