@@ -75,16 +75,16 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
     }
 
     // Check format for date from string against Date::format
-    if (check_dateFormat (tmp_field[0], (*this).getFormat ().get_dateFormat ()) == true)
+    if (check_dateFormat (tmp_field[0], Date::getFormat ().get_dateFormat ()) == true)
         date = atoi (tmp_field[0].c_str ());
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
-    if (check_monthFormat (tmp_field[1],  (*this).getFormat ().get_monthFormat ()) == true)
+    if (check_monthFormat (tmp_field[1], Date::getFormat ().get_monthFormat ()) == true)
     {
         // If Month is in numberical form
-        if (strcmp ((*this).getFormat ().get_monthFormat (), "m") == 0 || strcmp ((*this).getFormat ().get_monthFormat (), "mm") == 0)
+        if (strcmp (Date::getFormat ().get_monthFormat (), "m") == 0 || strcmp (Date::getFormat ().get_monthFormat (), "mm") == 0)
             month = atoi (tmp_field[1].c_str ());
 
         // If Month name/full name is used
@@ -103,7 +103,7 @@ Date::Date (const char* date_in) throw (invalid_argument, domain_error, out_of_r
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
-    if (check_yearFormat (tmp_field[2], (*this).getFormat ().get_yearFormat ()) == true)
+    if (check_yearFormat (tmp_field[2], Date::getFormat ().get_yearFormat ()) == true)
         year = atoi (tmp_field[2].c_str ());
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
@@ -515,11 +515,11 @@ ostream& operator<< (ostream& os, const Date& date_out)
 {
     // Output DATE as per Date::format
     // "d": single digit date in one digit, double digit date in two digits
-    if (strcmp (date_out.getFormat ().get_dateFormat (), "d") == 0)
+    if (strcmp (Date::getFormat ().get_dateFormat (), "d") == 0)
         os << date_out.date << "-";
 
     // "dd": all dates in two digits with single digit dates with leading 0
-    else if (strcmp (date_out.getFormat ().get_dateFormat (), "dd") == 0)
+    else if (strcmp (Date::getFormat ().get_dateFormat (), "dd") == 0)
     {
         if (date_out.date < 10)
             // Format single digit with 0 as prefix
@@ -530,11 +530,11 @@ ostream& operator<< (ostream& os, const Date& date_out)
 
     // Output MONTH as per Date::format
     // "m": single digit month in one digit, double digit month in two digits
-    if (strcmp (date_out.getFormat ().get_monthFormat (), "m") == 0)
+    if (strcmp (Date::getFormat ().get_monthFormat (), "m") == 0)
         os << date_out.month;
 
     // "mm": all months in two digits with single digit months with leading 0
-    else if (strcmp (date_out.getFormat ().get_monthFormat (), "mm") == 0)
+    else if (strcmp (Date::getFormat ().get_monthFormat (), "mm") == 0)
     {
         if (date_out.month < 10)
             // Format single digit with 0 as prefix
@@ -544,16 +544,16 @@ ostream& operator<< (ostream& os, const Date& date_out)
     }
 
     // "mmm": each month with first three letters of its name
-    else if (strcmp (date_out.getFormat ().get_monthFormat (), "mmm") == 0)
+    else if (strcmp (Date::getFormat ().get_monthFormat (), "mmm") == 0)
         os << month_name (date_out.month);
 
     // 0: each month in its full name
-    else if (strcmp (date_out.getFormat ().get_monthFormat (), "0") == 0)
+    else if (strcmp (Date::getFormat ().get_monthFormat (), "0") == 0)
         os << month_name_full (date_out.month);
 
     // Output YEAR as per Date::format
     // "yy": year in last two digits
-    if (strcmp (date_out.getFormat ().get_yearFormat (), "yy") == 0)
+    if (strcmp (Date::getFormat ().get_yearFormat (), "yy") == 0)
     {
         if (date_out.year % 100 < 10)
             // Format single digit with 0 as prefix
@@ -563,7 +563,7 @@ ostream& operator<< (ostream& os, const Date& date_out)
     }
 
     // "yyyy": year in four digits
-    else if (strcmp (date_out.getFormat ().get_yearFormat (), "yyyy") == 0)
+    else if (strcmp (Date::getFormat ().get_yearFormat (), "yyyy") == 0)
         os << "-" << (date_out.year);
 
     return os;
@@ -584,21 +584,21 @@ istream& operator>> (istream& is, Date& date_in)
 
     // Check format for date from string against Date::format
     // is_input flag set to true
-    if (check_dateFormat (tmp_date, date_in.getFormat ().get_dateFormat (), true) == true)
+    if (check_dateFormat (tmp_date, Date::getFormat ().get_dateFormat (), true) == true)
         date_in.date = stoi (tmp_date);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
     // is_input flag set to true
-    if (check_monthFormat (tmp_month, date_in.getFormat ().get_monthFormat (), true) == true)
+    if (check_monthFormat (tmp_month, Date::getFormat ().get_monthFormat (), true) == true)
         date_in.month = stoi (tmp_month);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
 
     // Check format for month from string against Date::format
     // is_input flag set to true
-    if (check_yearFormat (tmp_year, date_in.getFormat ().get_yearFormat (), true) == true)
+    if (check_yearFormat (tmp_year, Date::getFormat ().get_yearFormat (), true) == true)
         date_in.year = stoi (tmp_year);
     else
         throw invalid_argument (create_message (__PRETTY_FUNCTION__, __LINE__, __FUNCTION__, "Invalid Argument"));
