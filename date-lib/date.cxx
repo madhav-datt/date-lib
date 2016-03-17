@@ -14,7 +14,7 @@
 #include <ctime>
 
 #include "date.h"
-#include "date-comp-lib/date_comp.h"
+#include "date-util-lib/date_util.h"
 
 using namespace std;
 

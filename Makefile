@@ -19,10 +19,10 @@ CFLAGS  = -ggdb3 -std=c++11
 default: testdate
 
 # for executable file testdate
-# object files are date.o, date_comp.o:
+# object files are date.o, date_util.o:
 #
-testdate:  test_date.o date.o date_comp.o dateformat.o
-	$(CC) $(CFLAGS) -o testdate test_date.o date.o date_comp.o dateformat.o
+testdate:  test_date.o date.o date_util.o dateformat.o
+	$(CC) $(CFLAGS) -o testdate test_date.o date.o date_util.o dateformat.o
 
 # for object file test_date.o
 # source files test_date.cxx, date.h:
@@ -33,20 +33,20 @@ test_date.o:  test_date.cxx date-lib/date.h
 # for object file date.o
 # source files date.cxx, dateformat.cxx, date.h:
 #
-date.o:  date-lib/date.cxx date-lib/date.h date-lib/date-comp-lib/date_comp.h
+date.o:  date-lib/date.cxx date-lib/date.h date-lib/date-util-lib/date_util.h
 	$(CC) $(CFLAGS) -c date-lib/date.cxx
 
 # for object file dateformat.o
-# source files dateformat.cxx, date.h, date_comp.h:
+# source files dateformat.cxx, date.h, date_util.h:
 #
-dateformat.o:  date-lib/dateformat.cxx date-lib/date.h date-lib/date-comp-lib/date_comp.h
+dateformat.o:  date-lib/dateformat.cxx date-lib/date.h date-lib/date-util-lib/date_util.h
 	$(CC) $(CFLAGS) -c date-lib/dateformat.cxx
 
-# for object file date_comp.o
-# source files date_comp.cxx, date_comp.h:
+# for object file date_util.o
+# source files date_util.cxx, date_util.h:
 #
-date_comp.o:  date-lib/date-comp-lib/date_comp.cxx date-lib/date.h date-lib/date-comp-lib/date_comp.h
-	$(CC) $(CFLAGS) -c date-lib/date-comp-lib/date_comp.cxx
+date_util.o:  date-lib/date-util-lib/date_util.cxx date-lib/date.h date-lib/date-util-lib/date_util.h
+	$(CC) $(CFLAGS) -c date-lib/date-util-lib/date_util.cxx
 
 # remove old *.o object files and *~ backup files:
 #
