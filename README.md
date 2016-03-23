@@ -85,12 +85,14 @@ Date example_date (D25, M05, 2015);
 
 The following operators can be used to compare dates:
 
-    bool operator== (const Date& otherDate);
-    bool operator!= (const Date& otherDate);
-    bool operator< (const Date& otherDate);
-    bool operator<= (const Date& otherDate);
-    bool operator> (const Date& otherDate);
-    bool operator>= (const Date& otherDate);
+```cpp
+bool operator== (const Date& otherDate);
+bool operator!= (const Date& otherDate);
+bool operator< (const Date& otherDate);
+bool operator<= (const Date& otherDate);
+bool operator> (const Date& otherDate);
+bool operator>= (const Date& otherDate);
+```
 
 For example, `Date () >= Date (D01, M01, 2016)` will return `true`.
 
