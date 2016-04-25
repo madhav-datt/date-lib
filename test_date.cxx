@@ -636,16 +636,5 @@ int main (void)
 	// Test Date Class and Functionalities
 	TestDate ();
 
-	// Other tested functionalities
-	cout << "Other Functionalities Tested through Test DateFormat::DateFormat ():\n"
-	<< "\tchar* DateFormat::get_dateFormat () const;\n"
-	<< "\tchar* DateFormat::get_monthFormat () const;\n"
-	<< "\tchar* DateFormat::get_yearFormat () const;\n\n";
-
-	cout << "Other Functionalities Tested through Date Constructor Tests:\n"
-	<< "\tostream& operator<< (ostream&, const Date&);\n"
-	<< "\tstatic void setFormat (DateFormat&);\n"
-	<< "\tstatic DateFormat& getFormat ();\n\n";
-
     return 0;
 }
