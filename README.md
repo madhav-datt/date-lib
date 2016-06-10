@@ -1,6 +1,6 @@
 # date-lib
 
-C++ library for Gregorian Calendar Date Handling.
+C++ library to help you handle dates from the Gregorian Calendar. Programming with dates should be almost as simple and easy as programming with strings and integers. Applications with lots of date-time related computations can be simplified significantly by having a robust set of operators and calculation capabilities.
 
 ## dateformat Functionalities
 
