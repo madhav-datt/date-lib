@@ -1,3 +1,6 @@
+# Outputs from unit testing of Date and DateFormat Class methods
+#
+
 Testing DateFormat::DateFormat (const char* dateFormat, const char* monthFormat, const char* yearFormat)
 
 All accepted formats for the Constructor:
